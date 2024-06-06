@@ -1,0 +1,17 @@
+{
+  "name": "PAPIERTIGER - DOKUMENTATIONSHELFER",
+  "short_name": "PAPIERTIGER",
+  "description": "Textbausteine für Dokumentation im Telegram-Stil.",
+  "start_url": "/",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "icons": [
+      {
+          "src": "icon.svg",
+          "sizes": "any"
+      }
+  ]
+}

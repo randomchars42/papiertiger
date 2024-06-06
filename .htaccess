@@ -1,0 +1,10 @@
+Header set Content-Security-Policy "report-to /csp_report.php; default-src 'self'; img-src 'self';  worker-src 'self'; child-src 'self';"
+Header set Access-Control-Allow-Origin "your-server.example"
+Header set X-Content-Type-Options "nosniff"
+
+AddType application/json                        json map topojson
+AddType text/javascript                         js mjs
+AddType application/manifest+json               webmanifest
+AddType application/x-web-app-manifest+json     webapp
+AddType text/cache-manifest                     appcache
+AddType image/svg+xml                           svg svgz

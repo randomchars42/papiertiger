@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark light">
+    <title>PAPIERTIGER - Textbausteine für Dokumentation im Telegram-Stil</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icon.svg" />
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+    <noscript>To use this site, please enable JavaScript.</noscript>
+    <main>
+        <header id="Header">
+            <span><strong>PAPIERTIGER</strong><br />DOKUMENTATIONSHELFER</span>
+            <button id="HelpButton" class="control">?</button>
+        </header>
+        <form id="MainInput">
+        </form>
+        <div id="Results">
+            <textarea id="MainOutput"></textarea>
+            <div class="pane">
+                <button id="NewLineButton" class="control">&#x21B5;</button>
+                <button id="ClearButton" class="control">&#x2327;</button>
+                <!--<button id="UndoButton" class="control">&#x21B6;</button>
+                <button id="RedoButton" class="control">&#x21B7;</button>-->
+                <button id="CopyButton" class="control">&#x2398;
+                    <output id="CopyStatus">&#x2611;</output>
+                </button>
+                <span class="control">
+                    <input type="checkbox" id="ExtendedToggle" name="ExtendedToggle" value="show" />
+                    <label for="ExtendedToggle">&#x2636;<!--&#x2795;--></label>
+                </span>
+                <button id="ColorButton" class="control">&#128318;</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

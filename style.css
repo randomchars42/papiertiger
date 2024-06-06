@@ -1,0 +1,450 @@
+/**
+ *
+ * Space:
+ * - minimum width: 19rem
+ *   -> should be 304px on most devices (1rem = 16px)
+ *   -> minimal padding of 0.5rem on all sides -> 18rem of usable space
+ * - break at: 37rem -> 36rem of usable space
+ * - a basic element has 3rem or 6rem including padding
+ *
+ * Layout:
+ *
+ *  Background
+ *   - height: `background`
+ *  --------------------------------------------------------------------
+ *  | #MainInput
+ *  |  - only made up out of controls
+ *  |  - 4 `block´s
+ *  |  - height: `surfacecontainerlow`
+ *  |
+ *  --------------------------------------------------------------------
+ *  | #MainOutput (sticky)
+ *  |  - single `block` showing the current input and estimations
+ *  |  - height: `surfacecontainerhighest`
+ *  |
+ *  --------------------------------------------------------------------
+ *  | #MainNav
+ *  |  - currently unused.
+ *  |
+ *  --------------------------------------------------------------------
+ *  | #MainView
+ *  |  - an unordered list
+ *  |  - 1 `block` per viewitem
+ *  |  - height: `surfacecontainer`
+ *
+ *
+ * Colours:
+ *
+ * - each height as described above has its own set of colours, e.g.,
+ *   `surface` -> `onsurface`, `surfaceoutline`
+ *
+ *
+ * Components:
+ *
+ * `block`:
+ * - positions itself on the page
+ * - might be modified to have a border (+ `block_with_border`)
+ * - might be modified (+ `block_with_highlight`) to have special
+ *   positioning for child with class `block_highlight`
+ * - might be modified to be single line only (+ `block_single_row`) which
+ *   may have centered children (+ `block_single_row_centered`)
+ *
+ * `control`:
+ * - gives uniform padding, etc. to page controls (input, ...)
+ * - might be highlighted (+ `control_highlight`)
+ * - might be made to grow / shrink (+ `control_variable_width`)
+ *
+ * `pane`:
+ * - group `control`s together so they can break nicely at the end of
+ *   their `block`
+ * - do not add paddings
+ * - might be stacked
+ *
+ * `text-container`:
+ * - container for text which add padding
+ */
+
+/* colors */
+
+:root {
+
+    --color-lightness: 95%;
+    --color-step: 17%;
+
+    --color-background: #FFFFFF; /*rgb(246, 246, 246); /*#848482;*/
+    --color-surface: #FFFFFF;
+    --color-onsurface: #0F0F0F;
+    --color-surfaceoutline: #9F9F9F;
+    --color-surfacecontainerlowest: hsl(0, 0%, var(--color-lightness));
+    --color-surfacecontainerlowesvariant: #CCCCCC;
+    --color-onsurfacecontainerlowest: #000000;
+    --color-surfacecontainerlow: hsl(0, 0%, calc(var(--color-lightness) - 1 * var(--color-step)));
+    --color-onsurfacecontainerlow: #232323;
+    --color-surfacecontainerlowoutline: #A7A7A7;
+    --color-surfacecontainer: hsl(0, 0%, calc(var(--color-lightness) - 2 * var(--color-step)));
+    --color-onsurfacecontainer: #1C1C1C;
+    --color-surfacecontainerhigh: hsl(0, 0%, calc(var(--color-lightness) - 3 * var(--color-step)));
+    --color-onsurfacecontainerhigh: #FFFFFF;
+    --color-surfacecontainerhighest: hsl(0, 0%, calc(var(--color-lightness) - 4 * var(--color-step)));
+    --color-onsurfacecontainerhighest: #FFFFFF;
+    --color-primary: rgb(128,0,0);
+    --color-onprimary: #FFFFFF;
+    --color-primarycontainer: #CCCCCC;
+    --color-onprimarycontainer: #FFFFFF;
+
+    --color-success: #0ABF30;
+    --color-onsuccess: #0F0F0F;
+    --color-successvariant: #06731D;
+    --color-error: #D31500;
+    --color-onerror: #FFFFFF;
+    --color-errorvariant: #870E00;
+    --color-warning: #E9BD0C;
+    --color-onwarning: #0F0F0F;
+    --color-warningvariant: #9C7E08;
+    --color-info: #2873A6;
+    --color-oninfo: #FFFFFF;
+    --color-infovariant: #153E59;
+
+    --width-base: 3rem;
+    --padding: 0.5rem;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --color-darkness: 8%;
+        --color-step: 10%;
+
+        --color-background: hsl(0, 0%, var(--color-darkness));
+        --color-surface: hsl(0, 0%, var(--color-darkness));
+        --color-onsurface: #FFFFFF;
+        --color-surfacecontainerlowest: hsl(0, 0%, calc(var(--color-darkness) + 1 * var(--color-step)));
+        --color-onsurfacecontainerlowest: #FFFFFF;
+        --color-surfacecontainerlow: hsl(0, 0%, calc(var(--color-darkness) + 2 * var(--color-step)));
+        --color-onsurfacecontainerlow: #FFFFFF;
+        --color-surfacecontainer: hsl(0, 0%, calc(var(--color-darkness) + 3 * var(--color-step)));
+        --color-onsurfacecontainerhigh: #FFFFFF;
+        --color-surfacecontainerhigh: hsl(0, 0%, calc(var(--color-darkness) + 4 * var(--color-step)));
+        --color-onsurfacecontainerhighest: #FFFFFF;
+        --color-surfacecontainerhighest: hsl(0, 0%, calc(var(--color-darkness) + 5 * var(--color-step)));
+    }
+}
+
+/**
+ * reset
+ */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strong, sub, sup, var,
+b, u, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+button {
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    vertical-align: baseline;
+    background-color: transparent;
+    line-height: 1;
+    text-transform: none;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sub {
+    bottom: -0.25em;
+}
+sup {
+    top: -0.5em;
+}
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+[type="range"]{
+    margin: 0;
+    padding: 0;
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    border-style: none;
+    padding: 0;
+}
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+
+/**
+ * structure
+ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    /*min-width: 19rem;
+    max-width: 50rem;
+    magin: auto;*/
+    height: 96vh;
+    height: 96svh;
+    padding: 2vh;
+    padding: 2svh;
+}
+
+main {
+    height: 96vh;
+    height: 96svh;
+    display: grid;
+    column-gap: 2vw;
+    row-gap: 0;
+    grid-template-columns: 47vw 47vw;
+    grid-template-rows: calc(2rem + 0.5 * var(--padding)) auto;
+    grid-template-areas:
+        "header right"
+        "left right";
+}
+
+@media (max-width: 800px) {
+    main {
+        column-gap: 0;
+        row-gap: 0;
+        grid-template-columns: auto;
+        grid-template-rows: calc(2rem + 0.5 * var(--padding)) auto 6rem;
+        grid-template-areas:
+            "header"
+            "right"
+            "left";
+    }
+}
+
+#MainInput {
+    grid-area: right;
+    overflow: scroll;
+    user-select: none;
+}
+
+#Header {
+    grid-area: header;
+    padding-bottom: calc(0.5 * var(--padding));
+    display: flex;
+}
+
+#Header span:first-child {
+    flex-grow: 1;
+}
+
+#MainInput li {
+    display: inline;
+}
+
+#Results {
+    grid-area: left;
+}
+
+#MainOutput {
+    display: block;
+    width: 100%;
+    /**
+     *   100 %                      window height
+     * - (2 * padding + 1rem)       height of the button bar at the bottom
+     */
+    height: calc(100% - 2 * var(--padding) - 1rem);
+}
+
+@media (hover: none) {
+    .control,
+    .label,
+    .text_container {
+        margin: calc(var(--padding) / 2);
+    }
+
+    #MainOutput {
+        /**
+         *   100 %                      window height
+         * - (2 * padding + 1rem)       height of the button bar at the bottom
+         * - (2 * padding * 0.5)        NEW: padding added for touch
+         */
+        height: calc(100% - 3 * var(--padding) - 1rem);
+    }
+
+    #Header>#HelpButton {
+        margin: 0;
+    }
+}
+
+/* controls */
+
+.pane {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: calc(1rem / 10);
+    padding: calc(1rem / 10) 0;
+    /*margin-top: calc(1rem / 5);*/
+}
+
+.control,
+.label {
+    padding: var(--padding);
+    max-width: calc(var(--width-base) * 5);
+    min-width: calc(var(--width-base) * 1.8);
+    background-color: var(--color-surfacecontainerlowest);
+    text-align: center;
+}
+
+.control_variable_width {
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.control:hover {
+    background-color: var(--color-surfacecontainerlowestvariant);
+}
+
+.control_highlight {
+    font-weight: bold;
+}
+
+.active {
+    background-color: var(--color-primary);
+    color: var(--color-onprimary);
+}
+input:checked + label {
+    color: var(--color-primary);
+}
+
+button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+input[type="radio"] {
+    visibility: collapse;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* text */
+
+.heading {
+    font-weight: bold;
+    text-align: center;
+    padding-top: calc(var(--padding)*2);
+}
+
+.text_container {
+    padding: var(--padding);
+}
+
+.text_highlight {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.item_ref {
+    background-color: hsl(112, 100%, 95%);
+    border-color: hsl(112, 100%, 85%);
+}
+
+.item_pat {
+    background-color: hsl(360, 100%, 95%);
+    border-color: hsl(360, 100%, 85%) ;
+}
+
+.item_int {
+    background-color: hsl(253, 100%, 95%);
+    border-color: hsl(253, 100%, 85%);
+}
+
+.item_res {
+    background-color: hsl(220, 100%, 95%);
+    border-color: hsl(220, 100%, 85%);
+}
+
+.item_border {
+    border-style: none none none solid;
+    border-width: 0.5rem;
+}
+
+.item_no_colour {
+    background-color: var(--color-surfacecontainerlowest) !important;
+}
+
+/* general */
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-background);
+}
+
+strong {
+    font-weight: bold;
+}
+
+main {
+    background-color: var(--color-surface);
+    color: var(--color-onsurface);
+}
+
+
+
