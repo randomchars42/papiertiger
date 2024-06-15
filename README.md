@@ -2,7 +2,7 @@
 
 Baukasten für ([notfall-] medizinische) Dokumentation.
 
-[https://www.knopfdruckmassage.de/apps/site/media/images/papiertiger_short.gif]
+[PAPIERTIGER - DOKUMENTATIONSHELFER, Demo](https://www.knopfdruckmassage.de/apps/site/media/images/papiertiger_short.gif)
 
 ## Dependencies
 
