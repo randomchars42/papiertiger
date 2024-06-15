@@ -67,43 +67,29 @@
 /* colors */
 
 :root {
-
-    --color-lightness: 95%;
-    --color-step: 17%;
-
-    --color-background: #FFFFFF; /*rgb(246, 246, 246); /*#848482;*/
-    --color-surface: #FFFFFF;
-    --color-onsurface: #0F0F0F;
-    --color-surfaceoutline: #9F9F9F;
-    --color-surfacecontainerlowest: hsl(0, 0%, var(--color-lightness));
-    --color-surfacecontainerlowesvariant: #CCCCCC;
-    --color-onsurfacecontainerlowest: #000000;
-    --color-surfacecontainerlow: hsl(0, 0%, calc(var(--color-lightness) - 1 * var(--color-step)));
-    --color-onsurfacecontainerlow: #232323;
-    --color-surfacecontainerlowoutline: #A7A7A7;
-    --color-surfacecontainer: hsl(0, 0%, calc(var(--color-lightness) - 2 * var(--color-step)));
-    --color-onsurfacecontainer: #1C1C1C;
-    --color-surfacecontainerhigh: hsl(0, 0%, calc(var(--color-lightness) - 3 * var(--color-step)));
-    --color-onsurfacecontainerhigh: #FFFFFF;
-    --color-surfacecontainerhighest: hsl(0, 0%, calc(var(--color-lightness) - 4 * var(--color-step)));
-    --color-onsurfacecontainerhighest: #FFFFFF;
-    --color-primary: rgb(128,0,0);
-    --color-onprimary: #FFFFFF;
-    --color-primarycontainer: #CCCCCC;
-    --color-onprimarycontainer: #FFFFFF;
-
-    --color-success: #0ABF30;
-    --color-onsuccess: #0F0F0F;
-    --color-successvariant: #06731D;
-    --color-error: #D31500;
-    --color-onerror: #FFFFFF;
-    --color-errorvariant: #870E00;
-    --color-warning: #E9BD0C;
-    --color-onwarning: #0F0F0F;
-    --color-warningvariant: #9C7E08;
-    --color-info: #2873A6;
-    --color-oninfo: #FFFFFF;
-    --color-infovariant: #153E59;
+    --color-bg: #FFFFFF;
+    --color-on-bg: #000000;
+    --color-def: hsl(0, 0%, 95%);
+    --color-def-variant: hsl(0, 0%, 85%);
+    --color-on-def: #000000;
+    --color-txt: hsl(0, 0%, 95%);
+    --color-txt-variant: hsl(0, 0%, 85%);
+    --color-on-txt: #000000;
+    --color-cap: hsl(0, 0%, 95%);
+    --color-cap-variant: hsl(0, 0%, 85%);
+    --color-on-cap: #000000;
+    --color-ref: hsl(112, 100%, 95%);
+    --color-ref-variant: hsl(112, 100%, 85%);
+    --color-on-ref: #000000;
+    --color-pat: hsl(360, 100%, 95%);
+    --color-pat-variant: hsl(360, 100%, 85%);
+    --color-on-pat: #000000;
+    --color-int: hsl(253, 100%, 95%);
+    --color-int-variant: hsl(253, 100%, 85%);
+    --color-on-int: #000000;
+    --color-res: hsl(220, 100%, 95%);
+    --color-res-variant: hsl(220, 100%, 85%);
+    --color-on-res: #000000;
 
     --width-base: 3rem;
     --padding: 0.5rem;
@@ -111,21 +97,29 @@
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --color-darkness: 8%;
-        --color-step: 10%;
-
-        --color-background: hsl(0, 0%, var(--color-darkness));
-        --color-surface: hsl(0, 0%, var(--color-darkness));
-        --color-onsurface: #FFFFFF;
-        --color-surfacecontainerlowest: hsl(0, 0%, calc(var(--color-darkness) + 1 * var(--color-step)));
-        --color-onsurfacecontainerlowest: #FFFFFF;
-        --color-surfacecontainerlow: hsl(0, 0%, calc(var(--color-darkness) + 2 * var(--color-step)));
-        --color-onsurfacecontainerlow: #FFFFFF;
-        --color-surfacecontainer: hsl(0, 0%, calc(var(--color-darkness) + 3 * var(--color-step)));
-        --color-onsurfacecontainerhigh: #FFFFFF;
-        --color-surfacecontainerhigh: hsl(0, 0%, calc(var(--color-darkness) + 4 * var(--color-step)));
-        --color-onsurfacecontainerhighest: #FFFFFF;
-        --color-surfacecontainerhighest: hsl(0, 0%, calc(var(--color-darkness) + 5 * var(--color-step)));
+        --color-bg: #000000;
+        --color-on-bg: #FFFFFF;
+        --color-def: hsl(0, 0%, 90%);
+        --color-def-variant: hsl(0, 0%, 85%);
+        --color-on-def: #000000;
+        --color-txt: hsl(0, 0%, 90%);
+        --color-txt-variant: hsl(0, 0%, 85%);
+        --color-on-txt: #000000;
+        --color-cap: hsl(0, 0%, 90%);
+        --color-cap-variant: hsl(0, 0%, 85%);
+        --color-on-cap: #000000;
+        --color-ref: hsl(112, 100%, 90%);
+        --color-ref-variant: hsl(112, 100%, 85%);
+        --color-on-ref: #000000;
+        --color-pat: hsl(360, 100%, 90%);
+        --color-pat-variant: hsl(360, 100%, 85%);
+        --color-on-pat: #000000;
+        --color-int: hsl(253, 100%, 90%);
+        --color-int-variant: hsl(253, 100%, 85%);
+        --color-on-int: #000000;
+        --color-res: hsl(220, 100%, 90%);
+        --color-res-variant: hsl(220, 100%, 85%);
+        --color-on-res: #000000;
     }
 }
 
@@ -338,7 +332,9 @@ main {
     padding: var(--padding);
     max-width: calc(var(--width-base) * 5);
     min-width: calc(var(--width-base) * 1.8);
-    background-color: var(--color-surfacecontainerlowest);
+    color: var(--color-on-def);
+    border-color: var(--color-def-variant);
+    background-color: var(--color-def);
     text-align: center;
 }
 
@@ -353,20 +349,20 @@ main {
 }
 
 .control:hover {
-    background-color: var(--color-surfacecontainerlowestvariant);
+    background-color: var(--color-def-variant);
 }
 
 .control_highlight {
     font-weight: bold;
 }
 
-.active {
+/*.active {
     background-color: var(--color-primary);
     color: var(--color-onprimary);
 }
 input:checked + label {
     color: var(--color-primary);
-}
+}*/
 
 button {
     overflow: hidden;
@@ -402,23 +398,43 @@ input[type="radio"] {
 }
 
 .item_ref {
-    background-color: hsl(112, 100%, 95%);
-    border-color: hsl(112, 100%, 85%);
+    background-color: var(--color-ref);
+    border-color: var(--color-ref-variant);
+    color: var(--color-on-ref);
+}
+
+.item_ref:hover {
+    background-color: var(--color-ref-variant);
 }
 
 .item_pat {
-    background-color: hsl(360, 100%, 95%);
-    border-color: hsl(360, 100%, 85%) ;
+    background-color: var(--color-pat);
+    border-color: var(--color-pat-variant);
+    color: var(--color-on-pat);
+}
+
+.item_pat:hover {
+    background-color: var(--color-pat-variant);
 }
 
 .item_int {
-    background-color: hsl(253, 100%, 95%);
-    border-color: hsl(253, 100%, 85%);
+    background-color: var(--color-int);
+    border-color: var(--color-int-variant);
+    color: var(--color-on-int);
+}
+
+.item_int:hover {
+    background-color: var(--color-int-variant);
 }
 
 .item_res {
-    background-color: hsl(220, 100%, 95%);
-    border-color: hsl(220, 100%, 85%);
+    background-color: var(--color-res);
+    border-color: var(--color-res-variant);
+    color: var(--color-on-res);
+}
+
+.item_res:hover {
+    background-color: var(--color-res-variant);
 }
 
 .item_border {
@@ -427,7 +443,8 @@ input[type="radio"] {
 }
 
 .item_no_colour {
-    background-color: var(--color-surfacecontainerlowest) !important;
+    background-color: var(--color-def) !important;
+    color: var(--color-on-def) !important;
 }
 
 /* general */
@@ -442,8 +459,8 @@ strong {
 }
 
 main {
-    background-color: var(--color-surface);
-    color: var(--color-onsurface);
+    background-color: var(--color-bg);
+    color: var(--color-on-bg);
 }
 
 
