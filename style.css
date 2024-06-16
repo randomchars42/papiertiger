@@ -66,7 +66,7 @@
 
 /* colors */
 
-:root {
+:root, .bright_mode {
     --color-bg: #FFFFFF;
     --color-on-bg: #000000;
     --color-def: hsl(0, 0%, 95%);
@@ -121,6 +121,32 @@
         --color-res-variant: hsl(220, 100%, 85%);
         --color-on-res: #000000;
     }
+}
+
+.dark_mode {
+    --color-bg: #000000;
+    --color-on-bg: #FFFFFF;
+    --color-def: hsl(0, 0%, 90%);
+    --color-def-variant: hsl(0, 0%, 85%);
+    --color-on-def: #000000;
+    --color-txt: hsl(0, 0%, 90%);
+    --color-txt-variant: hsl(0, 0%, 85%);
+    --color-on-txt: #000000;
+    --color-cap: hsl(0, 0%, 90%);
+    --color-cap-variant: hsl(0, 0%, 85%);
+    --color-on-cap: #000000;
+    --color-ref: hsl(112, 100%, 90%);
+    --color-ref-variant: hsl(112, 100%, 85%);
+    --color-on-ref: #000000;
+    --color-pat: hsl(360, 100%, 90%);
+    --color-pat-variant: hsl(360, 100%, 85%);
+    --color-on-pat: #000000;
+    --color-int: hsl(253, 100%, 90%);
+    --color-int-variant: hsl(253, 100%, 85%);
+    --color-on-int: #000000;
+    --color-res: hsl(220, 100%, 90%);
+    --color-res-variant: hsl(220, 100%, 85%);
+    --color-on-res: #000000;
 }
 
 /**
@@ -377,6 +403,10 @@ input[type="radio"] {
     -moz-appearance: none;
 }
 
+textarea {
+    background-color: var(--color-bg);
+}
+
 /* text */
 
 .heading {
@@ -451,7 +481,7 @@ input[type="radio"] {
 
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: var(--color-background);
+    background-color: var(--color-bg);
 }
 
 strong {

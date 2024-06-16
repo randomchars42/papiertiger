@@ -127,12 +127,14 @@ export const toggleColourMode = (): void => {
             element.classList.add('item_border');
         });
         colourState = 2;
+        document.querySelector('html')!.classList.add('dark_mode');
     } else if (colourState === 2) {
         document.querySelectorAll('.item').forEach((element: Element): void => {
             element.classList.add('item_no_colour');
             element.classList.remove('item_border');
         });
         colourState = 0;
+        document.querySelector('html')!.classList.remove('dark_mode');
     }
 };
 
