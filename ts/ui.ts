@@ -85,6 +85,34 @@ export const addItem = (label: string, text: string, parent: HTMLElement,
     parent.appendChild(item);
 };
 
+export const addListItem = (label: string, name: string,
+                            parent: HTMLElement): void => {
+    const item: HTMLButtonElement = document.createElement('button');
+    item.textContent = label;
+    item.onclick = () => {
+        APP.loadData(label, name);
+        hideList();
+    };
+    item.classList.add('control', 'control_variable_width');
+
+    item.classList.add('item', 'item_def');
+
+    parent.appendChild(item);
+};
+
+export const displayCurrentListItem = (label: string): void => {
+    const display: HTMLElement = document.getElementById('ListItemDisplay')!;
+    display.textContent = label.toUpperCase() + ' ▼';
+};
+
+export const showList = (): void => {
+    document.getElementById('ListModal')!.classList.remove('hidden');
+};
+
+export const hideList = (): void => {
+    document.getElementById('ListModal')!.classList.add('hidden');
+};
+
 export const addRow = (parent: HTMLElement): HTMLElement => {
     const row: HTMLElement = document.createElement('div');
     row.classList.add('pane');
@@ -129,6 +157,8 @@ export const toggleColourMode = (): void => {
 export const init = (): void => {
     console.log('initiating UI...');
 
+    document.getElementById('ListItemDisplay')!.onclick = showList;
+    document.getElementById('ListModal')!.onclick = hideList;
     document.getElementById('CopyButton')!.onclick = copyToClipboard;
     document.getElementById('ClearButton')!.onclick = (): void => {
         if (window.confirm("Do you really want to clear the field?")) {

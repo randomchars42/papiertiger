@@ -15,6 +15,7 @@
     <main>
         <header id="Header">
             <span><strong>PAPIERTIGER</strong><br />DOKUMENTATIONSHELFER</span>
+            <span id="ListItemDisplay" class="text_container"></span>
             <button id="HelpButton" class="control">?</button>
         </header>
         <form id="MainInput">
@@ -24,8 +25,6 @@
             <div class="pane">
                 <button id="NewLineButton" class="control">&#x21B5;</button>
                 <button id="ClearButton" class="control">&#x2327;</button>
-                <!--<button id="UndoButton" class="control">&#x21B6;</button>
-                <button id="RedoButton" class="control">&#x21B7;</button>-->
                 <button id="CopyButton" class="control">&#x2398;
                     <output id="CopyStatus">&#x2611;</output>
                 </button>
@@ -37,5 +36,9 @@
             </div>
         </div>
     </main>
+    <div id="ListModal" class="hidden">
+        <div id="MainList">
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,12 @@
+{
+    "list": [
+        {
+            "name": "ems",
+            "label": "Rettungsdienst"
+        },
+        {
+            "name": "er",
+            "label": "Notaufnahme"
+        }
+    ]
+}
