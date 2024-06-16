@@ -297,10 +297,16 @@ main {
     grid-area: header;
     padding-bottom: calc(0.5 * var(--padding));
     display: flex;
+    align-items: flex-end;
 }
 
 #Header span:first-child {
+}
+
+#ListItemDisplay {
+    margin: 0;
     flex-grow: 1;
+    padding: 0 calc(var(--padding) * 3);
 }
 
 #MainInput li {
