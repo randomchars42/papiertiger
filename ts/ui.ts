@@ -17,35 +17,23 @@ const getCopyStatus = (): HTMLTextAreaElement => {
 const addToOutput = (text: string): void => {
     const output: HTMLTextAreaElement = getMainOutput();
     const [start, end] = [output.selectionStart, output.selectionEnd];
-    //console.log('10: ' + output.selectionStart + '|' + output.selectionEnd);
-    // weird behaviour in Chrome
     output.setRangeText(text, end, end, 'select');
-    // output.setRangeText(text, start, end, 'select');
-    //console.log('20: ' + output.selectionStart + '|' + output.selectionEnd);
-    //output.blur();
-    //console.log('30: ' + output.selectionStart + '|' + output.selectionEnd);
     output.selectionStart = output.selectionEnd;
-    //console.log('40: ' + output.selectionStart + '|' + output.selectionEnd);
 };
 
 const toggleItem = (text: string, del: number): void => {
     const output: HTMLTextAreaElement = getMainOutput();
     const index = output.value.indexOf(text);
-    //console.log('00: ' + output.selectionStart + '|' + output.selectionEnd);
     output.focus();
-    //console.log('01: ' + output.selectionStart + '|' + output.selectionEnd);
     if (del === 1 && index > -1) {
-    //if (false) {
         const [start, end] = [output.selectionStart, output.selectionEnd];
         output.value = output.value.replace(text, '');
         if (index < start) {
             output.selectionStart = start - text.length;
             output.selectionEnd = end - text.length;
-            //console.log('01: ' + output.selectionStart + '|' + output.selectionEnd);
         } else {
             output.selectionStart = start;
             output.selectionEnd = end;
-            //console.log('02: ' + output.selectionStart + '|' + output.selectionEnd);
         }
     } else {
         addToOutput(text);
@@ -89,7 +77,7 @@ export const addItem = (label: string, text: string, parent: HTMLElement,
         item.classList.add('control_highlight');
     }
 
-    item.classList.add('item', 'item_' + cat, 'item_' + type);//, 'item_no_colour');
+    item.classList.add('item', 'item_' + cat, 'item_' + type);
     if (type === 'ext') {
         item.classList.add('hidden');
     }
@@ -142,12 +130,6 @@ export const init = (): void => {
     console.log('initiating UI...');
 
     document.getElementById('CopyButton')!.onclick = copyToClipboard;
-    /*document.getElementById('RedoButton')!.onclick = (): void => {
-        document.execCommand('redo');
-    };
-    document.getElementById('UndoButton')!.onclick = (): void => {
-        document.execCommand('undo');
-    };*/
     document.getElementById('ClearButton')!.onclick = (): void => {
         if (window.confirm("Do you really want to clear the field?")) {
             getMainOutput().value = '';
