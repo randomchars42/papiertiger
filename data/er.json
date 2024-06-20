@@ -2,17 +2,212 @@
     "label": "Vorstellung",
     "items": [
         [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Vorstellung", "text": "Vorstellung: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "NÄ", "text": "durch die Notärztin; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "NA", "text": "durch den Notarzt; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "RD", "text": "durch den Rettungsdienst; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "KTW", "text": "mittels Krankentransportwagen; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "selbst", "text": "selbstständig; "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "Vorstellung", "text": "Vorstellung: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "NÄ", "text": "durch die Notärztin; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "NA", "text": "durch den Notarzt; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "RD", "text": "durch den Rettungsdienst; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "KTW", "text": "mittels Krankentransportwagen; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "selbst", "text": "selbstständig; "}
+        ],
+        [
             {"type": "def", "del": 1, "cat": "cap", "label": "Begleitung:", "text": "\nin Begleitung von:"},
             {"type": "def", "del": 1, "cat": "txt", "label": "Tochter", "text": "Tochter; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Sohn", "text": "Sohn; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Mutter", "text": "Mutter; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Vater", "text": "Vater; "}
+            {"type": "def", "del": 1, "cat": "txt", "label": "Vater", "text": "Vater; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Sprachbarr.", "text": "eingeschränkte Kommunikation bei Sprachbarriere; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Ang. übers.", "text": "Angehörige übersetzen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Ang. übers. ü. Tel.", "text": "Angehörige übersetzen telefonisch; "}
+        ]
+    ]
+},
+{
+    "label": "SAMPLER",
+    "items": [
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "SAMPLER:", "text": "\n\nSAMPLER: "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Situation:", "text": "\nSituation: "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Brustschmerz", "text": "Brustschmerz seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "belastungsabh.", "text": "belastungsabhängig; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Brustschmerz", "text": "kein Brustschmerz; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Thoraxschmerz", "text": "Thoraxschmerz seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "in Ruhe", "text": "in Ruhe; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "atemabh.", "text": "atemabhängig; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "beweg.-abh.", "text": "bewegungsabhängig; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Fieber", "text": "kein Fieber; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Fieber", "text": "Fieber seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Schüttelfrost", "text": "kein Schüttelfrost; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Schüttelfrost", "text": "Schüttelfrost seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "keine Übelkeit", "text": "keine Übelkeit; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Übelkeit", "text": "Übelkeit seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Erbrechen", "text": "kein Erbrechen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Erbrechen", "text": "Erbrechen seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "keine Diarrhoen ", "text": "kein Diarrhoen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "dünnfl. Stuhl", "text": "dünnflüssiger Stuhlgang seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Diarrhoen", "text": "Diarrhoen seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "kein Stuhl", "text": "kein Stuhlgang seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Bauchschmerz", "text": "kein Bauchschmerz; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Bauchschmerz", "text": "Bauchschmerz seit XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Kopfschmerz", "text": "kein Kopfschmerz; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Kopfschmerz", "text": "Kopfschmerz seit XXXX; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Allergien:", "text": "\nAllergien: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "keine Medikamente", "text": "keine Medikamente; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "unbek.", "text": "unbekannt; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Penicilline", "text": "Penicilline; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "iod. KM", "text": "iodhaltiges Kontrastmittel; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Metam.", "text": "Metamizol; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "unbek. Antibiot.", "text": "nicht erinnerliches Antiinfektivum; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Nahrungsm.", "text": "Nahrungsmittel; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Medikation:", "text": "\nMedikation: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "BMP", "text": "s. Bundeseinheitlichen Medkationsplan / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "u.a. Antikoagulation", "text": "u.a. Antikoagulation mit XXXX; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Vorerkrankungen:", "text": "\nVorerkrankungen: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "keine", "text": "keine; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "u.a.", "text": "u. a.: "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "VHF", "text": "Vorhofflimmern; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "KHK", "text": "Koronare Herzerkrankung; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "aHT", "text": "Arterielle Hypertonie; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "COPD", "text": "chronisch-obstruktive Lungenerkrankung; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "CKD", "text": "chronische Nierenerkrankung; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Apoplex", "text": "Z. n. Apoplex; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "DM T1", "text":"Diabetes mellitus Typ 1; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "DM T2", "text":"Diabetes mellitus Typ 2; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "AE", "text": "Z. n. Appendektomie; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "CCE", "text": "Z. n. Cholezystekomie; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "...", "text": "...; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Letzte:", "text": "\nLetzte: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Mahlzeit", "text": "\nletzte Mahlzeit: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Flüssigkeit", "text": "\nletzte Flüssigkeitsaufnahme: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "morgens", "text": "am Morgen des Vorstellungstags; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "mittags", "text": "am Mittag des Vorstellungstags; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "abends", "text": "am Abend des Vorstellungstags; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Uhr", "text": "um XXXX Uhr des Vorstellungstags; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Vorabend", "text": "am Vorabend; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Vortag", "text": "am Vortag um XXXX Uhr; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Koro", "text": "\nletzte Koronarangiographie: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Kolo", "text": "\nletzte Koloskopie: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "ÖGD", "text": "\nletzte Ösophagogastroduodenskopie: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Gyn", "text": "\nletzte gynäkologische Vorstellung: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Regelbl.", "text": "\nletzte Regelblutung: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Krankenhaus", "text": "\nletzte Krankenhausbehandlung: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "ca.", "text": "ca. XXXX; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "noch nie", "text": "noch nie; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "vor >10 J.", "text": "vor mehr als 10 Jahren; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Ausland", "text": "\nletzte Auslandsreise: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "n. relev.", "text": "keine  Reisen in relevante Gebiete im zeitlichen Zusammenhang mit dem Auftreten der Symptome; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Ereignisvorgeschichte:", "text": "\nEreignisvorgeschichte: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kein Ausl.", "text": "keine auslösenden Faktoren; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Anstr.", "text": "vorherige Anstrengung; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "psych. Bel.", "text": "vorangenganene psychische Belastung; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Risikofaktoren:", "text": "\nRisikofaktoren: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Nikotin", "text": "\nNikotinkonsum: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Alkoholkonsum", "text": "\nAlkoholkonsum: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "sonstige Substanzen", "text": "\nsonstige Substanzen: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "verneint", "text": "verneint; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "geleg.", "text": "gelegentlich; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "passiv", "text": "passiv; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "aktiv", "text": "aktiv; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "vormals", "text": "vormals; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Familie", "text": "\nFamilie: "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "k. plötz. Herztod", "text": "unauffällig in Bezug auf plötzlichen Herztod; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "plötz. Herztod", "text": "XXXX an plötzlichen Herztod verstorben; "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Herzinf.", "text": "unauffällig in Bezug auf Herzinfarkt; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Herzinf.", "text": "XXXX einen Herzinfarkt erlitten; "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Apoplex", "text": "unauffällig in Bezug auf Apoplex; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Apoplex", "text": "XXXX einen Schlaganfall erlitten; "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Thrombosen", "text": "unauffällig in Bezug auf Thrombpse; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Thrombosen", "text": "XXXX eine Thrombose erlitten; "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Steinleiden", "text": "unauffällig in Bezug auf Steinleiden; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Steinleiden", "text": "Steinleiden; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Gallenst.", "text": "Gallensteine; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Nierenst.", "text": "Nierensteine; "}
+        ]
+    ]
+},
+{
+    "label": "Soziales / Verfügung",
+    "items": [
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Soziales:", "text": "\n\nSoziales: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Häusl.", "text": "wohnt in der Häuslichkeit; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Pflege-WG", "text": "wohnt in einer Pflegewohngemeinschaft; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Pflegeheim", "text": "wohnt in einem Pflegewohnheim; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "allein", "text": "allein; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Partnerin", "text": "mit Partnerin zusammen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Partner", "text": "mit Partner zusammen; "}
+        ],
+        [
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Unterstützung:", "text": "\nUnterstützung: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Tochter", "text": "Tochter; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Sohn", "text": "Sohn; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Kinder", "text": "Kinder; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Enkel", "text": "Enkel; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Nachbarin", "text": "Nachbarin; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Nachbar", "text": "Nachbar; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "Haushaltshilfe", "text": "Haushaltshilfe; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "PD", "text": "Pflegedienst; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "24 h", "text": "24-Stundenbetreuung; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "1 x tägl.", "text": "einmal täglich; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "2 x tägl.", "text": "zweimal täglich; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "3 x tägl.", "text": "dreimal täglich; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "1 x wöch.", "text": "einmal wöchentlich; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "mehrm. wöch.", "text": "mehrmals wöchentlich; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 1", "text": "Pflegegrad 1; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 2", "text": "Pflegegrad 2; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 3", "text": "Pflegegrad 3; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 4", "text": "Pflegegrad 4; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 5", "text": "Pflegegrad 5; "}
+        ],
+        [
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Verfügung:", "text": "\nPatientinnenverfügung: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Ang. bespr.", "text": "mit Angehörigen besprochen; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuerin bespr.", "text": "mit Betreuerin besprochen; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuer bespr.", "text": "mit Betreuer besprochen; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patientin bespr.", "text": "mit Patientin besprochen; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patient bespr.", "text": "mit Patient besprochen; "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "lebensfreude", "text": "habe viel Freude am Leben; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "lebensmüde", "text": "sei des Lebens überdrüssig; "},
+            {"type": "ext", "del": 1, "cat": "ref", "label": "Teilnahme", "text": "nehme am Leben in der Umgebung Teil; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "k. Teilnahme", "text": "nehme nicht an Aktivitäten teil; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "k. Nahrungsaufn.", "text": "keine Nahrungsaufnahme mehr; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "k. Flüss.-aufn.", "text": "keine Flüssigkeitsaufnahme mehr; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "DNR", "text": "keine Wiederbelebungsmaßnahmen (DNR); "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "DNI", "text": "keine invasive Beatmung (DNI); "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "keine Niereners.-V.", "text": "keine Nierenersatzverfahren; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "keine Organers.-V.", "text": "keine Organersatzverfahren; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "keine ITS", "text": "keine Aufnahme auf die Intensivstation; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "keine antiinf.", "text": "keine antiinfektive Therapie; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "kein Fl.", "text": "keine Flüssigkeit parenteral oder über Sonde; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "kein Ern.", "text": "keine Ernährung parenteral oder über Sonde; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "keine lebensverl. Maßn.", "text": "keine lebensverlängernden Maßnahmen; "}
         ]
     ]
 },
@@ -108,6 +303,7 @@
             {"type": "ext", "del": 0, "cat": "pat", "label": "Mottl. 5", "text": "Mottling-Score: 5; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "Halsv. schlank", "text": "Halsvenen schlank; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "Halsv. gestaut", "text": "Halsvenen gestaut; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "JVP bis", "text": "Jugularvenenpuls sichtbar bis XXXX cm über Manubrium sterni; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "Puls kräftig", "text": "Puls kräftig; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "Puls schwach", "text": "Puls schwach; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "bradykard", "text": "Bradykardie; "},
@@ -177,195 +373,6 @@
     ]
 },
 {
-    "label": "SAMPLER",
-    "items": [
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "SAMPLER:", "text": "\n\nSAMPLER: "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Situation:", "text": "\nSituation: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Sprachbarr.", "text": "eingeschränkte Kommunikation bei Sprachbarriere; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Ang. übers.", "text": "Angehörige übersetzen; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Ang. übers. ü. Tel.", "text": "Angehörige übersetzen telefonisch; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Brustschmerz", "text": "Brustschmerz seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "belastungsabh.", "text": "belastungsabhängig; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Brustschmerz", "text": "kein Brustschmerz; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Thoraxschmerz", "text": "Thoraxschmerz seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "in Ruhe", "text": "in Ruhe; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "atemabh.", "text": "atemabhängig; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "beweg.-abh.", "text": "bewegungsabhängig; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Fieber", "text": "kein Fieber; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Fieber", "text": "Fieber seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Schüttelfrost", "text": "kein Schüttelfrost; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Schüttelfrost", "text": "Schüttelfrost seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "keine Übelkeit", "text": "keine Übelkeit; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Übelkeit", "text": "Übelkeit seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Erbrechen", "text": "kein Erbrechen; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Erbrechen", "text": "Erbrechen seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "keine Diarrhoen ", "text": "kein Diarrhoen; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "dünnfl. Stuhl", "text": "dünnflüssiger Stuhlgang seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Diarrhoen", "text": "Diarrhoen seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "kein Stuhl", "text": "kein Stuhlgang seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Bauchschmerz", "text": "kein Bauchschmerz; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Bauchschmerz", "text": "Bauchschmerz seit XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Kopfschmerz", "text": "kein Kopfschmerz; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Kopfschmerz", "text": "Kopfschmerz seit XXXX; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Allergien:", "text": "\nAllergien: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "keine Medikamente", "text": "keine Medikamente; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "unbek.", "text": "unbekannt; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Penicilline", "text": "Penicilline; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "iod. KM", "text": "iodhaltiges Kontrastmittel; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Metam.", "text": "Metamizol; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "unbek. Antibiot.", "text": "nicht erinnerliches Antiinfektivum; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "Nahrungsm.", "text": "Nahrungsmittel; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Medikation:", "text": "\nMedikation: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "BMP", "text": "s. Bundeseinheitlichen Medkationsplan / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "u.a. Antikoagulation", "text": "u.a. Antikoagulation mit XXXX; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Vorerkrankungen:", "text": "\nVorerkrankungen: "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "keine", "text": "keine; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "u.a.", "text": "u. a.: "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "VHF", "text": "Vorhofflimmern; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "KHK", "text": "Koronare Herzerkrankung; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "aHT", "text": "Arterielle Hypertonie; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "COPD", "text": "chronisch-obstruktive Lungenerkrankung; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "CKD", "text": "chronische Nierenerkrankung; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Apoplex", "text": "Z. n. Apoplex; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "DM T1", "text":"Diabetes mellitus Typ 1; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "DM T2", "text":"Diabetes mellitus Typ 2; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "AE", "text": "Z. n. Appendektomie; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "CCE", "text": "Z. n. Cholezystekomie; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "...", "text": "...; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Letzte:", "text": "\nLetzte: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Mahlzeit", "text": "\nletzte Mahlzeit: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Flüssigkeit", "text": "\nletzte Flüssigkeitsaufnahme: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "morgens", "text": "am Morgen des Vorstellungstags; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "mittags", "text": "am Mittag des Vorstellungstags; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "abends", "text": "am Abend des Vorstellungstags; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Uhr", "text": "um XXXX Uhr des Vorstellungstags; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Vorabend", "text": "am Vorabend; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Vortag", "text": "am Vortag um XXXX Uhr; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Koro", "text": "\nletzte Koronarangiographie: "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Kolo", "text": "\nletzte Koloskopie: "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "ÖGD", "text": "\nletzte Ösophagogastroduodenskopie: "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Gyn", "text": "\nletzte gynäkologische Vorstellung: "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Regelbl.", "text": "\nletzte Regelblutung: "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Krankenhaus", "text": "\nletzte Krankenhausbehandlung: "},
-            {"type": "ext", "del": 0, "cat": "txt", "label": "noch nie", "text": "noch nie; "},
-            {"type": "ext", "del": 0, "cat": "txt", "label": "vor >10 J.", "text": "vor mehr als 10 Jahren; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Ereignisvorgeschichte:", "text": "\nEreignisvorgeschichte: "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kein Ausl.", "text": "keine auslösenden Faktoren; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Anstr.", "text": "vorherige Anstrengung; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "psych. Bel.", "text": "vorangenganene psychische Belastung; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Risikofaktoren:", "text": "\nRisikofaktoren: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Nikotin", "text": "\nNikotinkonsum: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Alkoholkonsum", "text": "\nAlkoholkonsum: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "sonstige Substanzen", "text": "\nsonstige Substanzen: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "verneint", "text": "verneint; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "passiv", "text": "passiv; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "aktiv", "text": "aktiv; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "vormals", "text": "vormals; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Familie", "text": "\nFamilie: "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "k. plötz. Herztod", "text": "unauffällig in Bezug auf plötzlichen Herztod; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "plötz. Herztod", "text": "XXXX sei an plötzlichen Herztod verstorben; "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Herzinf.", "text": "unauffällig in Bezug auf Herzinfarkt; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Herzinf.", "text": "XXXX habe einen Herzinfarkt erlitten; "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Apoplex", "text": "unauffällig in Bezug auf Apoplex; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Apoplex", "text": "XXXX habe einen Schlaganfall erlitten; "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Thrombosen", "text": "unauffällig in Bezug auf Thrombpse; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Thrombosen", "text": "XXXX habe eine Thrombose erlitten; "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "k. Steinleiden", "text": "unauffällig in Bezug auf Steinleiden; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Steinleiden", "text": "Steinleiden; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Gallenst.", "text": "Gallensteine; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Nierenst.", "text": "Nierensteine; "}
-        ]
-    ]
-},
-{
-    "label": "Soziales / Verfügung",
-    "items": [
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Soziales:", "text": "\n\nSoziales: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Häusl.", "text": "wohnt in der Häuslichkeit; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Pflege-WG", "text": "wohnt in einer Pflegewohngemeinschaft; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Pflegeheim", "text": "wohnt in einem Pflegewohnheim; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "allein", "text": "allein; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Partnerin", "text": "mit Partnerin zusammen; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Partner", "text": "mit Partner zusammen; "}
-        ],
-        [
-            {"type": "ext", "del": 1, "cat": "cap", "label": "Unterstützung:", "text": "\nUnterstützung: "},
-            {"type": "ext", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Tochter", "text": "Tochter; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Sohn", "text": "Sohn; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Kinder", "text": "Kinder; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Enkel", "text": "Enkel; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Nachbarin", "text": "Nachbarin; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Nachbar", "text": "Nachbar; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Haushaltshilfe", "text": "Haushaltshilfe; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "PD", "text": "Pflegedienst; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "24 h", "text": "24-Stundenbetreuung; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "1 x tägl.", "text": "einmal täglich; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "2 x tägl.", "text": "zweimal täglich; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "3 x tägl.", "text": "dreimal täglich; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "1 x wöch.", "text": "einmal wöchentlich; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "mehrm. wöch.", "text": "mehrmals wöchentlich; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 1", "text": "Pflegegrad 1; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 2", "text": "Pflegegrad 2; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 3", "text": "Pflegegrad 3; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 4", "text": "Pflegegrad 4; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "PG 5", "text": "Pflegegrad 5; "}
-        ],
-        [
-            {"type": "ext", "del": 1, "cat": "cap", "label": "Verfügung:", "text": "\nPatientinnenverfügung: "},
-            {"type": "ext", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
-            {"type": "ext", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Ang. bespr.", "text": "mit Angehörigen besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuerin bespr.", "text": "mit Betreuerin besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuer bespr.", "text": "mit Betreuer besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patientin bespr.", "text": "mit Patientin besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patient bespr.", "text": "mit Patient besprochen; "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "lebensfreude", "text": "habe viel Freude am Leben; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "lebensmüde", "text": "sei des Lebens überdrüssig; "},
-            {"type": "ext", "del": 1, "cat": "ref", "label": "Teilnahme", "text": "nehme am Leben in der Umgebung Teil; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "k. Teilnahme", "text": "nehme nicht an Aktivitäten teil; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "k. Nahrungsaufn.", "text": "keine Nahrungsaufnahme mehr; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "k. Flüss.-aufn.", "text": "keine Flüssigkeitsaufnahme mehr; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "DNR", "text": "keine Wiederbelebungsmaßnahmen (DNR); "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "DNI", "text": "keine invasive Beatmung (DNI); "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "keine Niereners.-V.", "text": "keine Nierenersatzverfahren; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "keine Organers.-V.", "text": "keine Organersatzverfahren; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "keine ITS", "text": "keine Aufnahme auf die Intensivstation; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "keine antiinf.", "text": "keine antiinfektive Therapie; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "kein Fl.", "text": "keine Flüssigkeit parenteral oder über Sonde; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "kein Ern.", "text": "keine Ernährung parenteral oder über Sonde; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "keine lebensverl. Maßn.", "text": "keine lebensverlängernden Maßnahmen; "}
-        ]
-    ]
-},
-{
     "label": "Status",
     "items": [
         [
@@ -391,13 +398,35 @@
             {"type": "def", "del": 1, "cat": "cap", "label": "Cor:", "text": "\nCor: "},
             {"type": "def", "del": 1, "cat": "ref", "label": "HT rein", "text": "Herztöne rein; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "HT leise", "text": "Herztöne leise; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Syst.", "text": "Systolikum; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Syst. li.", "text": "Systolikum mit punctum maximum im XXXX. Interkostalraum links; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Syst. re.", "text": "Systolikum mit punctum maximum im XXXX. Interkostalraum rechts; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Syst. Erb", "text": "Systolikum mit punctum maximum über Erb; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Diast. li.", "text": "Diastolikum mit punctum maximum im XXXX. Interkostalraum links; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Diast. re.", "text": "Diastolikum mit punctum maximum im XXXX. Interkostalraum rechts; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Diast. Erb", "text": "Diastolikum mit punctum maximum über Erb; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "laute AG", "text": "bei lauten Atemgeräuschen kaum beurteilbar; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Pulse:", "text": "\nPulse: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "k. Strömungsg über A. car.", "text": "kein Strömungsgeräusch über den Aa. carotes; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Strömungsg über A. car.", "text": "Strömungsgeräusch über den Aa. carotes; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "k. Strömungsg über Ao. abd.", "text": "kein Strömungsgeräusch über den Aorta abdominalis; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Strömungsg über Ao. abd.", "text": "Strömungsgeräusch über den Aorta Aabdominalis; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "A. rad.:", "text": "\nA. radialis: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "A. uln.:", "text": "\nA. ulanaris: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "A. pop.:", "text": "\nA. poplitea: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "A. dors. ped.:", "text": "\nA. dorsalis pedis: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "A. tib. post.:", "text": "\nA. tibialis posterior: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "li. +", "text": "links tastbar; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "li. -", "text": "links nicht tastbar; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "re. +", "text": "rechts tastbar; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "re. -", "text": "rechts nicht tastbar; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Pulmo:", "text": "\nPulmo: "},
             {"type": "def", "del": 1, "cat": "ref", "label": "unauff. atemverschiebl.", "text": "Atemverschieblichkeit unauffällig; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "eingeschr. atemverschiebl.", "text": "Atemverschieblichkeit eingeschränkt; "}
+            {"type": "def", "del": 1, "cat": "pat", "label": "eingeschr. atemverschiebl.", "text": "Atemverschieblichkeit eingeschränkt; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Entfaltungskn.", "text": "basal Entfaltungsknistern; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Abdomen:", "text": "\nAbdomen: "},
@@ -419,13 +448,34 @@
             {"type": "ext", "del": 1, "cat": "pat", "label": "DG hochg.", "text": "Darmgeräusche hochgestellt; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "keine DG", "text": "keine Darmgeräusche; "},
             {"type": "ext", "del": 1, "cat": "ref", "label": "Leber unauff.", "text": "Leber unauffällig tastbar; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Hepatomeg.", "text": "Leber vergrößert tastbar; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Hepatomeg.", "text": "Leber in Medioclavicularlinie XXXX cm unter dem Rippenbogen tastbar; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "Milz n. tast.", "text": "Milz nicht tastbar; "},
-            {"type": "ext", "del": 1, "cat": "pat", "label": "Splenomeg.", "text": "Milz vergrößert tastbar; "},
+            {"type": "ext", "del": 1, "cat": "pat", "label": "Splenomeg.", "text": "Milz in Medioclavicularlinie XXXX cm unter dem Rippenbogen tastbar; "},
             {"type": "ext", "del": 1, "cat": "ref", "label": "kein NLKS", "text": "kein Nierenlagerklopfschmerz; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "NLKS li.", "text": "Nierenlagerklopfschmerz links; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "NLKS re.", "text": "Nierenlagerklopfschmerz rechts; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "Blase vergr.", "text": "Blase vergrößert tastbar; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "DRU:", "text": "\nDigital-rektale Untersuchung: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Sphinkterton. erh.", "text": "Sphinktertonus erhalten; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Sphinkterton. erl.", "text": "Sphinktertonus erloschen; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Prost. norm.", "text": "Prostata unauffällig in Größe und Konsistenz tastbar; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Prost. vergr.", "text": "Prostata vergrößert; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Prost. derb.", "text": "Prostata derb; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "k. Blut", "text": "kein Blut am Fingerling; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Blut", "text": "Blut am Fingerling; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Stuhl unauf.", "text": "unauffälliger Stuhl am Fingerling; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Teerstuhl", "text": "Teerstuhl am Fingerling; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Stuhl mit Blut durch.", "text": "mit Blut durchmischter Stuhl am Fingerling; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Kotsteine", "text": "Faekolithen; "},
+            {"type": "def", "del": 1, "cat": "int", "label": "dig. Ausräum.", "text": "digitale Ausräumung; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "k. Resist.", "text": "keine Resistenzen tastbar; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Resist.", "text": "Resistenz tastbar bei XXXX Uhr Steinschnittlage; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "k. Hämorr.", "text": "keine Hämorrhoiden; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Hämorr.", "text": "Hämorrhoide bei XXXX Uhr Steinschnittlage; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Mariske", "text": "Mariske bei XXXX Uhr Steinschnittlage; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "schm. Schw.", "text": "schmerzhafte Schwellung bei XXXX Uhr Steinschnittlage; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Extremitäten:", "text": "\nExtremitäten: "},
@@ -453,6 +503,40 @@
             {"type": "ext", "del": 1, "cat": "ref", "label": "Fi-Na-V. unauff.", "text": "Finger-Nase-Versuch unauffällig; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "Fi-Na-V. dysmetr.", "text": "Finger-Nase-Versuch dysmetrisch; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "Asterixis", "text": "Asterixis; "}
+        ],
+        [
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Katheter:", "text": "\nKatheter: "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "PVK:", "text": "\nPeriphere Venenverweilkatheter: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "14 G (orange):", "text": "\n14 G (orange): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "16 G (grau):", "text": "\n16 G (grau): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "17 G (weiß):", "text": "\n17 G (weiß): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "18 G (grün-weiß):", "text": "\n18 G (grün-weiß): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "18 G (grün):", "text": "\n18 G (grün): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "20 G (rosa):", "text": "\n20 G (rosa): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "22 G (blau):", "text": "\n22 G (blau): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "24 G (gelb):", "text": "\n24 G (gelb): "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "Hand", "text": "Handrücken; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "UA", "text": "Unterarm; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "EB", "text": "Ellenbeuge; "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "ZVK:", "text": "\nZentraler Venenkatheter: "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "3-lum.:", "text": "\n3-lumiger zentraler Venenvkatheter: "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "5-lum.:", "text": "\n5-lumiger zentraler Venenvkatheter: "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "Shaldon:", "text": "\nShaldon-Katheter: "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "Demers:", "text": "\nDemers-Katheter: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "VJI", "text": "V. jugularis interna; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "VSc", "text": "V. subclavia; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "VF", "text": "V. femoralis; "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "Art.:", "text": "\nArterieller Katheter: "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "PiCCO:", "text": "\nPiCCO-Katheter: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "A. rad. ...", "text": "A. radialis; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "A. brach. ...", "text": "A. brachialis; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "A. fem. ...", "text": "A. femoralis; "},
+            {"type": "ext", "del": 0, "cat": "cap", "label": "Dialyse-Fistel:", "text": "\nDialyse-Fistel: "},
+            {"type": "ext", "del": 1, "cat": "cap", "label": "DK:", "text": "\nBlasendauerkatheter: "},
+            {"type": "ext", "del": 1, "cat": "cap", "label": "SPK:", "text": "\nSuprapubischer Blasenkatheter: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "links", "text": "links; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "rechts", "text": "rechts; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "reizfrei", "text": "reizfrei; "}
         ]
     ]
 },
@@ -521,10 +605,10 @@
     ]
 },
 {
-    "label": "Sonographie",
+    "label": "Notfallsonographie",
     "items": [
         [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie:", "text": "\n\nSonographie: "}
+            {"type": "def", "del": 1, "cat": "cap", "label": "Notfallsonographie:", "text": "\n\nNotfallsonographie: "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Herz:", "text": "\nHerz: "},
@@ -596,6 +680,275 @@
     ]
 },
 {
+    "label": "Sonogaphie Abdomen",
+    "items": [
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie Abdomen:", "text": "\n\nSonographie Abdomen: "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Leber:", "text": "\nLeber: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "glatt", "text": "glatt berandet; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "wellig", "text": "wellig berandet; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "knotig", "text": "knotig berandet; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "homogen", "text": "Parenchym homogen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "inhomogen", "text": "Parenchym inhomogen; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "isoechogen", "text": "isoechogen zur Niere; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "hyperechog.", "text": "hyperechogen zur Niere; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "spitz", "text": "Leberwinkel spitz; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "abgerund.", "text": "Leberwinkel abgerundet; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. f. Fl.", "text": "keine freie Flüssigkeit; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "f. Fl.", "text": "freie Flüssigkeit; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "LV orthogr.", "text": "Lebervenen orthograd durchflossen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "LV retrogr.", "text": "Lebervenen retrograd durchflossen; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "VP unauff.", "text": "V. porta in der farbkodierten Duplexsonographie unauffällig; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Galle:", "text": "\nGalle: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Z.n. CCE", "text": "Z.n. Cholezystekomie; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "gefüllt", "text": "gefüllt; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "wenig gefüllt", "text": "wenig gefüllt; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "leer", "text": "leer; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "prall", "text": "prall; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Hydrops", "text": "Hydrops; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. Binnenecho", "text": "keine echogenen Binnenstrukturen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Stein", "text": "umlagerbare, echogene Binnenstruktur im Sinne eines Konkrements; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "mult. Steine", "text": "multiple umlagerbare, echogene Binnenstrukturen im Sinne von Konkrementen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Sludge", "text": "Sludge; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Polyp", "text": "nicht umlagerbare, echogene Binnenstruktur im Sinne eines Polps (XXXX cm); "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Wand zart", "text": "Wand zart; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Wandödem", "text": "Gallenblasenwandödem; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Wandödem bei f. Fl.", "text": "Gallenblasenwandödem bei umgebender freier Flüssigkeit; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Zwiebelschale", "text": "Zwiebelschalenphnomen; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "chronische Wandver.", "text": "vom ASpekt her chronische Wandveränderungen; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DHC X cm", "text": "DHC XXX cm; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DHC schlank", "text": "DHC schlank; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "DHC erweitert", "text": "DHC erweitert; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DHC Z.n. CCE", "text": "DHC bei Z.n. Cholezystekomie unauffällig erweitert; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Pankreas:", "text": "\nPankreas: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "gut einsehbar", "text": "gut einsehbar; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "teilw. einsehbar", "text": "teilweise einsehbar; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "n. einsehbar", "text": "nicht einsehbar; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Par. unauff.", "text": "Parenchym unauffälig; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Par. wolkig", "text": "Parenchym wolkig aufgelockert; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DP x cm", "text": "Ductus pancreaticus XXXX cm; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DP schlank", "text": "Ductus pancreaticus schlank; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "DP erw.", "text": "Ductus pancreaticus erweitert; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "f. FL.", "text": "umgebende freie Flüssigkeit; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Milz:", "text": "\nMilz: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Par. unauff.", "text": "Parenchym unauffälig; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "X cm", "text": "XXXX cm; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "unauff. Gr.", "text": "unauffällige Größe; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "vergr.", "text": "Splenomegalie "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. f. Fl.", "text": "keine freie Flüssigkeit; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "f. Fl.", "text": "freie Flüssigkeit; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Niere li.:", "text": "\nLinke Niere: "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "Niere re.:", "text": "\nRechte Niere: "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "Niere bds.:", "text": "\nNieren beidseits: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "orthotop", "text": "orthotop; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "kein Harnstau", "text": "kein Harnstau; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Harnstau 1", "text": "Harnstau Grad 1; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Harnstau 2", "text": "Harnstau Grad 2; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Harnstau 3", "text": "Harnstau Grad 3; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Harnstau 4", "text": "Harnstau Grad 4; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "blande Zyste", "text": "blande Zyste; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "kompl. Zyste", "text": "komplizierte Zyste; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "X cm", "text": "XXXX x XXXX cm; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Blase:", "text": "\nBlase: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "gefüllt", "text": "gefüllt; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "wenig gefüllt", "text": "wenig gefüllt; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "leer", "text": "leer; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "prall", "text": "prall; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. Binnenecho", "text": "keine echogenen Binnenstrukturen; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Unterbauch:", "text": "\nUnterbauch: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. f. Fl.", "text": "keine freie Flüssigkeit; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "f. Fl.", "text": "freie Flüssigkeit; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Darm:", "text": "\nDarm: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DD n. dil.", "text": "Dünndarmschlingen nicht dilatiert; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "DD dil.", "text": "Dünndarmschlingen dilatiert; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "X cm", "text": "maximal XXXX cm; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "unauff. Mot.", "text": "unauffällige Motilität; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Paral.", "text": "Paralyse; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Hypermot.", "text": "PHypermotolität; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "pendelper.", "text": "Pendelperistaltik; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DW n. verd.", "text": "Darmwände in orientierender Untersuchung nicht verdickt; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "Appendix unauff.", "text": "Appendix unauffällig; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Appendix verd. + Fl.", "text": "Appendix verdickt mit umgebender Flüssigkeit; "}
+        ],
+        [
+            {"type": "def", "del": 0, "cat": "cap", "label": "Beurteilung:", "text": "\nBeurteilung: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "unauff.", "text": "unauffälliger Befund; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Cholezystolithiasis", "text": "Cholezystolithiasis; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Cholezystitis", "text": "Cholezystitis; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Cholestase", "text": "Cholestase; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Choledocholithiasis", "text": "Choledocholithiasis; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "mech. Ileus", "text": "Bild eines mechanischen Darmpassagehindernisses; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "par. Ileus", "text": "Bild einer paralytischen Darmpassagestörung; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Ileitis term.", "text": "Bild einer Ileitis terminalis; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Sigmadivertikulitis", "text": "Bild einer Sigmadivertikulitis; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "Appendizitis", "text": "Bild einer Appendizitis; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "Aszites", "text": "Aszites; "}
+        ]
+    ]
+},
+{
+    "label": "Sonographie TVT",
+    "items": [
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie beider UE.:", "text": "\n\nSonographie beider unterer Extremitäten: "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie li. UE.:", "text": "\n\nSonographie der linken unteren Extremität: "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie re. UE.:", "text": "\n\nSonographie der rechten unteren Extremität: "}
+        ],
+        [
+            {"type": "def", "del": 0, "cat": "cap", "label": "VFC:", "text": "\nV. femoralis communis: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "atemm. Fl.", "text": "atemmodulierter Fluss; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "k. atemm. Fl.", "text": "kein atemmodulierter Fluss; "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "VFS:", "text": "\nV. femoralis superficialis: "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "VSM", "text": "\nV. saphena magna: "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "V. pop.:", "text": "\nV. poplitea: "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "US:", "text": "\nUnterschenkelstrombahn: "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "V. tib. ant.:", "text": "\nV. tibialis anterior: "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "V. tib. post.:", "text": "\nV. tibialis posterior: "},
+            {"type": "def", "del": 0, "cat": "cap", "label": "V. per.:", "text": "\nV. peronea: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "durchg. dargest.", "text": "durchgehend dargestellt; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "nur prox. dargest.", "text": "nur proximal dargestellt; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "komp.", "text": "restlos komprimierbar; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "n. komp.", "text": "nicht restlos komprimierbar; "}
+        ],
+        [
+            {"type": "def", "del": 0, "cat": "cap", "label": "Beurteilung:", "text": "\nBeurteilung: "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. TVT", "text": "kein Nachweis einer tiefen Beinvenenthrombose; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "TVT", "text": "Nachweis einer tiefen Beinvenenthrombose; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "WV b. 2-Pkt.", "text": "Wiedervorstellung zur Befundkontrolle bei 2-Punktkompression in 4 - 7 Tagen; "}
+        ]
+    ]
+},
+{
+    "label": "Procedere",
+    "items": [
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Procedere:", "text": "\n\nProcedere: "}
+        ],
+        [
+            {"type": "def", "del": 0, "cat": "txt", "label": "Vorstellung ...", "text": "Vorstellung "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "... NÄ ...", "text": "durch die Notärztin bei XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "... NA ...", "text": "durch den Notarzt bei XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "... RD ...", "text": "durch den Rettungsdienst bei XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "... KTW ...", "text": "mittels Krankentransportwagen bei XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "... selbst. ...", "text": "selbstständig bei XXXX; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "Schockraum", "text": "\nVersorgung im Schockraum; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "Indik. z. stat. Aufn.", "text": "\nIndikation zur stationären Aufnahme bei XXXX; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Aufkl. ü. stat. Aufn.", "text": "\nAufklärung über stationäre Aufnahme erfolgt; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "k. Aufkl. ü. stat. Aufn. mögl.", "text": "\nAufklärung über stationäre Aufnahme bei XXXX nicht möglich; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "24 h Behandlungspl.:", "text": "\n24-Stunden-Behandlungsplan: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Monit.", "text": "\nMonitoring; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. X", "text": "\nlaborchemische Verlaufskontrolle der XXXX-Konzentration; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. hsTnT", "text": "\nlaborchemische Verlaufskontrolle der hsTnT-Konzentration; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Rehydr.", "text": "\nRehydrierung; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Bildg.", "text": "\nBildgebung des XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "rad. Verlaufskontr.", "text": "\nradiologische Verlaufskontrolle des XXXX; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "initial:", "text": "\n\ninitial: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "VP stabil.", "text": "\nVitalparameter stabil; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "hämodynamisch kompr.", "text": "\nhämodynamisch kompromittiert; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "resp. kompr.", "text": "\nrespiratorisch kompromittiert; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "anamn. X", "text": "\nanamnestisch XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "anamn. k. Infekt", "text": "\nanamnestisch kein Anhalt für einen Infekt; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "klin. X", "text": "\nklinisch imponiert XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "klin. k. Infekt", "text": "\nklinisch kein Anhalt für einen Infekt; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "EKG X", "text": "\nim EKG zeigte sich XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "EKG unauff.", "text": "\nim EKG zeigte sich ein unauffälliger Befund; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "EKG k. transm. Isch.", "text": "\nim EKG ergab sich kein Anhat für eine akute transmurale Ischämie; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "laborchem. X", "text": "\nlaborchemisch zeigte sich XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "laborchem. unauff.", "text": "\nlaborchemisch ergab sich ein unauffälliger Befund; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "hsTnT init. unauff.", "text": "\ndie initiale Troponinkonzentration war nicht erhöht; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "hsTnT k. Dynamik", "text": "im Verlauf ergab sich keine relvante Dynamik; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "vorb. Einschr. Nierenf.", "text": "vorbekannte Einschränkung der Nierenfunktion; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "AKI 1", "text": "Verschlechterung der Nierenfunktion im Sinne einer akuten Nierenschädigung Stadium 1 nach KDIGO; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "AKI 2", "text": "Verschlechterung der Nierenfunktion im Sinne einer akuten Nierenschädigung Stadium 2 nach KDIGO; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "AKI 3", "text": "Verschlechterung der Nierenfunktion im Sinne einer akuten Nierenschädigung Stadium 3 nach KDIGO; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k.SARS-CoV-19", "text": "molekularbiologisch kein Nachweis von SARS-CoV-19; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "SARS-CoV-19", "text": "molekularbiologisch Nachweis von SARS-CoV-19; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "k. Influenza", "text": "molekularbiologisch kein Nachweis von Influenza A / B; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Influenza", "text": "molekularbiologisch Nachweis von Influenza A / B; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; hier ergab sich XXXX"}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "sonogr. X", "text": "\nsonographisch zeigte sich XXXX; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "sonogr. unauff.", "text": "\nsonographisch ergab sich ein unauffälliger Befund; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "BK & antiinf. Ther.", "text": "\nnach Asservation von Blutkulturen Beginn einer antiinfektiven Therapie mit XXXX; "}
+        ]
+    ]
+},
+{
+    "label": "Empfehlungen",
+    "items": [
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Empfehlungen:", "text": "\n\nEmpfehlungen: "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "Flüssigkeitszufuhr", "text": "\nauf ausreichend Flüssigkeitszufuhr achten; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Händehyg.", "text": "\nHändehygiene erläutert und empfohlen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Hände- & Toilettenhyg.", "text": "\nHände- und Toilettenhygiene erläutert und empfohlen; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Sympt. Therapie:", "text": "\n\nsymptomatische Schmerztherapie solange SChmerzen bestehen, z.B. mit: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Ibu. 400", "text": "\nIbuprofen 400 mg p.o., maximal alle 6 Stunden; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Ibu. 600", "text": "\nIbuprofen 600 mg p.o., maximal alle 6 Stunden; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Ibu. 800", "text": "\nIbuprofen 800 mg p.o., maximal alle 8 Stunden; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Parac. 500", "text": "\nParacetamol 500 mg p.o., maximal alle 6 Stunden; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Parac. 1000", "text": "\nParacetamol 1000 mg p.o., maximal alle 6 Stunden; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Metam. 500", "text": "\nMetamizol 500 mg p.o., maximal alle 6 Stunden, darunter / danach bei schweren Infektsymptomen Blutbildkontrollen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Metam. 1000", "text": "\nMetamizol 1000 mg p.o., maximal alle 6 Stunden, darunter / danach bei schweren Infektsymptomen Blutbildkontrollen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Busco. 20", "text": "\nButhylscopalamin 20 mg p.o., maximal alle 8 Stunden; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "kalk. antiinf. Therapie:", "text": "\n\nkalkulierte antiinfektive Therapie mit: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Amoxi. 1000 q8h", "text": "\nAmoxicillin 1000 mg p.o. alle 8 Stunden für 5 Tage; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Amoxi. + Clav. 1000 q8h", "text": "\nAmoxicillin 875 mg + Clavulansäure 125 mg p.o. alle 8 Stunden für 5 Tage; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Fosfo. 3000", "text": "\nFosfomycin 3000 mg p.o. einmalig vor dem Zubettgehen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Nitrof. 100 q12h", "text": "\nNitrofurantoin retard 100 mg p.o. alle 12 Stunden für 5 Tage; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Pivmec. 400 q8h", "text": "\nPivmecillinam 400 mg p.o. alle 8 Stunden für 3 Tage; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Cefpod. 200 q12h", "text": "\nCefpodoxim 200 mg p.o. alle 12 Stunden für 10 Tage; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "kl. WV b. ausbl. Besserung", "text": "\nWiedervorstellung bei ausbleibender Besserung nach XXXX Tagen; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "amb. WV b. ausbl. Besserung", "text": "\nambulante Wiedervorstellung bei ausbleibender Besserung nach XXXX Tagen; "}
+        ]
+    ]
+},
+{
     "label": "Analgesie / Analgosedierung",
     "items": [
         [
@@ -631,8 +984,7 @@
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Reanimation:", "text": "\n\nReanimation: "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Laien", "text": "Übernahme der laufenden Laienreanimation; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "KR", "text": "Übernahme der laufenden Reanimation durch KatRetter; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "RD", "text": "Übernahme der laufenden Reanimation durch First Responder der Feuerwehr; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "RD", "text": "Übernahme der laufenden Reanimation durch den Rettungsdienst; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Beginn b. Eintr.", "text": "bei Eintreffen bereits Kreislaufstillstand; sofortiger Beginn von Reanimationsmaßnahmen; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Beginn im Verl.", "text": "im Verlauf Kreislaufstillstand; sofortiger Beginn von Reanimationsmaßnahmen; "}
         ],
@@ -648,92 +1000,6 @@
         [
             {"type": "def", "del": 0, "cat": "txt", "label": "ROSC", "text": "\nROSC nach XXXX Minuten; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "ern. Kreislaufstillstand", "text": "\nerneuter Kreislaufstillstand; "}
-        ]
-    ]
-},
-{
-    "label": "Transportverweigerung",
-    "items": [
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Transportverweigerung", "text": "\nTransportverweigerung: "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Aufkl. über:", "text": "\nAufklärung über: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "schw. Inf.", "text": "mögliche schwere Infektion; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "schw. Blutv.", "text": "möglichen schweren Blutverlust; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "bleib. Schäden", "text": "mögliche bleibende Schäden; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "dr. Verl. d. Extr.", "text": "drohenden Extremitätenverlust; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "lebensgef. Zust.", "text": "akut lebensgefährlichen Gesundheitszustand; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Reakt.:", "text": "\nReaktion: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "verst. Lage", "text": "gibt zu verstehen, die Lage und die Tragweite der Situation verstanden zu haben; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "k. weiterf. Maßn.", "text": "lehnt weiterführende Maßnahmen (Untersuchung, Transport in ein Krankenhaus) ab; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "selbstst. zum HA", "text": "gibt an, selbstständig zum Hausarzt gehen zu wollen; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "verw. Unterschr.", "text": "verweigert unter Zeugen die Unterschrift der Transportverweigerung; "}
-        ]
-    ]
-},
-{
-    "label": "\"Keine akut hilfebedürftige Person\"",
-    "items": [
-        [
-            {"type": "def", "del": 1, "cat": "txt", "label": "keine Beschw.", "text": "es bestünden keinerlei Beschwerden; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Alkoholk.", "text": "habe Alkohol konsumiert; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "eingeschl.", "text": "sei eingeschlafen; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "RD d. Dritte alarm.", "text": "der Rettungsdienst sei ohne Nachfrage / Einverständnis durch Dritte alarmiert worden; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "wünscht k. Unters.", "text": "wünscht keine weitere Untersuchung; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "verl. Einsatzort unabg.", "text": "verlässt unabgesprochen den Einsatzort; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "gang- / stands.", "text": "gang- und standsicher; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "k. Entzug", "text": "kein Anhalt für ein Entzugssyndrom; "}
-        ]
-    ]
-},
-{
-    "label": "Leblose Person / keine Reanimation",
-    "items": [
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Auffindesituation", "text": "\nAuffindesituation: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Rea. Pflege", "text": "bei Eintreffen Herzdruckmassage durch Pflege; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Rea. KattRetter", "text": "bei Eintreffen Herzdruckmassage durch KattRetter; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Rea. RD", "text": "bei Eintreffen Herzdruckmassage durch Rettungsdienst; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "k. Abschiedsbr.", "text": "kein Abschiedsbrief vorhanden; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Abschiedsbr.", "text": "Abschiedsbrief vorhanden; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "langs. Verschl.", "text": "langsame Verschlechterung; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "unerw. Sit.", "text": "unerwartete Situation; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Leichenschau", "text": "\nLeichenschau: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Apnoe", "text": "Apnoe; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "pulslos", "text": "pulslos; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Pup. eng", "text": "Pupillen eng; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Pup. mittelw.", "text": "Pupillen mittelweit; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Pup. weit", "text": "Pupillen weit; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Pup. entr.", "text": "Pupillen entrundet; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "lichtstarr", "text": "lichtstrarr; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Leichenstarre:", "text": "Leichenstarre: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Kiefer", "text": "Kiefermuskulatur; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Extrem.", "text": "Extremitäten; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Leichenflecken:", "text": "Leichenflecken: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "vorhanden", "text": "vorhanden; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "n. vorhanden", "text": "nicht vorhanden; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "d. Schwerkr. folg.", "text": "der Schwerkraft folgend; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "n. d. Schwerkr. folg.", "text": "nicht der Schwerkraft folgend; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Todesursache", "text": "\nTodesursache: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "ungewiss", "text": "ungewiss; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "k. Anh. f. unnat.", "text": "kein Anhalt für eine unnatürliche Todesursache; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Anh. f. unnat.", "text": "Anhalt für eine unnatürliche Todesursache; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Procedere", "text": "\nProcedere: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "KVD inf.", "text": "kassenärztlichen Vertretungsdienst informiert; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "POL inf.", "text": "Polizei informiert; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Ü. an KVD", "text": "Übergabe an den kassenärztlichen Vertretungsdienst; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Ü. an Bestatt.pfl. Ang.", "text": "Übergabe an bestattungspflichtige Angehörige und Erläuterung des weiteren Vorgehens; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Ü. an RD", "text": "Übergabe der Einsatzstelle an den Rettungsdienst; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Ü. an POL", "text": "Übergabe der Einsatzstelle an die Polizei; "}
         ]
     ]
 }]
