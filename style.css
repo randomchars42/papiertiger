@@ -300,6 +300,10 @@ main {
     align-items: flex-end;
 }
 
+#Header>#HelpButton {
+    margin: 0;
+}
+
 #Header span:first-child {
 }
 
@@ -324,8 +328,15 @@ main {
     /**
      *   100 %                      window height
      * - (2 * padding + 1rem)       height of the button bar at the bottom
-     */
+     *
     height: calc(100% - 2 * var(--padding) - 1rem);
+    */
+    /**
+     *   100 %                      window height
+     * - (2 * padding + 1rem)       height of the button bar at the bottom
+     * - (2 * padding * 0.5)        NEW: padding added for touch
+     */
+    height: calc(100% - 3 * var(--padding) - 1rem);
 }
 
 #ListModal {
@@ -347,27 +358,6 @@ main {
     width: 80%;
 }
 
-@media (hover: none) {
-    .control,
-    .label,
-    .text_container {
-        margin: calc(var(--padding) / 2);
-    }
-
-    #MainOutput {
-        /**
-         *   100 %                      window height
-         * - (2 * padding + 1rem)       height of the button bar at the bottom
-         * - (2 * padding * 0.5)        NEW: padding added for touch
-         */
-height: calc(100% - 3 * var(--padding) - 1rem);
-    }
-
-    #Header>#HelpButton {
-        margin: 0;
-    }
-}
-
 /* controls */
 
 .pane {
@@ -382,6 +372,7 @@ height: calc(100% - 3 * var(--padding) - 1rem);
 .control,
 .label {
     padding: var(--padding);
+    margin: calc(var(--padding) / 2);
     max-width: calc(var(--width-base) * 5);
     min-width: calc(var(--width-base) * 1.8);
     color: var(--color-on-def);
@@ -443,6 +434,7 @@ textarea {
 
 .text_container {
     padding: var(--padding);
+    margin: calc(var(--padding) / 2);
 }
 
 .text_highlight {
