@@ -607,8 +607,23 @@
             {"type": "def", "del": 1, "cat": "txt", "label": "Empf. Metamizol", "text": "\n\nEmpfehlung:\nbei auftretenden Symptomen eines Infektes und Fieber Blutbildkontrolle nach Metamizolgabe; "}
         ],
         [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Analgosedierung:", "text": "\n\nAnalgesedierung: "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "kurze Aufkl.", "text": "mündliche Aufklärung über das geplante Prozedere und anzunehmende Verläufe in gebotener Kürze und Einholen der Zustimmung; "}
+            {"type": "def", "del": 1, "cat": "cap", "label": "Analgosedierung:", "text": "\n\nAnalgosedierung: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "kurze Aufkl.", "text": "\nmündliche Aufklärung über das geplante Prozedere und anzunehmende Verläufe in gebotener Kürze und Einholen der Zustimmung; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Esketamin ...", "text": "\nEsketamin "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Fentanyl ....", "text": "\nFentanyl "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Midazolam ...", "text": "\nMidazolam "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Propofol ...", "text": "\nPropofol "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... XXX mg ...", "text": " XXXX mg "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... 100 mg ...", "text": " 100 mg "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... XXX µg ...", "text": " XXXX µg "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... i.v.", "text": " i.v.; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... i.o.", "text": " i.o.; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... rect.", "text": " rectal; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "... MAD", "text": " über MAD; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Relaxierung:", "text": "\nRelaxierung: "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Rocuronium", "text": "Rocuronium XXXX mg i.v.; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "txt", "label": "ET Intubation:", "text": "\n\nEndotracheale Intubation: "},
@@ -622,7 +637,7 @@
             {"type": "ext", "del": 1, "cat": "txt", "label": "CL 3", "text": "Sichtbedingungen Grad 3 nach Cormack & Lehane; "},
             {"type": "ext", "del": 1, "cat": "txt", "label": "CL 4", "text": "Sichtbedingungen Grad 4 nach Cormack & Lehane; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Belüft. ok", "text": "seitengleich belüftet; kein Geräusch epigastrisch; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Kapno. ok", "text": "prompte kapnographische Bestätigung der korrekten Lage; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Kapno. ok", "text": "prompt regelrechte Kurve in der Kapnographie; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Zähne ok", "text": "Zahnstatus nach Intubation unverändert; "}
         ]
     ]
