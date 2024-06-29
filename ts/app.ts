@@ -66,6 +66,7 @@ export const loadData = (label: string, name: string): void => {
         clearInputElements(document.getElementById('MainInput')!);
         generateInputElements(data, document.getElementById('MainInput')!);
         UI.displayCurrentListItem(label);
+        UI.toggleExtended();
     })
     .catch((reason: any): void => {
         console.error(reason);

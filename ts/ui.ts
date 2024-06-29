@@ -125,8 +125,24 @@ export const toggleClass = (selector: string, classname: string): void => {
     });
 };
 
+export const addClass = (selector: string, classname: string): void => {
+    document.querySelectorAll(selector).forEach((element: Element): void => {
+        element.classList.add(classname);
+    });
+};
+
+export const removeClass = (selector: string, classname: string): void => {
+    document.querySelectorAll(selector).forEach((element: Element): void => {
+        element.classList.remove(classname);
+    });
+};
+
 export const toggleExtended = (): void => {
-    toggleClass('.item_ext', 'hidden');
+    if ((document.getElementById('ExtendedToggle') as HTMLInputElement).checked) {
+        removeClass('.item_ext', 'hidden');
+    } else {
+        addClass('.item_ext', 'hidden');
+    }
 };
 
 let colourState: number = 1;
