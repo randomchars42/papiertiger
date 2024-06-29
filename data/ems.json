@@ -56,7 +56,7 @@
             {"type": "ext", "del": 0, "cat": "int", "label": "Wendel", "text": "Atemwegssicherung mittels Wendel-Tubus; "},
             {"type": "ext", "del": 0, "cat": "int", "label": "Guedel", "text": "Atemwegssicherung mittels Guedel-Tubus; "},
             {"type": "ext", "del": 0, "cat": "int", "label": "SGA", "text": "Atemwegssicherung mittels supraglottischer Atemwegshilfe; "},
-            {"type": "ext", "del": 0, "cat": "int", "label": "ET", "text": "Endotracheale Intubation; "},
+            {"type": "ext", "del": 0, "cat": "int", "label": "ET", "text": "endotracheale Intubation; "},
             {"type": "ext", "del": 0, "cat": "pat", "label": "verlegt", "text": "verlegt; "},
             {"type": "ext", "del": 0, "cat": "pat", "label": "Hustenreiz", "text": "Hustenreiz; "},
             {"type": "ext", "del": 0, "cat": "int", "label": "Heimlich", "text": "Einsatz des Heimlich-Manövers; "},
