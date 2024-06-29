@@ -36,6 +36,10 @@
             {"type": "def", "del": 1, "cat": "pat", "label": "in Ruhe", "text": "in Ruhe; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "atemabh.", "text": "atemabhängig; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "beweg.-abh.", "text": "bewegungsabhängig; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "stechend", "text": "stechend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "drückend", "text": "drückend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "brennend", "text": "brennend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "reißend", "text": "reißend; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "kein Fieber", "text": "kein Fieber; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "Fieber", "text": "Fieber seit XXXX; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "kein Schüttelfrost", "text": "kein Schüttelfrost; "},
@@ -50,8 +54,19 @@
             {"type": "def", "del": 1, "cat": "pat", "label": "kein Stuhl", "text": "kein Stuhlgang seit XXXX; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "kein Bauchschmerz", "text": "kein Bauchschmerz; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "Bauchschmerz", "text": "Bauchschmerz seit XXXX; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "stechend", "text": "stechend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "kolikartig", "text": "kolikartig; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "kein Kopfschmerz", "text": "kein Kopfschmerz; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Kopfschmerz", "text": "Kopfschmerz seit XXXX; "}
+            {"type": "def", "del": 1, "cat": "pat", "label": "Kopfschmerz", "text": "Kopfschmerz seit XXXX; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "stechend", "text": "stechend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "drückend", "text": "drückend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "brennend", "text": "brennend; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "li.", "text": "linksseitig; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "re.", "text": "rechtsseitig; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "frontal", "text": "frontal; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "okzipital", "text": "okzipital; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Photophob.", "text": "Photophobie; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Phonophob.", "text": "Phonophobie; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Allergien:", "text": "\nAllergien: "},
@@ -70,6 +85,7 @@
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Medikation:", "text": "\nMedikation: "},
             {"type": "def", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "unbek.", "text": "unbekannt; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "BMP", "text": "s. Bundeseinheitlichen Medkationsplan / anbei; "},
@@ -79,6 +95,7 @@
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Vorerkrankungen:", "text": "\nVorerkrankungen: "},
             {"type": "def", "del": 0, "cat": "ref", "label": "keine", "text": "keine; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "unbek.", "text": "unbekannt; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
