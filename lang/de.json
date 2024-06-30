@@ -1,0 +1,21 @@
+{
+    "lang": "de",
+    "region": [{
+        "region": "de-DE",
+        "dict": {
+            "page_title": "PAPIERTIGER - DOKUMENTATIONSHELFER",
+            "page_noscript": "Um diese Anwendung nutzen zu können, muss Javascript aktiviert sein. Der komplette Code ist kurz und OpenSource und kann bei Bedarf eingesehen werden.",
+            "page_about": "PAPIERTIGER\nDOKUMENTATIONSHELFER\n\nCopyright 2024, Eike Kühn\nApache License 2.0",
+            "app_title": "PAPIERTIGER",
+            "app_subtitle": "DOKUMENTATIONSHELFER",
+            "control_about": "?",
+            "control_copy": "⎘",
+            "control_copied": "☑",
+            "control_clear": "⌧",
+            "control_newline": "↵",
+            "control_show_extended": "🔾",
+            "confirmation_clear": "Willst Du wirklich den INhalt des Feldes löschen?"
+        }
+    }
+    ]
+}

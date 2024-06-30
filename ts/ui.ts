@@ -1,6 +1,27 @@
 /**
  */
 import * as APP from './app.js';
+import * as TR from './translate.js';
+
+export type ListItem = {
+    name: string,
+    label: string,
+}
+
+export type Item = {
+    type: string,
+    del: number,
+    cat: string,
+    label: string,
+    text: string,
+}
+
+export type ItemRow = Item[]
+
+export type ItemCollection = {
+    label: string,
+    items: ItemRow[],
+}
 
 const getMainInput = (): HTMLFormElement => {
     return document.getElementById('MainInput') as HTMLFormElement;
@@ -13,6 +34,34 @@ const getMainOutput = (): HTMLTextAreaElement => {
 const getCopyStatus = (): HTMLTextAreaElement => {
     return document.getElementById('CopyStatus') as HTMLTextAreaElement;
 };
+
+export const init = (): void => {
+    console.log('initiating ..');
+
+    document.getElementById('ListItemDisplay')!.onclick = showList;
+    document.getElementById('ListModal')!.onclick = hideList;
+    document.getElementById('CopyButton')!.onclick = copyToClipboard;
+    document.getElementById('ClearButton')!.onclick = (): void => {
+        if (window.confirm(TR.tr('confirmation_clear'))) {
+            getMainOutput().value = '';
+        }
+    };
+    document.getElementById('NewLineButton')!.onclick = (): void => {
+        addToOutput('\n');
+    };
+    (document.getElementById('ExtendedToggle') as HTMLInputElement).checked =
+        false;
+    document.getElementById('ExtendedToggle')!.onclick = toggleExtended;
+    document.getElementById('ColorButton')!.onclick = toggleColourMode;
+    document.getElementById('HelpButton')!.onclick = (): void => {
+        alert(TR.tr('page_about'));
+    };
+    getMainOutput().oninput = hideCopySuccess;
+    getMainOutput().blur();
+    getMainInput().onsubmit = (event: Event) => {event?.preventDefault()};
+    hideCopySuccess();
+    console.log('UI initiated.')
+}
 
 const addToOutput = (text: string): void => {
     const output: HTMLTextAreaElement = getMainOutput();
@@ -56,6 +105,31 @@ const hideCopySuccess = (): void => {
     getCopyStatus().style.display = 'none';
 };
 
+export const clearInputElements = (parent: HTMLElement): void => {
+    parent.textContent = '';
+}
+
+export const generateInputElements = (collection: ItemCollection[],
+                                      parent: HTMLElement): void => {
+    collection.forEach((collection: ItemCollection): void => {
+        addHeading(collection.label, parent);
+        collection.items.forEach((itemrow: Item[]): void => {
+            const row = addRow(parent);
+            itemrow.forEach((item: Item): void => {
+                addItem(item.label, item.text, row, item.type, item.del,
+                        item.cat);
+            });
+        });
+    });
+};
+
+export const generateListElements = (list: ListItem[],
+                                     parent: HTMLElement): void => {
+    list.forEach((item: ListItem): void => {
+        addListItem(item.label, item.name, parent);
+    });
+};
+
 export const addHeading = (label: string, parent: HTMLElement): void => {
     const heading: HTMLHeadingElement = document.createElement('h1');
     heading.textContent = label;
@@ -64,7 +138,8 @@ export const addHeading = (label: string, parent: HTMLElement): void => {
 };
 
 export const addItem = (label: string, text: string, parent: HTMLElement,
-                        type: string = 'def', del: number = 0, cat: string = 'ref'): void => {
+                        type: string = 'def', del: number = 0,
+                        cat: string = 'ref'): void => {
     const item: HTMLButtonElement = document.createElement('button');
     item.textContent = label;
     item.title = text;
@@ -169,31 +244,4 @@ export const toggleColourMode = (): void => {
         document.querySelector('html')!.classList.remove('dark_mode');
     }
 };
-
-export const init = (): void => {
-    console.log('initiating UI...');
-
-    document.getElementById('ListItemDisplay')!.onclick = showList;
-    document.getElementById('ListModal')!.onclick = hideList;
-    document.getElementById('CopyButton')!.onclick = copyToClipboard;
-    document.getElementById('ClearButton')!.onclick = (): void => {
-        if (window.confirm("Do you really want to clear the field?")) {
-            getMainOutput().value = '';
-        }
-    };
-    document.getElementById('NewLineButton')!.onclick = (): void => {
-        addToOutput('\n');
-    };
-    (document.getElementById('ExtendedToggle') as HTMLInputElement).checked = false;
-    document.getElementById('ExtendedToggle')!.onclick = toggleExtended;
-    document.getElementById('ColorButton')!.onclick = toggleColourMode;
-    document.getElementById('HelpButton')!.onclick = (): void => {
-        alert('PAPIERTIGER\nDOKUMENTATIONSHELFER\n\nCopyright 2024, Eike Kühn\nApache License 2.0');
-    };
-    getMainOutput().oninput = hideCopySuccess;
-    getMainOutput().blur();
-    getMainInput().onsubmit = (event: Event) => {event?.preventDefault()};
-    hideCopySuccess();
-    console.log('UI initiated.')
-}
 

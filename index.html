@@ -4,35 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="dark light">
-    <title>PAPIERTIGER - Textbausteine für Dokumentation im Telegram-Stil</title>
+    <title data-i18n-key="page_title">PAPIERTIGER - Textbausteine für Dokumentation im Telegram-Stil</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="icon.svg" />
     <script type="module" src="js/app.js"></script>
 </head>
 <body>
-    <noscript>To use this site, please enable JavaScript.</noscript>
+    <noscript data-i18n-key="page_noscript">To use this site, please enable JavaScript.</noscript>
     <main>
         <header id="Header">
-            <span><strong>PAPIERTIGER</strong><br />DOKUMENTATIONSHELFER</span>
+            <span>
+                <strong data-i18n-key="app_title">PAPIERTIGER</strong><br />
+                <span data-i18n-key="app_subtitle">DOKUMENTATIONSHELFER</span>
+            </span>
             <span id="ListItemDisplay" class="text_container"></span>
-            <button id="HelpButton" class="control">?</button>
+            <button id="HelpButton" class="control" data-i18n-key="control_about">?</button>
         </header>
         <form id="MainInput">
         </form>
         <div id="Results">
             <textarea id="MainOutput"></textarea>
             <div class="pane">
-                <button id="NewLineButton" class="control">&#x21B5;</button>
-                <button id="ClearButton" class="control">&#x2327;</button>
-                <button id="CopyButton" class="control">&#x2398;
-                    <output id="CopyStatus">&#x2611;</output>
+                <button id="NewLineButton" class="control" data-i18n-key="control_newline">&#x21B5;</button>
+                <button id="ClearButton" class="control item_pat" data-i18n-key="control_clear">&#x2327;</button>
+                <button id="CopyButton" class="control item_ref" data-i18n-key="control_copy">&#x2398;
+                    <output id="CopyStatus" data-i18n-key="control_copied">&#x2611;</output>
                 </button>
                 <span class="control">
                     <input type="checkbox" id="ExtendedToggle" name="ExtendedToggle" value="show" />
-                    <label for="ExtendedToggle">&#x2636;<!--&#x2795;--></label>
+                    <label for="ExtendedToggle" data-i18n-key="control_show_extended">&#x2636;<!--&#x2795;--></label>
                 </span>
-                <button id="ColorButton" class="control">&#128318;</button>
+                <button id="ColorButton" class="control" data-i18n-key="control_change_colour">&#128318;</button>
             </div>
         </div>
     </main>

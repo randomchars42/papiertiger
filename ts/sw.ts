@@ -14,12 +14,14 @@ const APP_STATIC_RESOURCES = [
     "../style.css",
     "../js/app.js",
     "../js/ui.js",
+    "../js/translate.js",
     "../js/constants.js",
     "../icon.svg",
     "../manifest.json",
     "../data/list.json",
     "../data/ems.json",
     "../data/er.json",
+    "../lang/de.json",
 ];
 
 self.addEventListener('install', event => {
