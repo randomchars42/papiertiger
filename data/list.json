@@ -1,11 +1,11 @@
 {
     "list": [
         {
-            "name": "ems",
+            "name": "rd",
             "label": "Rettungsdienst"
         },
         {
-            "name": "er",
+            "name": "zna",
             "label": "Notaufnahme"
         }
     ]
