@@ -19,9 +19,10 @@ const APP_STATIC_RESOURCES = [
     "../icon.svg",
     "../manifest.json",
     "../data/list.json",
-    "../data/ems.json",
-    "../data/er.json",
+    "../data/rd.json",
+    "../data/zna.json",
     "../lang/de.json",
+    "../lang/en.json",
 ];
 
 self.addEventListener('install', event => {

@@ -1,0 +1,21 @@
+{
+    "lang": "en",
+    "region": [{
+        "region": "en-GB",
+        "dict": {
+            "page_title": "PAPIERTIGER - DOCUMENTATION made easy",
+            "page_noscript": "In order to use this app javacript needs to be enabled.",
+            "page_about": "PAPIERTIGER\nDOCUMENTATION\n\nCopyright 2024, Eike Kühn\nApache License 2.0",
+            "app_title": "PAPIERTIGER",
+            "app_subtitle": "DOCUMENTATION",
+            "control_about": "?",
+            "control_copy": "⎘",
+            "control_copied": "☑",
+            "control_clear": "⌧",
+            "control_newline": "↵",
+            "control_show_extended": "🔾",
+            "confirmation_clear": "Do you really want to delete the text?"
+        }
+    }
+    ]
+}
