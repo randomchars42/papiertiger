@@ -1,14 +1,18 @@
-# PAPIERTIGER - DOCUMENTATION TOOL
+# PAPIERTIGER - DOKUMENTATIONSHELFER
 
-[🇩🇪](README.de.md)
+[🇬🇧](README.md)
 
-Tool to "point & click" your documentation, especially on touch devices.
+Baukasten für ([notfall-] medizinische) Dokumentation. Setze Dokumentation durch
+Auswahl vordefinierter Phrasen zusammen!
 
-The data / text won't leave your browser - the magic happens locally.
+Der Text / die Daten bleiben in Deinem Browser, nichts wird ins Internet
+geschickt.
 
-Phrases to choose from can be configured in a single or multiple `JSON` files.
+Dokumentationsbausteine können in einer oder mehrerer `JSON`-Dateien
+konfiguriert werden.
 
-The interface can also be translated via a simple `JSON` file.
+Die Oberfläche kann, falls notwendig, ebenfalls mit Hilfe einer einfachen
+`JSON`-Datei übersetzt werden.
 
 ![PAPIERTIGER - DOKUMENTATIONSHELFER, Demo](https://www.knopfdruckmassage.de/apps/site/media/images/papiertiger_short.gif)
 
@@ -18,17 +22,18 @@ The interface can also be translated via a simple `JSON` file.
 
 ## Dependencies
 
-* **none**: no libraries are used - only plain `HTML` + `TypeScript` + `JSON`
+* **keine**: es werden keine Libraries / Frameworks o.ä. eingebunden
 
 ## Building
 
 ```bash
-# simple Python server for testing purposes (0.0.0.0:8000)
+# einfacher Python-Server (0.0.0.0:8000) zum Testen
 make serve
 
 
-# transpiler for TypeScript (`tsc`)
-# watches `./ts/` and transpiles TypeScript to Javascript (`./js/`)
+# startet `tsc`
+# beobachtet `./ts/` und übersetzt geänderte TypeScript-Dateien in
+# Javascript (`./js/`)
 make transpile
 ```
 
@@ -37,43 +42,41 @@ make transpile
 * `tsc` -> TypeScript compiler
 
 Optional:
-* `Python3` -> server for testing
-* `Apache2` -> use headers defined in `.htaccess` if necessary for your
-  deployment
-* `PHP` -> in case you want to use the very basic CSP endpoint (`csp_report.php`)
+* `Python3` -> Testserver
+* `Apache2` -> Server mit Headern via `.htaccess`
+* `PHP` -> falls zunächst einmal `csp_report.php` genutzt werden soll
 
 ## Hosting
 
-* runs on every basic web server no `npm`, `php` or anything required for basic
-  usage
-* some browsers will require `Conten Security Policy headers` to be set for use
-  as `Progressive Web App` those might be defined in (`.htaccess`)[/.htaccess]
-  if you are on an Apache2` server
-* to offer an csp-report endpoint an optional
-  (`/csp\_report.php`)[/csp_report.php] can be found in the repository;
-  incoming `csp violation reports` will be written to a plain text
-  file (`/report`) ; the file will be truncated when growing to > 2 MB
+* funktioniert auf jedem einfachen Webserver
+* für die WebApp-Funktionalität werden je nach Browser diverse
+  Sicherheitsmerkmale als `Header` benötigt, diese sind momentan in
+  der `.htaccess` definiert und benötigen somit einen 'Apache2'-server
+* um den csp-report endpoint zu bedienen ist hier optional
+  `/csp_report.php` enthalten; eingehende `csp violation reports` werden
+  in `/report` abgelegt; wächst die Datei auf > 2 MB, werden alle Einträge vor
+  dem aktuellen Eintrag gelöscht
 
-## Adding a new collection of phrases
+## Hinzufügen neuer Textbausteine
 
-### Add a new `JSON` file under (`/data`)[/data]:
+### Eine neue `JSON`-Datei unter `/data` anlegen:
 
-**Structure:**
+**Struktur:**
 
 ```json
 [{
-    "label": "Heading",
+    "label": "Überschrift",
     "items": [
         [
-            {"type": "def", "del": 0, "cat": "cap", "label": "First: ", "text": "\nFirst: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "item 1", "text": "some text; "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "item 2", "text": "some other text; "},
-            {"type": "ext", "del": 0, "cat": "pat", "label": "item 3", "text": "rarely needed phrase; "}
+            {"type": "def", "del": 0, "cat": "cap", "label": "Punkt 1: ", "text": "\nPunkt 1: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Item 1", "text": "Text; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "Item 2", "text": "noch mehr Text; "},
+            {"type": "ext", "del": 0, "cat": "pat", "label": "Item 3", "text": "selten genutzter Text; "}
             ...
         ],
         [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Second:", "text": "\nSecond:"},
-            {"type": "def", "del": 1, "cat": "txt", "label": "item 4", "text": "and so forth; "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "Punkt 2:", "text": "\nPunkt 2:"},
+            {"type": "def", "del": 1, "cat": "txt", "label": "usw.", "text": "und so weiter; "},
             ...
         ]
     ]
@@ -84,13 +87,14 @@ Optional:
 
 **type**:
 
-* `def`ault: button for item is always visible
-* `ext`ended: button for item is only visible in extended mode
+* `def`ault: Schaltfläche ist immer sichtbar
+* `ext`ended: Schaltfläche ist nur in der erweiterten Ansicht sichtbar
 
 **del**:
 
-* `0`: the item can be used multiple times
-* `1`: clicking on the item a second time removes the item from the text
+* `0`: dieser Textbaustein kann an mehreren Stellen auftauchen
+* `1`: wird die Schaltfläche ein zweites Mal gedrückt, wird der Text aus der
+  Dokumentation gelöscht (**Achtung**: es wird das erste Vorkommen des Texts gelöscht!)
 
 **cat**:
 
@@ -129,7 +133,7 @@ Text that will be added to the documentation once the button is pressed
 
 This is currently supported but not elegantly solved:
 
-### Add a new language file under `/lang`:
+### Add a new language file under `/lang`
 
 Add a new language file (`JSON`) under (`/lang`)[/lang] and name it using the
 proper language code (lower case, two letters), e.g., `en.json`.
@@ -163,7 +167,7 @@ proper language code (lower case, two letters), e.g., `en.json`.
 You may define multiple regions per language. If the requested region can't be
 found the first available region will be used.
 
-### Setting the language:
+### Setting the language
 
 Currently, there is no way for the user to choose the language.
 
