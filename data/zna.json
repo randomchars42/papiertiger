@@ -88,7 +88,7 @@
             {"type": "def", "del": 0, "cat": "txt", "label": "unbek.", "text": "unbekannt; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "PÜB", "text": "s. Pflegeüberleitungsbogen / anbei; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "Arztbrief", "text": "s. Arztbrief / anbei; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "BMP", "text": "s. Bundeseinheitlichen Medkationsplan / anbei; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "BMP", "text": "s. Bundeseinheitlichen Medikationsplan / anbei; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "u.a. Antikoagulation", "text": "u.a. Antikoagulation mit XXXX; "}
         ],
@@ -210,14 +210,16 @@
             {"type": "ext", "del": 1, "cat": "txt", "label": "PG 5", "text": "Pflegegrad 5; "}
         ],
         [
-            {"type": "ext", "del": 1, "cat": "cap", "label": "Verfügung:", "text": "\nPatientinnenverfügung: "},
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Patient*Innenwille:", "text": "\nPatient*Innenwille: "},
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Verfügung:", "text": "\nPatient*Innenverfügung: "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "vorh. n. vorl.", "text": "vorhanden, nicht vorliegend; "},
             {"type": "ext", "del": 0, "cat": "txt", "label": "keine", "text": "keine; "},
-            {"type": "ext", "del": 0, "cat": "txt", "label": "Bild", "text": "s. Bild / anbei; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Ang. bespr.", "text": "mit Angehörigen besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuerin bespr.", "text": "mit Betreuerin besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuer bespr.", "text": "mit Betreuer besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patientin bespr.", "text": "mit Patientin besprochen; "},
-            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patient bespr.", "text": "mit Patient besprochen; "},
+            {"type": "ext", "del": 0, "cat": "txt", "label": "Akte", "text": "s. Akte / anbei; "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Ang. bespr.", "text": "mit Angehörigen besprochen: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuerin bespr.", "text": "mit Betreuerin besprochen: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Betreuer bespr.", "text": "mit Betreuer besprochen: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patientin bespr.", "text": "mit Patientin besprochen: "},
+            {"type": "ext", "del": 1, "cat": "txt", "label": "m. Patient bespr.", "text": "mit Patient besprochen: "},
             {"type": "ext", "del": 1, "cat": "ref", "label": "lebensfreude", "text": "habe viel Freude am Leben; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "lebensmüde", "text": "sei des Lebens überdrüssig; "},
             {"type": "ext", "del": 1, "cat": "ref", "label": "Teilnahme", "text": "nehme am Leben in der Umgebung Teil; "},
@@ -270,6 +272,7 @@
             {"type": "def", "del": 0, "cat": "ref", "label": "kein Stridor", "text": "kein Stridor; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "Stridor", "text": "Stridor; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "nicht gefährdet", "text": "nicht gefährdet; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "pot. gefährdet", "text": "potenziell gefährdet; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "gefährdet", "text": "gefährdet; "},
             {"type": "ext", "del": 0, "cat": "pat", "label": "Schwellung Gesicht", "text": "Schwellung des Gesichts; "},
             {"type": "ext", "del": 0, "cat": "pat", "label": "Schwellung Lippen", "text": "Schwellung der Lippen; "},
@@ -296,16 +299,6 @@
             {"type": "def", "del": 0, "cat": "pat", "label": "Tachydyspnoe", "text": "Tachydyspnoe; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "stgl.", "text": "seitengleich belüftet; "},
             {"type": "ext", "del": 0, "cat": "ref", "label": "symm.", "text": "symmetrische Thoraxexkursionen; "},
-            {"type": "ext", "del": 0, "cat": "pat", "label": "asymm.", "text": "asymmetrische Thoraxexkursionen; "},
-            {"type": "ext", "del": 0, "cat": "pat", "label": "re. > li.", "text": "rechts höher als links; "},
-            {"type": "ext", "del": 0, "cat": "pat", "label": "li. > re.", "text": "links höher als rechts; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "paradox", "text": "paradoxe Thoraxexkursionen; "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "keine RG", "text": "keine Rasselgeräusche; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "RG", "text": "Rasselgeräusche; "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "kein Giemen", "text": "kein Giemen; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "Giemen", "text": "Giemen; "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "kein Brummen", "text": "kein Brummen; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "Brummen", "text": "Brummen; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "abg. AG re.", "text": "abgeschwächtes Atemgeräusch rechts; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "abg. AG li.", "text": "abgeschwächtes Atemgeräusch links; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "kein AG re.", "text": "kein Atemgeräusch rechts; "},
@@ -316,6 +309,16 @@
             {"type": "ext", "del": 0, "cat": "int", "label": "Thorakost. li.", "text": "Thorakostomie links; "},
             {"type": "ext", "del": 0, "cat": "int", "label": "Drain. re.", "text": "Anlage einer Thoraxdrainage rechts; "},
             {"type": "ext", "del": 0, "cat": "int", "label": "Drain. li.", "text": "Anlage einer Thoraxdrainage links; "},
+            {"type": "ext", "del": 0, "cat": "pat", "label": "asymm.", "text": "asymmetrische Thoraxexkursionen; "},
+            {"type": "ext", "del": 0, "cat": "pat", "label": "re. > li.", "text": "rechts höher als links; "},
+            {"type": "ext", "del": 0, "cat": "pat", "label": "li. > re.", "text": "links höher als rechts; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "paradox", "text": "paradoxe Thoraxexkursionen; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "keine RG", "text": "keine Rasselgeräusche; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "RG", "text": "Rasselgeräusche; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "kein Giemen", "text": "kein Giemen; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Giemen", "text": "Giemen; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "kein Brummen", "text": "kein Brummen; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Brummen", "text": "Brummen; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "Thorax stabil", "text": "Thorax in 2 Ebenen stabil; "}
         ],
         [
@@ -406,6 +409,60 @@
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Status:", "text": "\n\nErgänzender Status: "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "AZ:", "text": "\nAllgemeinzustand: "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "PZ:", "text": "\nPflegezustand: "},
+            {"type": "def", "del": 0, "cat": "red", "label": "unauff", "text": "unauffällig; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "akut ...", "text": "akut "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "stark ...", "text": "stark "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "chron. ...", "text": "chronisch "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "reduziert", "text": "reduziert; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "EZ:", "text": "\nErnährungszustand: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "unauffällig", "text": "unauffällig; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "stark ...", "text": "stark "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "reduziert", "text": "reduziert; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "kachekt.", "text": "kachektisch; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "übergew.", "text": "übergewichtig; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "adipös", "text": "adipös; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Größe:", "text": "\nKörpergröße: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "150 cm", "text": "150 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "155 cm", "text": "155 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "160 cm", "text": "160 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "165 cm", "text": "165 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "170 cm", "text": "170 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "175 cm", "text": "175 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "180 cm", "text": "180 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "185 cm", "text": "185 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "190 cm", "text": "190 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "195 cm", "text": "195 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "200 cm", "text": "200 cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "X cm", "text": "XXXX cm; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "anamn.", "text": "anamnestisch; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "gesch.", "text": "geschätzt; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "Gewicht:", "text": "\nKörpergewicht: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "50 kg", "text": "50 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "55 kg", "text": "55 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "60 kg", "text": "60 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "65 kg", "text": "65 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "70 kg", "text": "70 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "75 kg", "text": "75 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "80 kg", "text": "80 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "85 kg", "text": "85 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "90 kg", "text": "90 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "95 kg", "text": "95 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "100 kg", "text": "100 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "110 kg", "text": "110 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "120 kg", "text": "120 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "130 kg", "text": "130 kg; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "anamn.", "text": "anamnestisch; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "gesch.", "text": "geschätzt; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Kopf / Hals:", "text": "\nKopf / Hals: "},
@@ -625,8 +682,9 @@
             {"type": "def", "del": 0, "cat": "pat", "label": "AVB 2 Typ 1", "text": "AV-Block 2 Typ 1 nach Mobitz; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "AVB 2 Typ 2", "text": "AV-Block 2 Typ 2 nach Mobitz; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "AVB 3", "text": "AV-Block 3; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "RSB", "text": "RechtsschenkelBlock; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "LSB", "text": "LinksschenkelBlock; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "ink. ...", "text": "inkompletter "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "RSB", "text": "Rechtsschenkelblock; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "LSB", "text": "Linksschenkelblock; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "LAHB", "text": "linksanteriorer Hemiblock; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "bifasz. Bl.", "text": "bifaszikulärer Block; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "STEMI", "text": "ST-Streckenhebungsinfarkt (STEMI); "}
@@ -749,7 +807,7 @@
             {"type": "def", "del": 1, "cat": "pat", "label": "Wandödem bei f. Fl.", "text": "Gallenblasenwandödem bei umgebender freier Flüssigkeit; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "Zwiebelschale", "text": "Zwiebelschalenphnomen; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "chronische Wandver.", "text": "vom Aspekt her chronische Wandveränderungen; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "DHC X cm", "text": "DHC XXX cm; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "DHC X mm", "text": "DHC XXXX mm; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "DHC schlank", "text": "DHC schlank; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "DHC erweitert", "text": "DHC erweitert; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "DHC Z.n. CCE", "text": "DHC bei Z.n. Cholezystekomie unauffällig erweitert; "}
@@ -809,7 +867,7 @@
             {"type": "def", "del": 0, "cat": "txt", "label": "X cm", "text": "maximal XXXX cm; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "unauff. Mot.", "text": "unauffällige Motilität; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "Paral.", "text": "Paralyse; "},
-            {"type": "def", "del": 1, "cat": "pat", "label": "Hypermot.", "text": "PHypermotolität; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "Hypermot.", "text": "Hypermotolität; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "pendelper.", "text": "Pendelperistaltik; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "DW n. verd.", "text": "Darmwände in orientierender Untersuchung nicht verdickt; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "Appendix unauff.", "text": "Appendix unauffällig; "},
@@ -881,22 +939,8 @@
             {"type": "def", "del": 1, "cat": "txt", "label": "Schockraum", "text": "\nVersorgung im Schockraum; "}
         ],
         [
-            {"type": "def", "del": 1, "cat": "txt", "label": "Indik. z. stat. Aufn.", "text": "\nIndikation zur stationären Aufnahme bei XXXX; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "Aufkl. ü. stat. Aufn.", "text": "\nAufklärung über stationäre Aufnahme erfolgt; "},
-            {"type": "def", "del": 1, "cat": "txt", "label": "k. Aufkl. ü. stat. Aufn. mögl.", "text": "\nAufklärung über stationäre Aufnahme bei XXXX nicht möglich; "}
-        ],
-        [
-            {"type": "def", "del": 1, "cat": "cap", "label": "24 h Behandlungspl.:", "text": "\n24-Stunden-Behandlungsplan: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Monit.", "text": "\nMonitoring; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. X", "text": "\nlaborchemische Verlaufskontrolle der XXXX-Konzentration; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. hsTnT", "text": "\nlaborchemische Verlaufskontrolle der hsTnT-Konzentration; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Rehydr.", "text": "\nRehydrierung; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Bildg.", "text": "\nBildgebung des XXXX; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "rad. Verlaufskontr.", "text": "\nradiologische Verlaufskontrolle des XXXX; "}
-        ],
-        [
             {"type": "def", "del": 1, "cat": "cap", "label": "initial:", "text": "\n\ninitial: "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "A-E unauff.", "text": "\nA - E unauffällig; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "VP stabil.", "text": "\nVitalparameter stabil; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "hämodynamisch kompr.", "text": "\nhämodynamisch kompromittiert; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "resp. kompr.", "text": "\nrespiratorisch kompromittiert; "}
@@ -927,6 +971,21 @@
             {"type": "def", "del": 0, "cat": "pat", "label": "SARS-CoV-19", "text": "molekularbiologisch Nachweis von SARS-CoV-19; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "k. Influenza", "text": "molekularbiologisch kein Nachweis von Influenza A / B; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "Influenza", "text": "molekularbiologisch Nachweis von Influenza A / B; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "txt", "label": "Indik. z. stat. Aufn.", "text": "\nIndikation zur stationären Aufnahme bei XXXX; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "Aufkl. ü. stat. Aufn.", "text": "\nAufklärung über stationäre Aufnahme erfolgt; "},
+            {"type": "def", "del": 1, "cat": "txt", "label": "k. Aufkl. ü. stat. Aufn. mögl.", "text": "\nAufklärung über stationäre Aufnahme bei XXXX nicht möglich; "}
+        ],
+        [
+            {"type": "def", "del": 1, "cat": "cap", "label": "24 h Behandlungspl.:", "text": "\n24-Stunden-Behandlungsplan: "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Monit.", "text": "\nMonitoring; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. X", "text": "\nlaborchemische Verlaufskontrolle der XXXX-Konzentration; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. hsTnT", "text": "\nlaborchemische Verlaufskontrolle der hsTnT-Konzentration; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Rehydr.", "text": "\nRehydrierung; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Bildg.", "text": "\nBildgebung des XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "rad. Verlaufskontr.", "text": "\nradiologische Verlaufskontrolle des XXXX; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; hier ergab sich XXXX"}
@@ -981,7 +1040,7 @@
             {"type": "def", "del": 1, "cat": "txt", "label": "Hände- & Toilettenhyg.", "text": "\nHände- und Toilettenhygiene erläutert und empfohlen; "}
         ],
         [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Sympt. Therapie:", "text": "\n\nsymptomatische Schmerztherapie solange SChmerzen bestehen, z.B. mit: "},
+            {"type": "def", "del": 1, "cat": "cap", "label": "Sympt. Therapie:", "text": "\n\nsymptomatische Schmerztherapie solange Schmerzen bestehen, z.B. mit: "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Ibu. 400", "text": "\nIbuprofen 400 mg p.o., maximal alle 6 Stunden; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Ibu. 600", "text": "\nIbuprofen 600 mg p.o., maximal alle 6 Stunden; "},
             {"type": "def", "del": 1, "cat": "txt", "label": "Ibu. 800", "text": "\nIbuprofen 800 mg p.o., maximal alle 8 Stunden; "},
