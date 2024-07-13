@@ -59,7 +59,7 @@ Optional:
 
 ## Hinzufügen neuer Textbausteine
 
-### Eine neue `JSON`-Datei unter `/data` anlegen:
+### Eine neue `JSON`-Datei unter `/data/` anlegen:
 
 **Struktur:**
 
@@ -114,7 +114,7 @@ Label as it will appear on the button.
 
 Text that will be added to the documentation once the button is pressed
 
-### Add an entry in entry in (`/data/list.json`)[/data/list.json]:
+### Add an entry in entry in `/data/list.json`:
 
 ```json
 {
@@ -135,7 +135,7 @@ This is currently supported but not elegantly solved:
 
 ### Add a new language file under `/lang`
 
-Add a new language file (`JSON`) under (`/lang`)[/lang] and name it using the
+Add a new language file (`JSON`) under `/lang` and name it using the
 proper language code (lower case, two letters), e.g., `en.json`.
 
 **Structure:**
@@ -156,7 +156,8 @@ proper language code (lower case, two letters), e.g., `en.json`.
             "control_copied": "☑",
             "control_clear": "⌧",
             "control_newline": "↵",
-            "control_show_extended": "🔾",
+            "control_change_colour": "🔾",
+            "control_show_extended": "☶",
             "confirmation_clear": "Do you really want to delete the text?"
         }
     }
@@ -171,7 +172,7 @@ found the first available region will be used.
 
 Currently, there is no way for the user to choose the language.
 
-You have to edit (`/ts/app.ts`)[/ts/app.ts] and set your language:
+You have to edit `/ts/app.ts` and set your language:
 
 ```ts
 const run = (): void => {
@@ -183,7 +184,7 @@ const run = (): void => {
 ```
 
 If you intend to use this app as a `Progressive Web App` edit
-(`/ts/sw.ts`)[/ts/sw.ts] and add your language file for offline caching:
+`/ts/sw.ts` and add your language file for offline caching:
 
 ```ts
 const APP_STATIC_RESOURCES = [

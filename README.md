@@ -27,7 +27,7 @@ The interface can also be translated via a simple `JSON` file.
 make serve
 
 
-# transpiler for TypeScript (`tsc`)
+# transpiler for TypeScript (tsc)
 # watches ./ts/ and transpiles TypeScript to Javascript in ./js/
 make transpile
 ```
@@ -47,16 +47,16 @@ Optional:
 * runs on every basic web server no `npm`, `php` or anything required for basic
   usage
 * some browsers will require `Content Security Policy headers` to be set for use
-  as `Progressive Web App` those might be defined in (.htaccess)[/.htaccess/]
+  as `Progressive Web App` those might be defined in `/.htaccess`
   if you are on an Apache2` server
 * to offer an csp-report endpoint an optional
-  (/csp\_report.php)[/csp_report.php] can be found in the repository;
+  `/csp\_report.php` can be found in the repository;
   incoming `csp violation reports` will be written to a plain text
   file (`/report`) ; the file will be truncated when growing to > 2 MB
 
 ## Adding a new collection of phrases
 
-### Add a new `JSON` file under (/data)[/data/]:
+### Add a new `JSON` file under `/data/`:
 
 **Structure:**
 
@@ -110,7 +110,7 @@ Label as it will appear on the button.
 
 Text that will be added to the documentation once the button is pressed
 
-### Add an entry in entry in (/data/list.json)[/data/list.json]:
+### Add an entry in entry in `/data/list.json`:
 
 ```json
 {
@@ -129,9 +129,9 @@ Text that will be added to the documentation once the button is pressed
 
 This is currently supported but not elegantly solved:
 
-### Add a new language file under (/lang)[/lang/]:
+### Add a new language file under `/lang/`:
 
-Add a new language file (`JSON`) under (/lang)[/lang/] and name it using the
+Add a new language file (`JSON`) under `/lang/` and name it using the
 proper language code (lower case, two letters), e.g., `en.json`.
 
 **Structure:**
@@ -152,7 +152,8 @@ proper language code (lower case, two letters), e.g., `en.json`.
             "control_copied": "☑",
             "control_clear": "⌧",
             "control_newline": "↵",
-            "control_show_extended": "🔾",
+            "control_change_colour": "🔾",
+            "control_show_extended": "☶",
             "confirmation_clear": "Do you really want to delete the text?"
         }
     }
@@ -167,7 +168,7 @@ found the first available region will be used.
 
 Currently, there is no way for the user to choose the language.
 
-You have to edit (/ts/app.ts)[/ts/app.ts] and set your language:
+You have to edit `/ts/app.ts` and set your language:
 
 ```ts
 const run = (): void => {
@@ -179,7 +180,7 @@ const run = (): void => {
 ```
 
 If you intend to use this app as a `Progressive Web App` edit
-(/ts/sw.ts)[/ts/sw.ts] and add your language file for offline caching:
+`/ts/sw.ts` and add your language file for offline caching:
 
 ```ts
 const APP_STATIC_RESOURCES = [
