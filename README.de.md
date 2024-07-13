@@ -143,7 +143,7 @@ entsprechende Sprache-Code gewähnt werden (zwei Kleinbuchstaben), z.B. `en.json
 ```JSON
 {
     "lang": "en",
-    "region": [{
+    "regions": [{
         "region": "en-GB",
         "dict": {
             "page_title": "PAPIERTIGER - DOCUMENTATION made easy",

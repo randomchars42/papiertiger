@@ -139,7 +139,7 @@ proper language code (lower case, two letters), e.g., `en.json`.
 ```JSON
 {
     "lang": "en",
-    "region": [{
+    "regions": [{
         "region": "en-GB",
         "dict": {
             "page_title": "PAPIERTIGER - DOCUMENTATION made easy",

@@ -12,16 +12,16 @@ const loadLanguage = (code: string): void => {
     .then((data: any): void => {
         console.log('Language data fetched.');
         let found_region: string = '';
-        for (let key in data.region) {
-            if (data.region[key].region === code) {
+        for (let key in data.regions) {
+            if (data.regions[key].region === code) {
                 found_region = code;
-                dictionary = data.region[key].dict;
+                dictionary = data.regions[key].dict;
             }
         }
 
         if (found_region === '') {
-            found_region = data.region[0].region;
-            dictionary = data.region[0].dict;
+            found_region = data.regions[0].region;
+            dictionary = data.regions[0].dict;
         }
 
         translatePage();
