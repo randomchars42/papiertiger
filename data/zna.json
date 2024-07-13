@@ -413,7 +413,7 @@
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "AZ:", "text": "\nAllgemeinzustand: "},
             {"type": "def", "del": 1, "cat": "cap", "label": "PZ:", "text": "\nPflegezustand: "},
-            {"type": "def", "del": 0, "cat": "red", "label": "unauff", "text": "unauffällig; "},
+            {"type": "def", "del": 0, "cat": "red", "label": "unauff.", "text": "unauffällig; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "akut ...", "text": "akut "},
             {"type": "def", "del": 0, "cat": "txt", "label": "stark ...", "text": "stark "},
             {"type": "def", "del": 0, "cat": "txt", "label": "chron. ...", "text": "chronisch "},
@@ -421,7 +421,7 @@
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "EZ:", "text": "\nErnährungszustand: "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "unauffällig", "text": "unauffällig; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "unauff.", "text": "unauffällig; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "stark ...", "text": "stark "},
             {"type": "def", "del": 0, "cat": "ref", "label": "reduziert", "text": "reduziert; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "kachekt.", "text": "kachektisch; "},
@@ -928,7 +928,7 @@
             {"type": "def", "del": 1, "cat": "cap", "label": "Procedere:", "text": "\n\nProcedere: "}
         ],
         [
-            {"type": "def", "del": 0, "cat": "txt", "label": "Vorstellung ...", "text": "Vorstellung "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Vorstellung ...", "text": "\nVorstellung "},
             {"type": "def", "del": 0, "cat": "txt", "label": "... NÄ ...", "text": "durch die Notärztin bei XXXX; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "... NA ...", "text": "durch den Notarzt bei XXXX; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "... RD ...", "text": "durch den Rettungsdienst bei XXXX; "},
@@ -940,7 +940,7 @@
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "initial:", "text": "\n\ninitial: "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "A-E unauff.", "text": "\nA - E unauffällig; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "A-E unauff.", "text": "\nA - E unauffällig; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "VP stabil.", "text": "\nVitalparameter stabil; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "hämodynamisch kompr.", "text": "\nhämodynamisch kompromittiert; "},
             {"type": "def", "del": 1, "cat": "pat", "label": "resp. kompr.", "text": "\nrespiratorisch kompromittiert; "}
@@ -951,7 +951,11 @@
         ],
         [
             {"type": "def", "del": 1, "cat": "txt", "label": "klin. X", "text": "\nklinisch imponiert XXXX; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "klin. k. Infekt", "text": "\nklinisch kein Anhalt für einen Infekt; "}
+            {"type": "def", "del": 1, "cat": "ref", "label": "klin. k. Infekt", "text": "\nklinisch kein Anhalt für einen Infekt; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "klin. Atemwegsinf.", "text": "\nklinisch Konstellation eines Atemwegsinfekts; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "klin. Pneumonie", "text": "\nklinisch Konstellation einer Pnuemonie; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "klin. Harnwegsinf.", "text": "\nklinisch Konstellation eines Harnwegsinfekts; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "klin. Pyelonephritis", "text": "\nklinisch Konstellation einer Pyelonephritis; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "txt", "label": "EKG X", "text": "\nim EKG zeigte sich XXXX; "},
@@ -962,7 +966,7 @@
             {"type": "def", "del": 1, "cat": "txt", "label": "laborchem. X", "text": "\nlaborchemisch zeigte sich XXXX; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "laborchem. unauff.", "text": "\nlaborchemisch ergab sich ein unauffälliger Befund; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "hsTnT init. unauff.", "text": "\ndie initiale Troponinkonzentration war nicht erhöht; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "hsTnT k. Dynamik", "text": "im Verlauf ergab sich keine relvante Dynamik; "},
+            {"type": "def", "del": 1, "cat": "ref", "label": "hsTnT k. Dynamik", "text": "im Verlauf ergab sich keine relevante Dynamik; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "vorb. Einschr. Nierenf.", "text": "vorbekannte Einschränkung der Nierenfunktion; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "AKI 1", "text": "Verschlechterung der Nierenfunktion im Sinne einer akuten Nierenschädigung Stadium 1 nach KDIGO; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "AKI 2", "text": "Verschlechterung der Nierenfunktion im Sinne einer akuten Nierenschädigung Stadium 2 nach KDIGO; "},

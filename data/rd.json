@@ -403,7 +403,7 @@
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "AZ:", "text": "\nAllgemeinzustand: "},
             {"type": "def", "del": 1, "cat": "cap", "label": "PZ:", "text": "\nPflegezustand: "},
-            {"type": "def", "del": 0, "cat": "red", "label": "unauff", "text": "unauffällig; "},
+            {"type": "def", "del": 0, "cat": "red", "label": "unauff.", "text": "unauffällig; "},
             {"type": "def", "del": 0, "cat": "txt", "label": "akut ...", "text": "akut "},
             {"type": "def", "del": 0, "cat": "txt", "label": "stark ...", "text": "stark "},
             {"type": "def", "del": 0, "cat": "txt", "label": "chron. ...", "text": "chronisch "},
@@ -411,7 +411,7 @@
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "EZ:", "text": "\nErnährungszustand: "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "unauffällig", "text": "unauffällig; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "unauff.", "text": "unauffällig; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "stark ...", "text": "stark "},
             {"type": "def", "del": 0, "cat": "ref", "label": "reduziert", "text": "reduziert; "},
             {"type": "def", "del": 1, "cat": "ref", "label": "kachekt.", "text": "kachektisch; "},
