@@ -50,7 +50,7 @@ Optional:
   as `Progressive Web App` those might be defined in `/.htaccess`
   if you are on an Apache2` server
 * to offer an csp-report endpoint an optional
-  `/csp\_report.php` can be found in the repository;
+  `/csp_report.php` can be found in the repository;
   incoming `csp violation reports` will be written to a plain text
   file (`/report`) ; the file will be truncated when growing to > 2 MB
 
