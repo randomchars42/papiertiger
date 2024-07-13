@@ -94,9 +94,9 @@ Optional:
 
 **cat**:
 
-* adds `CSS` classes for markup
+* adds `CSS` classes for markup (`.item_XXX`, e.g., `.item_cap`)
 * `cap`tion:  text of the button will be printed fat
-* `txt`: no specia markup
+* `txt`: no special markup
 * `ref`: text will be highlighted as reference or positive (green)
 * `pat`: text will be highlighted as pathological or negative (red)
 * `int`: text will be highlighted as intervention

@@ -98,30 +98,30 @@ Optional:
 
 **cat**:
 
-* adds `CSS` classes for markup
-* `cap`tion:  text of the button will be printed fat
-* `txt`: no specia markup
-* `ref`: text will be highlighted as reference or positive (green)
-* `pat`: text will be highlighted as pathological or negative (red)
-* `int`: text will be highlighted as intervention
-* `res`: text will be highlighted as the result of an intervention
+* fügt eine `CSS`-Klasse hinzu (`.item_XXX`, z.B.: `.item_cap`)
+* `cap`tion: der Text dieser Schaltfläche erscheint fett
+* `txt`: kein spezielles Markup
+* `ref`: diese Schaltfläche wird als Referenzwert oder positiv markiert (grün)
+* `pat`: diese Schaltfläche wird als pathologisch oder negativ markiert (rot)
+* `int`: diese Schaltfläche wird als Intervention markiert
+* `res`: diese Schaltfläche wird als das Resultat einer Intervention markiert
 
 **label**:
 
-Label as it will appear on the button.
+Der Text auf der Schaltfläche.
 
 **text**:
 
-Text that will be added to the documentation once the button is pressed
+Der Text, der der Dokumentation hinzugefügt wird.
 
-### Add an entry in entry in `/data/list.json`:
+### Einen neuen Eintrag in `/data/list.json` anlegen:
 
 ```json
 {
     "list": [
         {
-            "name": "FILE_NAME_WITHOUT_SUFFIX",
-            "label": "Pretty label for the user to see"
+            "name": "DATEINAME_OHNE_SUFFIX",
+            "label": "Schöne Bezeichnung, die der Nutzer sieht"
         },
         ...
     ]
@@ -129,16 +129,16 @@ Text that will be added to the documentation once the button is pressed
 
 ```
 
-## Adding a new interface language
+## Eine neue Oberflächensprache hinzufügen:
 
-This is currently supported but not elegantly solved:
+Dies ist aktuell möglich, aber noch nicht elegant gelöst:
 
-### Add a new language file under `/lang`
+### Füge eine neue Datei unter `/lang` hinzu:
 
-Add a new language file (`JSON`) under `/lang` and name it using the
-proper language code (lower case, two letters), e.g., `en.json`.
+Füge eine neue Übersetzungsdatei (`JSON`) unter `/lang` ein. Als Name muss der
+entsprechende Sprache-Code gewähnt werden (zwei Kleinbuchstaben), z.B. `en.json`.
 
-**Structure:**
+**Struktur:**
 
 ```JSON
 {
@@ -165,26 +165,27 @@ proper language code (lower case, two letters), e.g., `en.json`.
 }
 ```
 
-You may define multiple regions per language. If the requested region can't be
-found the first available region will be used.
+Man kann multiple Regionen pro Sprache hinzufügen. Wenn die eingestellte Region
+nicht gefunden werden kann, wird die erste verfügbare Region gewählt.
 
-### Setting the language
+### Die Sprache einstellen:
 
-Currently, there is no way for the user to choose the language.
+Aktuell kann der Benutzer die Sprache nicht selbst einstellen.
 
-You have to edit `/ts/app.ts` and set your language:
+In `/ts/app.ts`:
 
 ```ts
 const run = (): void => {
     UI.init();
-    # set your language here
+    # hiermit wird die Sprache eingestellt
     TR.initLanguage('de-DE');
     loadDataList();
 };
 ```
 
-If you intend to use this app as a `Progressive Web App` edit
-`/ts/sw.ts` and add your language file for offline caching:
+Wenn die App als `Progressive Web App` genutzt werden soll, muss in
+`/ts/sw.ts` die neue Übersetzungsdatei hinzugefügt werden, damit diese in den
+Cache aufgenommen wird:
 
 ```ts
 const APP_STATIC_RESOURCES = [
