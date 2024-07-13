@@ -154,7 +154,7 @@
             {"type": "ext", "del": 1, "cat": "ref", "label": "k. rel. Schadstoffexp.:", "text": "keine relevante Schadstoffanamnese; "}
         ],
         [
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Familie:", "text": "\nFamilie: "},
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Familie:", "text": "\nFamilie: "},
             {"type": "ext", "del": 1, "cat": "ref", "label": "k. plötz. Herztod", "text": "unauffällig in Bezug auf plötzlichen Herztod; "},
             {"type": "ext", "del": 1, "cat": "pat", "label": "plötz. Herztod", "text": "XXXX an plötzlichen Herztod verstorben; "},
             {"type": "ext", "del": 1, "cat": "ref", "label": "k. Herzinf.", "text": "unauffällig in Bezug auf Herzinfarkt; "},
@@ -169,7 +169,7 @@
             {"type": "ext", "del": 1, "cat": "pat", "label": "Nierenst.", "text": "Nierensteine; "}
         ],
         [
-            {"type": "ext", "del": 1, "cat": "txt", "label": "Ausland", "text": "\nletzte Auslandsreise: "},
+            {"type": "ext", "del": 1, "cat": "cap", "label": "Ausland:", "text": "\nletzte Auslandsreise: "},
             {"type": "ext", "del": 1, "cat": "txt", "label": "n. relev.", "text": "keine  Reisen in relevante Gebiete im zeitlichen Zusammenhang mit dem Auftreten der Symptome; "}
         ]
     ]
@@ -422,11 +422,11 @@
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "EZ:", "text": "\nErnährungszustand: "},
             {"type": "def", "del": 0, "cat": "ref", "label": "unauff.", "text": "unauffällig; "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "stark ...", "text": "stark "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "reduziert", "text": "reduziert; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "kachekt.", "text": "kachektisch; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "übergew.", "text": "übergewichtig; "},
-            {"type": "def", "del": 1, "cat": "ref", "label": "adipös", "text": "adipös; "}
+            {"type": "def", "del": 0, "cat": "txt", "label": "stark ...", "text": "stark "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "reduziert", "text": "reduziert; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "kachekt.", "text": "kachektisch; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "übergew.", "text": "übergewichtig; "},
+            {"type": "def", "del": 1, "cat": "pat", "label": "adipös", "text": "adipös; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Größe:", "text": "\nKörpergröße: "},
@@ -983,13 +983,13 @@
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "24 h Behandlungspl.:", "text": "\n24-Stunden-Behandlungsplan: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Monit.", "text": "\nMonitoring; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. X", "text": "\nlaborchemische Verlaufskontrolle der XXXX-Konzentration; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. hsTnT", "text": "\nlaborchemische Verlaufskontrolle der hsTnT-Konzentration; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Rehydr.", "text": "\nRehydrierung; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Bildg.", "text": "\nBildgebung des XXXX; "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "rad. Verlaufskontr.", "text": "\nradiologische Verlaufskontrolle des XXXX; "}
+            {"type": "def", "del": 0, "cat": "txt", "label": "Monit.", "text": "\n- Monitoring; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. X", "text": "\n- laborchemische Verlaufskontrolle der XXXX-Konzentration; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "laborchem. Verlaufskontr. hsTnT", "text": "\n- laborchemische Verlaufskontrolle der hsTnT-Konzentration; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Rehydr.", "text": "\n- Rehydrierung; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "kons. Vorst.", "text": "\n- konsiliarische Vorstellung bei den Kolleg*Innen der XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "Bildg.", "text": "\n- Bildgebung des XXXX; "},
+            {"type": "def", "del": 0, "cat": "txt", "label": "rad. Verlaufskontr.", "text": "\n- radiologische Verlaufskontrolle des XXXX; "}
         ],
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "kons. Vorst.", "text": "\nkonsiliarische Vorstellung bei den Kolleg*Innen der XXXX; hier ergab sich XXXX"}
