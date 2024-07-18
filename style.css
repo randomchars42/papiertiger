@@ -432,6 +432,14 @@ textarea {
     padding-top: calc(var(--padding)*2);
 }
 
+.heading::after {
+    content: ' ▴';
+}
+
+.collapsed.heading::after {
+    content: ' ▾';
+}
+
 .text_container {
     padding: var(--padding);
     margin: calc(var(--padding) / 2);

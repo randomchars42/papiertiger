@@ -20,6 +20,7 @@ export type ItemRow = Item[]
 
 export type ItemCollection = {
     label: string,
+    collapsed: boolean,
     items: ItemRow[],
 }
 
@@ -112,9 +113,11 @@ export const clearInputElements = (parent: HTMLElement): void => {
 export const generateInputElements = (collection: ItemCollection[],
                                       parent: HTMLElement): void => {
     collection.forEach((collection: ItemCollection): void => {
-        addHeading(collection.label, parent);
+        const id: string = generateCSSString(collection.label);
+        const classname: string = 'collection_' + id;
+        addHeading(collection.label, id, collection.collapsed, parent);
         collection.items.forEach((itemrow: Item[]): void => {
-            const row = addRow(parent);
+            const row = addRow(classname, collection.collapsed, parent);
             itemrow.forEach((item: Item): void => {
                 addItem(item.label, item.text, row, item.type, item.del,
                         item.cat);
@@ -130,10 +133,31 @@ export const generateListElements = (list: ListItem[],
     });
 };
 
-export const addHeading = (label: string, parent: HTMLElement): void => {
+export const generateCSSString = (string: string): string => {
+        //Lower case everything
+    string = string.toLowerCase();
+    // remove all characters except alphanumeric and "-" / "_"
+    string = string.replace(/[^a-zA-Z0-9_\-]/g, '');
+    // remove multiple "-", "_" or whitespaces
+    string = string.replace(/[\s_\-]+/g, '');
+    // replace whitespaces and "_" by "-"
+    string = string.replace(/[\s_]+/g, '-');
+    return string;
+};
+
+export const addHeading = (label: string, id: string, hidden: boolean,
+                           parent: HTMLElement): void => {
     const heading: HTMLHeadingElement = document.createElement('h1');
     heading.textContent = label;
     heading.classList.add('heading');
+    heading.id = id;
+    if (hidden) {
+        heading.classList.add('collapsed');
+    }
+    heading.onclick = () => {
+        toggleClass('.collection_' + id, 'hidden');
+        toggleClass('#' + id, 'collapsed');
+    };
     parent.appendChild(heading);
 };
 
@@ -177,7 +201,7 @@ export const addListItem = (label: string, name: string,
 
 export const displayCurrentListItem = (label: string): void => {
     const display: HTMLElement = document.getElementById('ListItemDisplay')!;
-    display.textContent = label.toUpperCase() + ' ▼';
+    display.textContent = label.toUpperCase() + ' ▾';
 };
 
 export const showList = (): void => {
@@ -188,9 +212,14 @@ export const hideList = (): void => {
     document.getElementById('ListModal')!.classList.add('hidden');
 };
 
-export const addRow = (parent: HTMLElement): HTMLElement => {
+export const addRow = (classname:string, hidden: boolean,
+                       parent: HTMLElement): HTMLElement => {
     const row: HTMLElement = document.createElement('div');
     row.classList.add('pane');
+    row.classList.add(classname);
+    if (hidden) {
+        row.classList.add('hidden');
+    }
     return parent.appendChild(row);
 };
 

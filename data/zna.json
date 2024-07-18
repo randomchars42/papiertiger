@@ -1,5 +1,6 @@
 [{
     "label": "Vorstellung",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "Vorstellung", "text": "Vorstellung: "},
@@ -23,6 +24,7 @@
 },
 {
     "label": "SAMPLER",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "SAMPLER:", "text": "\n\nSAMPLER: "}
@@ -176,6 +178,7 @@
 },
 {
     "label": "Soziales / Verfügung",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Soziales:", "text": "\n\nSoziales: "},
@@ -240,6 +243,7 @@
 },
 {
     "label": "ABCDE",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "ABCDE:", "text": "\n\nABCDE: "}
@@ -323,9 +327,9 @@
         ],
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "C", "text": "\nC: "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "Rekap. ok", "text": "Rekapilarisierungszeit ≤ 2 Sekunden; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "Rekap. verl.", "text": "Rekapilarisierungszeit verlängert; "},
-            {"type": "def", "del": 0, "cat": "pat", "label": "Rekap. X s", "text": "Rekapilarisierungszeit XXXX Sekunden; "},
+            {"type": "def", "del": 0, "cat": "ref", "label": "Rekap. ok", "text": "Rekapillarisierungszeit ≤ 2 Sekunden; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Rekap. verl.", "text": "Rekapillarisierungszeit verlängert; "},
+            {"type": "def", "del": 0, "cat": "pat", "label": "Rekap. X s", "text": "Rekapillarisierungszeit XXXX Sekunden; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "Haut rosig", "text": "Haut rosig; "},
             {"type": "def", "del": 0, "cat": "pat", "label": "Haut marmoriert", "text": "Haut marmoriert; "},
             {"type": "ext", "del": 0, "cat": "pat", "label": "Mottl. 1", "text": "Mottling-Score: 1; "},
@@ -406,6 +410,7 @@
 },
 {
     "label": "Status",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Status:", "text": "\n\nErgänzender Status: "}
@@ -628,6 +633,7 @@
 },
 {
     "label": "EKG",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "EKG:", "text": "\n\nEKG: "},
@@ -693,6 +699,7 @@
 },
 {
     "label": "Notfallsonographie",
+    "collapsed": true,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Notfallsonographie:", "text": "\n\nNotfallsonographie: "}
@@ -768,6 +775,7 @@
 },
 {
     "label": "Sonogaphie Abdomen",
+    "collapsed": true,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie Abdomen:", "text": "\n\nSonographie Abdomen: "}
@@ -891,6 +899,7 @@
 },
 {
     "label": "Sonographie TVT",
+    "collapsed": true,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Sonographie beider UE.:", "text": "\n\nSonographie beider unterer Extremitäten: "},
@@ -923,6 +932,7 @@
 },
 {
     "label": "Procedere",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Procedere:", "text": "\n\nProcedere: "}
@@ -1005,6 +1015,7 @@
 },
 {
     "label": "Entlassung gegen ärztlichen Rat",
+    "collapsed": true,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Entl. gg. ärztl. Rat:", "text": "\n\nEntlassung gegen ärztlichen Rat; "}
@@ -1034,6 +1045,7 @@
 },
 {
     "label": "Empfehlungen",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Empfehlungen:", "text": "\n\nEmpfehlungen: "}
@@ -1071,6 +1083,7 @@
 },
 {
     "label": "Analgesie / Analgosedierung",
+    "collapsed": true,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Analgesie:", "text": "\n\nAnalgesie: "},
@@ -1116,6 +1129,7 @@
 },
 {
     "label": "Reanimation",
+    "collapsed": true,
     "items": [
         [
             {"type": "def", "del": 1, "cat": "cap", "label": "Reanimation:", "text": "\n\nReanimation: "},

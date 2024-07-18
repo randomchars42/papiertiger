@@ -66,6 +66,7 @@ Optional:
 ```json
 [{
     "label": "Überschrift",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "Punkt 1: ", "text": "\nPunkt 1: "},
@@ -84,6 +85,10 @@ Optional:
 ...
 ]
 ```
+
+**collapsed**:
+
+* `true`: Liste der Items ist initial nicht sichtbar
 
 **type**:
 

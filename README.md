@@ -63,6 +63,7 @@ Optional:
 ```json
 [{
     "label": "Heading",
+    "collapsed": false,
     "items": [
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "First: ", "text": "\nFirst: "},
@@ -81,6 +82,10 @@ Optional:
 ...
 ]
 ```
+
+**collapsed**:
+
+* `true`: item list is initially collapsed
 
 **type**:
 
