@@ -6,10 +6,30 @@ import * as TR from './translate.js';
 
 console.log('Hello! This is the PAPIERTIGER going to work!');
 
+const DEFAULT_LANGUAGE: string = 'de-DE';
+
+export type Params = {
+    language: string,
+    list: string,
+};
+
 const run = (): void => {
+    const params: Params = parseURL();
     UI.init();
-    TR.initLanguage('de-DE');
-    loadDataList();
+    TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    loadDataList(params.list);
+};
+
+export const parseURL = (): Params => {
+    const parsedURL = new URL(window.location.href);
+    const params: Params = {'language': '', 'list': ''};
+    if (parsedURL.searchParams.has('language')) {
+        params.list = parsedURL.searchParams.get('language')!;
+    }
+    if (parsedURL.searchParams.has('list')) {
+        params.list = parsedURL.searchParams.get('list')!;
+    }
+    return params;
 };
 
 export const loadData = (label: string, name: string): void => {
@@ -33,7 +53,7 @@ export const loadData = (label: string, name: string): void => {
     });
 };
 
-const loadDataList = (): void => {
+const loadDataList = (list: string): void => {
     fetch('./data/list.json')
     .then((response: Response): Response => {
         if (! response.ok) {
@@ -44,9 +64,19 @@ const loadDataList = (): void => {
     .then((result: Response): Promise<any> => {return result.json();})
     .then((data: any): void => {
         console.log('List fetched.');
-        UI.generateListElements(data.list, document.getElementById('MainList')!);
+            console.log('Requested list: ' + list);
+        UI.generateListElements(data.list,
+                                document.getElementById('MainList')!);
         if (data.list.length > 0) {
-            loadData(data.list[0].label, data.list[0].name);
+            let result: UI.ListItem[] = [];
+            result = data.list.filter((col: UI.ListItem) => {
+                return col.name === list;
+            });
+            if (result.length > 0) {
+                loadData(result[0].label, result[0].name);
+            } else {
+                loadData(data.list[0].label, data.list[0].name);
+            }
         }
     })
     .catch((reason: any): void => {
