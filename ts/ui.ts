@@ -24,6 +24,10 @@ export type ItemCollection = {
     items: ItemRow[],
 }
 
+let scrollTimer: number;
+let scrollSuppression: boolean = false;
+let scrollPosition: number = document.getElementById('MainInput')!.scrollTop;
+
 const getMainInput = (): HTMLFormElement => {
     return document.getElementById('MainInput') as HTMLFormElement;
 };
@@ -37,10 +41,11 @@ const getCopyStatus = (): HTMLTextAreaElement => {
 };
 
 export const init = (): void => {
-    console.log('initiating ..');
+    console.log('initiating ...');
 
     document.getElementById('ListItemDisplay')!.onclick = showList;
     document.getElementById('ListModal')!.onclick = hideList;
+    document.getElementById('NavModal')!.onclick = hideNav;
     document.getElementById('CopyButton')!.onclick = copyToClipboard;
     document.getElementById('ClearButton')!.onclick = (): void => {
         if (window.confirm(TR.tr('confirmation_clear'))) {
@@ -56,6 +61,19 @@ export const init = (): void => {
     document.getElementById('ColorButton')!.onclick = toggleColourMode;
     document.getElementById('HelpButton')!.onclick = (): void => {
         alert(TR.tr('page_about'));
+    };
+    document.getElementById('MainInput')!.onscroll = (): void => {
+        let currentPosition: number =
+            document.getElementById('MainInput')!.scrollTop;
+        if (Math.abs(scrollPosition - currentPosition) > 650 &&
+           !scrollSuppression) {
+            scrollPosition = currentPosition;
+            scrollSuppression = true;
+            showNav();
+        }
+        scrollTimer = setTimeout((): void => {
+            scrollPosition = currentPosition;
+        }, 250);
     };
     getMainOutput().oninput = hideCopySuccess;
     getMainOutput().blur();
@@ -112,10 +130,12 @@ export const clearInputElements = (parent: HTMLElement): void => {
 
 export const generateInputElements = (collection: ItemCollection[],
                                       parent: HTMLElement): void => {
+    resetNav();
     collection.forEach((collection: ItemCollection): void => {
         const id: string = generateCSSString(collection.label);
         const classname: string = 'collection_' + id;
         addHeading(collection.label, id, collection.collapsed, parent);
+        addNavItem(collection.label, id, document.getElementById('MainNav')!);
         collection.items.forEach((itemrow: Item[]): void => {
             const row = addRow(classname, collection.collapsed, parent);
             itemrow.forEach((item: Item): void => {
@@ -134,7 +154,7 @@ export const generateListElements = (list: ListItem[],
 };
 
 export const generateCSSString = (string: string): string => {
-        //Lower case everything
+    //Lower case everything
     string = string.toLowerCase();
     // remove all characters except alphanumeric and "-" / "_"
     string = string.replace(/[^a-zA-Z0-9_\-]/g, '');
@@ -199,6 +219,26 @@ export const addListItem = (label: string, name: string,
     parent.appendChild(item);
 };
 
+export const addNavItem = (label: string, target: string,
+                           parent: HTMLElement): void => {
+    const item: HTMLAnchorElement = document.createElement('a');
+    item.textContent = label;
+    item.href = '#' + target;
+    item.classList.add('control');
+    item.classList.add('item', 'item_def');
+    item.onclick = (): void => {
+        document.getElementById(target)!.scrollIntoView();
+        scrollPosition = document.getElementById('MainInput')!.scrollTop;
+        hideNav();
+    };
+
+    parent.appendChild(item);
+};
+
+export const resetNav = (): void => {
+    document.getElementById('MainNav')!.textContent = '';
+};
+
 export const displayCurrentListItem = (label: string): void => {
     const display: HTMLElement = document.getElementById('ListItemDisplay')!;
     display.textContent = label.toUpperCase() + ' ▾';
@@ -210,6 +250,15 @@ export const showList = (): void => {
 
 export const hideList = (): void => {
     document.getElementById('ListModal')!.classList.add('hidden');
+};
+
+export const showNav = (): void => {
+    document.getElementById('NavModal')!.classList.remove('hidden');
+};
+
+export const hideNav = (): void => {
+    document.getElementById('NavModal')!.classList.add('hidden');
+    scrollSuppression = false;
 };
 
 export const addRow = (classname:string, hidden: boolean,

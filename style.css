@@ -339,7 +339,7 @@ main {
     height: calc(100% - 3 * var(--padding) - 1rem);
 }
 
-#ListModal {
+#ListModal, #NavModal {
     position: fixed;
     z-index: 1000000;
     left: 0;
@@ -349,13 +349,22 @@ main {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#MainList {
+#MainList, #MainNav {
     background-color: var(--color-bg);
-    margin: 20% auto;
     padding: var(--padding);
-    width: 80%;
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#MainNav .control, #MainList .control {
+    width: 100%;
+    max-width: 100%;
 }
 
 /* controls */
@@ -450,7 +459,7 @@ textarea {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .item_ref {
