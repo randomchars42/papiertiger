@@ -24,7 +24,6 @@ export type ItemCollection = {
     items: ItemRow[],
 }
 
-let scrollSuppression: boolean = false;
 let scrollPosition: number = document.getElementById('MainInput')!.scrollTop;
 
 const getMainInput = (): HTMLFormElement => {
@@ -64,14 +63,15 @@ export const init = (): void => {
     document.getElementById('MainInput')!.onscroll = (): void => {
         let currentPosition: number =
             document.getElementById('MainInput')!.scrollTop;
-        if (Math.abs(scrollPosition - currentPosition) > 650 &&
-           !scrollSuppression) {
-            scrollPosition = currentPosition;
-            scrollSuppression = true;
+        if (scrollPosition > -1 &&
+            Math.abs(scrollPosition - currentPosition) > 650) {
+            scrollPosition = -1;
             showNav();
         }
         setTimeout((): void => {
-            scrollPosition = currentPosition;
+            if (scrollPosition > -1) {
+                scrollPosition = currentPosition;
+            }
         }, 250);
     };
     getMainOutput().oninput = hideCopySuccess;
@@ -257,7 +257,7 @@ export const showNav = (): void => {
 
 export const hideNav = (): void => {
     document.getElementById('NavModal')!.classList.add('hidden');
-    scrollSuppression = false;
+    scrollPosition = document.getElementById('MainInput')!.scrollTop;
 };
 
 export const addRow = (classname:string, hidden: boolean,
