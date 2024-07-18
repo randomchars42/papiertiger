@@ -225,10 +225,10 @@ export const addNavItem = (label: string, target: string,
     item.href = '#' + target;
     item.classList.add('control');
     item.classList.add('item', 'item_def');
-    item.onclick = (): void => {
+    item.onclick = (event: Event): void => {
         document.getElementById(target)!.scrollIntoView();
-        scrollPosition = document.getElementById('MainInput')!.scrollTop;
         hideNav();
+        event.preventDefault();
     };
 
     parent.appendChild(item);
