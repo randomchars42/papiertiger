@@ -24,7 +24,6 @@ export type ItemCollection = {
     items: ItemRow[],
 }
 
-let scrollTimer: number;
 let scrollSuppression: boolean = false;
 let scrollPosition: number = document.getElementById('MainInput')!.scrollTop;
 
@@ -71,7 +70,7 @@ export const init = (): void => {
             scrollSuppression = true;
             showNav();
         }
-        scrollTimer = setTimeout((): void => {
+        setTimeout((): void => {
             scrollPosition = currentPosition;
         }, 250);
     };
