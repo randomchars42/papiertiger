@@ -127,10 +127,10 @@ export const clearInputElements = (parent: HTMLElement): void => {
     parent.textContent = '';
 }
 
-export const generateInputElements = (collection: ItemCollection[],
+export const generateInputElements = (collections: ItemCollection[],
                                       parent: HTMLElement): void => {
     resetNav();
-    collection.forEach((collection: ItemCollection): void => {
+    collections.forEach((collection: ItemCollection): void => {
         const id: string = generateCSSString(collection.label);
         const classname: string = 'collection_' + id;
         addHeading(collection.label, id, collection.collapsed, parent);
