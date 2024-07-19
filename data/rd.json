@@ -593,7 +593,7 @@
             {"type": "ext", "del": 0, "cat": "ref", "label": "QT", "text": "QT-Interval: XXXX ms; "},
             {"type": "ext", "del": 0, "cat": "ref", "label": "QTc", "text": "QTc-Interval: XXXX ms; "},
             {"type": "def", "del": 0, "cat": "ref", "label": "Zeiten unauff.", "text": "Überleitungszeiten unauffällig; "}
-    ],
+        ],
         [
             {"type": "def", "del": 0, "cat": "cap", "label": "Beurteilung", "text": "\nBeurteilung: "},
             {"type": "def", "del": 0, "cat": "ref", "label": "unauff.", "text": "unauffälliges EKG; "},
