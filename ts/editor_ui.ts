@@ -3,8 +3,6 @@
 import * as APP from './editor_app.js';
 import * as TR from './translate.js';
 
-export let CONTENT: ItemCollection[] = [];
-
 export type ListItem = {
     name: string,
     label: string,
@@ -492,19 +490,23 @@ export const init = (): void => {
     document.getElementById('MainEditor')!.onsubmit = (event: Event) => {
         event?.preventDefault()
     };
+    clearEditor();
     console.log('UI initiated.')
 }
 
 export const setOnSubmit = (onSubmit: () => void): void => {
-    document.getElementById('SubmitButton')!.onclick = onSubmit;
+    document.getElementById('SubmitButton')!.onclick = (): void => {
+        if (window.confirm(TR.tr('confirmation_save'))) {
+            onSubmit();
+            clearEditor();
+            showSubmitSuccess();
+        }
+    }
 }
 
-const showEditSuccess = (): void => {
-    //getEditStatus().style.display = 'inline';
-};
-
-const hideEditSuccess = (): void => {
-    //getEditStatus().style.display = 'none';
+export const showSubmitSuccess = (): void => {
+    alert(TR.tr('success_saved'));
+    console.log('show');
 };
 
 export const clearEditElements = (parent: HTMLElement): void => {
@@ -513,7 +515,6 @@ export const clearEditElements = (parent: HTMLElement): void => {
 
 export const generateEditElements = (collections: ItemCollection[],
                                      parent: HTMLElement): void => {
-    CONTENT = collections;
     const collectionsEntity: CollectionsEntity = new CollectionsEntity(
         collections,
         parent);
@@ -527,9 +528,14 @@ export const generateEditElements = (collections: ItemCollection[],
         }
 };
 
-const openEditor = (editor: HTMLElement): void => {
+export const clearEditor = (): HTMLElement => {
     const container: HTMLElement = document.getElementById('MainEditor')!;
     container.textContent = '';
+    return container;
+};
+
+const openEditor = (editor: HTMLElement): void => {
+    const container: HTMLElement = clearEditor();
     container.appendChild(editor);
 };
 
@@ -554,7 +560,7 @@ const createEditor = (entity: Entity, classList: string[],
     const deleteButton = document.createElement('button');
     deleteButton.textContent = TR.tr(`button_delete_${entity.type}`);
     deleteButton.onclick = () => {
-        if (window.confirm(TR.tr('confirmation_delete'))) {
+        if (window.confirm(TR.tr(`confirmation_delete_${entity.type}`))) {
             entity.delete();
         }
     };

@@ -74,10 +74,8 @@ export const init = (): void => {
             }
         }, 250);
     };
-    getMainOutput().oninput = hideCopySuccess;
     getMainOutput().blur();
     getMainInput().onsubmit = (event: Event) => {event?.preventDefault()};
-    hideCopySuccess();
     console.log('UI initiated.')
 }
 
@@ -116,11 +114,7 @@ const copyToClipboard = (): void => {
 };
 
 const showCopySuccess = (): void => {
-    getCopyStatus().style.display = 'inline';
-};
-
-const hideCopySuccess = (): void => {
-    getCopyStatus().style.display = 'none';
+    alert(TR.tr('success_copied'));
 };
 
 export const clearInputElements = (parent: HTMLElement): void => {

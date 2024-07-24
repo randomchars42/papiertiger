@@ -47,7 +47,7 @@ export const loadData = (label: string, name: string): void => {
         UI.generateEditElements(data, document.getElementById('MainInput')!);
         UI.displayCurrentListItem(label);
         UI.setOnSubmit((): void => {
-            //showEditSuccess();
+            console.log(data);
             const xhr: XMLHttpRequest = new XMLHttpRequest();
             const url: string = `save_data.php?file=${name}`;
             xhr.open('POST', url, true);
@@ -57,10 +57,11 @@ export const loadData = (label: string, name: string): void => {
                     console.log(xhr.responseText);
                     //const json: any = JSON.parse(xhr.responseText);
                     //console.log(json);
+                    UI.clearEditor();
+                    UI.showSubmitSuccess();
                 }
             };
-            var data = JSON.stringify(UI.CONTENT);
-            xhr.send(data);
+            xhr.send(JSON.stringify(data));
         });
     })
     .catch((reason: any): void => {
