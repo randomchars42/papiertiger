@@ -498,15 +498,15 @@ export const setOnSubmit = (onSubmit: () => void): void => {
     document.getElementById('SubmitButton')!.onclick = (): void => {
         if (window.confirm(TR.tr('confirmation_save'))) {
             onSubmit();
-            clearEditor();
-            showSubmitSuccess();
         }
     }
 }
 
 export const showSubmitSuccess = (): void => {
     alert(TR.tr('success_saved'));
-    console.log('show');
+};
+export const showSubmitError = (): void => {
+    alert(TR.tr('error_not_saved'));
 };
 
 export const clearEditElements = (parent: HTMLElement): void => {

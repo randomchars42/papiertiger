@@ -1,9 +1,29 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 
-//header("Content-Type: application/json");
+$response = [
+    'status' => '',
+    'content' => ''
+];
+
+function exception_handler(Throwable $exception) {
+    $response['status'] = 'error';
+    $response['content'] = $exception->getMessage();
+
+    header("Content-Type: application/json");
+    echo json_encode($response);
+    exit;
+}
+
+function exceptions_error_handler($severity, $message, $filename, $lineno) {
+    throw new ErrorException($message, 0, $severity, $filename, $lineno);
+}
+
+set_exception_handler('exception_handler');
+set_error_handler('exceptions_error_handler');
+
 //echo file_get_contents("php://input");
 $content = json_decode(file_get_contents("php://input"));
 
@@ -16,8 +36,8 @@ if (isset($_GET['file'])) {
     // create backup
     $path = "{$dir}/{$resource}.json";
     $path_backup = "{$dir}/{$resource}.bk.{$stamp}.json";
-    if (!copy($path, $path_backup)) {
-        echo "failed to copy {$path}...\n";
+    if (file_exists($path) && !copy($path, $path_backup)) {
+        throw new Exception("Could not copy {$path} to {$path_backup}");
     }
 
     // delete old backups
@@ -26,7 +46,6 @@ if (isset($_GET['file'])) {
 
     if ($handle = opendir($dir)) {
         while (($file = readdir($handle)) !== false) {
-            echo $file;
             if (!in_array($file, array('.', '..')) &&
                 !is_dir($dir.$file) &&
                 substr($file, 0, strlen($resource) + 3) == "{$resource}.bk") {
@@ -34,6 +53,8 @@ if (isset($_GET['file'])) {
                 $count++;
             }
         }
+    } else {
+        throw new Exception("Could not open {$dir}");
     }
 
     if ($count > 10) {
@@ -47,8 +68,13 @@ if (isset($_GET['file'])) {
 
     // write data to file
     file_put_contents($path, json_encode($content, JSON_PRETTY_PRINT));
-    echo json_encode($content);
+    $response['status'] = 'success';
+    $response['content'] = $content;
 } else {
-    echo json_encode(['status' => 500, 'error' => 'no file name']);
+    $response['status'] = 'error';
+    $response['content'] = 'no file name';
 }
+
+header("Content-Type: application/json");
+echo json_encode($response);
 ?>

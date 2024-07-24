@@ -54,11 +54,14 @@ export const loadData = (label: string, name: string): void => {
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = (): void => {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(xhr.responseText);
-                    //const json: any = JSON.parse(xhr.responseText);
-                    //console.log(json);
+                    const json: any = JSON.parse(xhr.responseText);
+                    console.log(json);
                     UI.clearEditor();
-                    UI.showSubmitSuccess();
+                    if (json.status === 'success') {
+                        UI.showSubmitSuccess();
+                    } else {
+                        UI.showSubmitError();
+                    }
                 }
             };
             xhr.send(JSON.stringify(data));
