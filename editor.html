@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark light">
+    <title data-i18n-key="page_title">PAPIERTIGER - Textbausteine für Dokumentation im Telegram-Stil</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icon.svg" />
+    <script type="module" src="js/editor_app.js"></script>
+</head>
+<body>
+    <noscript data-i18n-key="page_noscript">To use this site, please enable JavaScript.</noscript>
+    <main>
+        <header id="Header">
+            <span>
+                <strong data-i18n-key="app_title">PAPIERTIGER</strong><br />
+                <span data-i18n-key="app_subtitle">DOKUMENTATIONSHELFER</span>
+            </span>
+            <span id="ListItemDisplay" class="text_container"></span>
+            <button id="HelpButton" class="control" data-i18n-key="control_about">?</button>
+        </header>
+        <form id="MainInput">
+        </form>
+        <div id="Results">
+            <form id="MainEditor">
+            </form>
+            <!--<textarea id="MainOutput"></textarea>-->
+            <div class="pane">
+                <button id="SubmitButton" class="control item item_ref" data-i18n-key="control_change_colour">&#128318;</button>
+            </div>
+        </div>
+    </main>
+    <div id="ListModal" class="hidden">
+        <div id="MainList">
+        </div>
+    </div>
+    <div id="NavModal" class="hidden">
+        <div id="MainNav">
+        </div>
+    </div>
+</body>
+</html>

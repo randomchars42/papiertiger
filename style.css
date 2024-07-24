@@ -364,6 +364,74 @@ main {
     max-width: 100%;
 }
 
+/* editor.html only */
+
+.collection, .editor_collection {
+    background-color: hsl(0, 0%, 95%);
+    padding: var(--padding);
+    margin-bottom: var(--padding);
+}
+
+.collection:last-of-type {
+    background-color: hsl(0, 0%, 95%);
+    padding: var(--padding);
+    margin-bottom: 0;
+}
+
+.collection .row, .editor_row {
+    background-color: hsl(0, 0%, 90%);
+    padding: var(--padding);
+    margin: var(--padding);
+    width: initial;
+}
+
+.editor {
+    margin-top: calc(3 * var(--padding));
+}
+
+.editor_item {
+    background-color: hsl(0, 0%, 80%);
+    padding: var(--padding);
+}
+
+.editor .editor_toolbar {
+    background-color: hsl(0, 0%, 70%);
+    width: initial;
+    padding: var(--padding);
+    margin: calc(-1 * var(--padding));
+    margin-bottom: var(--padding);
+}
+
+.editor .editor_toolbar:last-child {
+    margin-bottom: calc(-1 * var(--padding));
+}
+
+.editor_group .control,
+.editor_group .label {
+    width: calc(var(--width-base) * 5);
+    max-width: initial;
+    min-width: initial;
+    text-align: initial;
+}
+
+.editor .pane {
+    flex-wrap: nowrap;
+}
+
+.editor_group .control {
+    flex-grow: 1;
+}
+
+.editor_group textarea.control {
+    height: 8rem;
+}
+
+.editor_group input[type=checkbox].control {
+    height: initial;
+    width: initial;
+    flex-grow: 0;
+}
+
 /* controls */
 
 .pane {
@@ -381,6 +449,9 @@ main {
     margin: calc(var(--padding) / 2);
     max-width: calc(var(--width-base) * 5);
     min-width: calc(var(--width-base) * 1.8);
+}
+
+.control {
     color: var(--color-on-def);
     border-color: var(--color-def-variant);
     background-color: var(--color-def);
@@ -394,6 +465,7 @@ main {
 }
 
 .label {
+    color: var(--color-on-def);
     font-weight: bold;
 }
 
