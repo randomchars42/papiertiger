@@ -304,9 +304,6 @@ main {
     margin: 0;
 }
 
-#Header span:first-child {
-}
-
 #ListItemDisplay {
     margin: 0;
     flex-grow: 1;
@@ -460,6 +457,10 @@ textarea {
 
 .hidden {
     display: none !important;
+}
+
+.item_cap {
+    font-weight: bold;
 }
 
 .item_ref {

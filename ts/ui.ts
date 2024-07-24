@@ -92,7 +92,7 @@ const toggleItem = (text: string, del: number): void => {
     const output: HTMLTextAreaElement = getMainOutput();
     const index = output.value.indexOf(text);
     output.focus();
-    if (del === 1 && index > -1) {
+    if (del && index > -1) {
         const [start, end] = [output.selectionStart, output.selectionEnd];
         output.value = output.value.replace(text, '');
         if (index < start) {
@@ -190,10 +190,6 @@ export const addItem = (label: string, text: string, parent: HTMLElement,
         toggleItem(text, del);
     };
     item.classList.add('control', 'control_variable_width');
-
-    if (cat === 'cap') {
-        item.classList.add('control_highlight');
-    }
 
     item.classList.add('item', 'item_' + cat, 'item_' + type);
     if (type === 'ext') {
