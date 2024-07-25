@@ -6,13 +6,19 @@ const run = () => {
     const params = parseURL();
     UI.init();
     TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    if (params.scrollmenu === 'disable') {
+        UI.disableScrollMenu();
+    }
     loadDataList(params.list);
 };
 export const parseURL = () => {
     const parsedURL = new URL(window.location.href);
-    const params = { 'language': '', 'list': '' };
+    const params = { 'language': '', 'list': '', 'scrollmenu': '' };
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language');
+    }
+    if (parsedURL.searchParams.has('scrollmenu')) {
+        params.scrollmenu = parsedURL.searchParams.get('scrollmenu');
     }
     if (parsedURL.searchParams.has('list')) {
         params.list = parsedURL.searchParams.get('list');

@@ -216,8 +216,11 @@ class CollectionEntity extends Entity  {
         item.href = '#' + this.id;
         item.classList.add('control', 'item', 'item_def');
         item.onclick = (event: Event): void => {
-            document.getElementById(this.id)!.scrollIntoView();
+            SCROLLPOSITION = null;
             hideNav();
+            document.getElementById(this.id)!.scrollIntoView(
+                {block: 'start', behavior: 'instant'});
+            SCROLLPOSITION = document.getElementById('MainInput')!.scrollTop;
             event.preventDefault();
         };
 
@@ -462,7 +465,8 @@ class ItemEntity extends Entity  {
     }
 }
 
-let scrollPosition: number = document.getElementById('MainInput')!.scrollTop;
+let SCROLLPOSITION: number|null =
+    document.getElementById('MainInput')!.scrollTop;
 
 export const init = (): void => {
     console.log('initiating ...');
@@ -471,17 +475,18 @@ export const init = (): void => {
     document.getElementById('ListModal')!.onclick = hideList;
     document.getElementById('NavModal')!.onclick = hideNav;
     document.getElementById('MainInput')!.onscroll = (): void => {
-        let currentPosition: number =
+        const currentPosition: number =
             document.getElementById('MainInput')!.scrollTop;
-        if (scrollPosition > -1 &&
-            Math.abs(scrollPosition - currentPosition) > 650) {
-            scrollPosition = -1;
-        showNav();
+        if (SCROLLPOSITION !== null &&
+            Math.abs(SCROLLPOSITION - currentPosition) > 650) {
+            SCROLLPOSITION = null;
+            showNav();
         }
         setTimeout((): void => {
-            if (scrollPosition > -1) {
-                scrollPosition = currentPosition;
+            if (SCROLLPOSITION === null) {
+                return;
             }
+            SCROLLPOSITION = document.getElementById('MainInput')!.scrollTop;
         }, 250);
     };
     document.getElementById('MainInput')!.onsubmit = (event: Event) => {
@@ -492,7 +497,7 @@ export const init = (): void => {
     };
     clearEditor();
     console.log('UI initiated.')
-}
+};
 
 export const setOnSubmit = (onSubmit: () => void): void => {
     document.getElementById('SubmitButton')!.onclick = (): void => {
@@ -500,18 +505,23 @@ export const setOnSubmit = (onSubmit: () => void): void => {
             onSubmit();
         }
     }
-}
+};
 
 export const showSubmitSuccess = (): void => {
     alert(TR.tr('success_saved'));
 };
+
 export const showSubmitError = (): void => {
     alert(TR.tr('error_not_saved'));
 };
 
+export const disableScrollMenu = (): void => {
+    SCROLLPOSITION = null;
+};
+
 export const clearEditElements = (parent: HTMLElement): void => {
     parent.textContent = '';
-}
+};
 
 export const generateEditElements = (collections: ItemCollection[],
                                      parent: HTMLElement): void => {
@@ -782,7 +792,6 @@ const showNav = (): void => {
 
 const hideNav = (): void => {
     document.getElementById('NavModal')!.classList.add('hidden');
-    scrollPosition = document.getElementById('MainInput')!.scrollTop;
 }
 
 const toggleClass = (selector: string, classname: string): void => {

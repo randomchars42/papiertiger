@@ -11,20 +11,28 @@ const DEFAULT_LANGUAGE: string = 'de-DE';
 export type Params = {
     language: string,
     list: string,
+    scrollmenu: string,
 };
 
 const run = (): void => {
     const params: Params = parseURL();
     UI.init();
     TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    if (params.scrollmenu === 'disable') {
+        UI.disableScrollMenu();
+        console.log('scrollmenu disabled');
+    }
     loadDataList(params.list);
 };
 
 export const parseURL = (): Params => {
     const parsedURL = new URL(window.location.href);
-    const params: Params = {'language': '', 'list': ''};
+    const params: Params = {'language': '', 'list': '', 'scrollmenu': ''};
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language')!;
+    }
+    if (parsedURL.searchParams.has('scrollmenu')) {
+        params.scrollmenu = parsedURL.searchParams.get('scrollmenu')!;
     }
     if (parsedURL.searchParams.has('list')) {
         params.list = parsedURL.searchParams.get('list')!;

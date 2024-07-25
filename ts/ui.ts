@@ -24,7 +24,8 @@ export type ItemCollection = {
     items: ItemRow[],
 }
 
-let scrollPosition: number = document.getElementById('MainInput')!.scrollTop;
+export let SCROLLPOSITION: number|null =
+    document.getElementById('MainInput')!.scrollTop;
 
 const getMainInput = (): HTMLFormElement => {
     return document.getElementById('MainInput') as HTMLFormElement;
@@ -61,17 +62,18 @@ export const init = (): void => {
         alert(TR.tr('page_about'));
     };
     document.getElementById('MainInput')!.onscroll = (): void => {
-        let currentPosition: number =
+        const currentPosition: number =
             document.getElementById('MainInput')!.scrollTop;
-        if (scrollPosition > -1 &&
-            Math.abs(scrollPosition - currentPosition) > 650) {
-            scrollPosition = -1;
+        if (SCROLLPOSITION !== null &&
+            Math.abs(SCROLLPOSITION - currentPosition) > 650) {
+            SCROLLPOSITION = null;
             showNav();
         }
         setTimeout((): void => {
-            if (scrollPosition > -1) {
-                scrollPosition = currentPosition;
+            if (SCROLLPOSITION === null) {
+                return;
             }
+            SCROLLPOSITION = document.getElementById('MainInput')!.scrollTop;
         }, 250);
     };
     getMainOutput().blur();
@@ -115,6 +117,10 @@ const copyToClipboard = (): void => {
 
 const showCopySuccess = (): void => {
     alert(TR.tr('success_copied'));
+};
+
+export const disableScrollMenu = (): void => {
+    SCROLLPOSITION = null;
 };
 
 export const clearInputElements = (parent: HTMLElement): void => {
@@ -216,8 +222,11 @@ export const addNavItem = (label: string, target: string,
     item.classList.add('control');
     item.classList.add('item', 'item_def');
     item.onclick = (event: Event): void => {
-        document.getElementById(target)!.scrollIntoView();
+        SCROLLPOSITION = null;
         hideNav();
+        document.getElementById(target)!.scrollIntoView(
+            {block: 'start', behavior: 'instant'});
+        SCROLLPOSITION = document.getElementById('MainInput')!.scrollTop;
         event.preventDefault();
     };
 
@@ -247,7 +256,6 @@ export const showNav = (): void => {
 
 export const hideNav = (): void => {
     document.getElementById('NavModal')!.classList.add('hidden');
-    scrollPosition = document.getElementById('MainInput')!.scrollTop;
 };
 
 export const addRow = (classname:string, hidden: boolean,
