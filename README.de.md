@@ -69,15 +69,15 @@ Optional:
     "collapsed": false,
     "items": [
         [
-            {"type": "def", "del": 0, "cat": "cap", "label": "Punkt 1: ", "text": "\nPunkt 1: "},
-            {"type": "def", "del": 0, "cat": "txt", "label": "Item 1", "text": "Text; "},
-            {"type": "def", "del": 0, "cat": "ref", "label": "Item 2", "text": "noch mehr Text; "},
-            {"type": "ext", "del": 0, "cat": "pat", "label": "Item 3", "text": "selten genutzter Text; "}
+            {"type": "def", "del": false, "cat": "cap", "label": "Punkt 1: ", "text": "\nPunkt 1: "},
+            {"type": "def", "del": false, "cat": "txt", "label": "Item 1", "text": "Text; "},
+            {"type": "def", "del": false, "cat": "ref", "label": "Item 2", "text": "noch mehr Text; "},
+            {"type": "ext", "del": false, "cat": "pat", "label": "Item 3", "text": "selten genutzter Text; "}
             ...
         ],
         [
-            {"type": "def", "del": 1, "cat": "cap", "label": "Punkt 2:", "text": "\nPunkt 2:"},
-            {"type": "def", "del": 1, "cat": "txt", "label": "usw.", "text": "und so weiter; "},
+            {"type": "def", "del": true, "cat": "cap", "label": "Punkt 2:", "text": "\nPunkt 2:"},
+            {"type": "def", "del": true, "cat": "txt", "label": "usw.", "text": "und so weiter; "},
             ...
         ]
     ]
@@ -97,9 +97,11 @@ Optional:
 
 **del**:
 
-* `0`: dieser Textbaustein kann an mehreren Stellen auftauchen
-* `1`: wird die Schaltfläche ein zweites Mal gedrückt, wird der Text aus der
-  Dokumentation gelöscht (**Achtung**: es wird das erste Vorkommen des Texts gelöscht!)
+* `false`: dieser Textbaustein kann an mehreren Stellen auftauchen
+* `true`: wird die Schaltfläche ein zweites Mal gedrückt, wird der Text aus der
+  Dokumentation gelöscht (**Achtung**: es wird das erste Vorkommen des Texts gelöscht!
+  -> **nicht** für Wörter / Textbausteine geeignet, die in anderen Textbausteinen
+  vorkommen können!)
 
 **cat**:
 
@@ -151,19 +153,41 @@ entsprechende Sprache-Code gewähnt werden (zwei Kleinbuchstaben), z.B. `en.json
     "regions": [{
         "region": "en-GB",
         "dict": {
-            "page_title": "PAPIERTIGER - DOCUMENTATION made easy",
-            "page_noscript": "In order to use this app javacript needs to be enabled.",
-            "page_about": "PAPIERTIGER\nDOCUMENTATION\n\nCopyright 2024, Eike Kühn\nApache License 2.0",
-            "app_title": "PAPIERTIGER",
             "app_subtitle": "DOCUMENTATION",
-            "control_about": "?",
-            "control_copy": "⎘",
-            "control_copied": "☑",
-            "control_clear": "⌧",
-            "control_newline": "↵",
-            "control_change_colour": "🔾",
-            "control_show_extended": "☶",
-            "confirmation_clear": "Do you really want to delete the text?"
+            "app_title": "PAPIERTIGER",
+            "button_about": "?",
+            "button_change_colour": "🔾",
+            "button_clear": "⌧",
+            "button_copy": "⎘",
+            "button_delete_collection": "delete category",
+            "button_delete_item": "delete item",
+            "button_delete_row": "delete row",
+            "button_new_collection_after": "new category below",
+            "button_new_collection_before": "new category above",
+            "button_new_item_after": "new item after",
+            "button_new_item_before": "new item before",
+            "button_new_row_after": "new row below",
+            "button_new_row_before": "new row above",
+            "button_newline": "↵",
+            "button_save_changes": "save",
+            "button_show_extended": "☶",
+            "confirmation_clear": "Do you really want to delete the text?",
+            "confirmation_delete_collection": "Do you really want to delete this collection (and all rows and items within it)?",
+            "confirmation_delete_item": "Do you really want to delete this item?",
+            "confirmation_delete_row": "Do you really want to delete this row (and all items within it)?",
+            "confirmation_save": "Save changes and make them available to all?",
+            "error_not_saved": "⚠ not saved",
+            "label_cat": "Category: ",
+            "label_collapsed": "collapsed: ",
+            "label_del": "2nd click removes from text?",
+            "label_label": "Label: ",
+            "label_text": "Text: ",
+            "label_type": "Default / extended: ",
+            "page_about": "PAPIERTIGER\nDOCUMENTATION\n\nCopyright 2024, Eike Kühn\nApache License 2.0",
+            "page_noscript": "In order to use this app javacript needs to be enabled.",
+            "page_title": "PAPIERTIGER - DOCUMENTATION made easy",
+            "success_copied": "☑ copied",
+            "success_saved": "☑ saved"
         }
     }
     ]
