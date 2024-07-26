@@ -2,6 +2,7 @@
  */
 import * as APP from './app.js';
 import * as TR from './translate.js';
+import {VERSION} from './constants.js';
 
 export type ListItem = {
     name: string,
@@ -59,7 +60,7 @@ export const init = (): void => {
     document.getElementById('ExtendedToggle')!.onclick = toggleExtended;
     document.getElementById('ColorButton')!.onclick = toggleColourMode;
     document.getElementById('HelpButton')!.onclick = (): void => {
-        alert(TR.tr('page_about'));
+        alert(TR.tr('page_about', {'version': VERSION}));
     };
     document.getElementById('MainInput')!.onscroll = (): void => {
         const currentPosition: number =

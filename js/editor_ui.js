@@ -1,5 +1,6 @@
 import * as APP from './editor_app.js';
 import * as TR from './translate.js';
+import { VERSION } from './constants.js';
 class Entity {
     constructor(type, entityHTML) {
         this.parent = null;
@@ -67,8 +68,7 @@ class Entity {
     createEditor() { }
     getContentEntity() { }
     delete() {
-        var _a;
-        (_a = this.entityHTML.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(this.entityHTML);
+        this.entityHTML.parentNode?.removeChild(this.entityHTML);
         this.removeEntity();
     }
 }
@@ -334,6 +334,9 @@ export const init = () => {
     document.getElementById('ListItemDisplay').onclick = showList;
     document.getElementById('ListModal').onclick = hideList;
     document.getElementById('NavModal').onclick = hideNav;
+    document.getElementById('HelpButton').onclick = () => {
+        alert(TR.tr('page_about', { 'version': VERSION }));
+    };
     document.getElementById('MainInput').onscroll = () => {
         const currentPosition = document.getElementById('MainInput').scrollTop;
         if (SCROLLPOSITION !== null &&
@@ -349,10 +352,10 @@ export const init = () => {
         }, 250);
     };
     document.getElementById('MainInput').onsubmit = (event) => {
-        event === null || event === void 0 ? void 0 : event.preventDefault();
+        event?.preventDefault();
     };
     document.getElementById('MainEditor').onsubmit = (event) => {
-        event === null || event === void 0 ? void 0 : event.preventDefault();
+        event?.preventDefault();
     };
     clearEditor();
     console.log('UI initiated.');

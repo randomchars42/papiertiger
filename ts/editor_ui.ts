@@ -2,6 +2,7 @@
  */
 import * as APP from './editor_app.js';
 import * as TR from './translate.js';
+import {VERSION} from './constants.js';
 
 export type ListItem = {
     name: string,
@@ -474,6 +475,9 @@ export const init = (): void => {
     document.getElementById('ListItemDisplay')!.onclick = showList;
     document.getElementById('ListModal')!.onclick = hideList;
     document.getElementById('NavModal')!.onclick = hideNav;
+    document.getElementById('HelpButton')!.onclick = (): void => {
+        alert(TR.tr('page_about', {'version': VERSION}));
+    };
     document.getElementById('MainInput')!.onscroll = (): void => {
         const currentPosition: number =
             document.getElementById('MainInput')!.scrollTop;

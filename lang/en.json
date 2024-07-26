@@ -33,7 +33,7 @@
             "label_label": "Label: ",
             "label_text": "Text: ",
             "label_type": "Default / extended: ",
-            "page_about": "PAPIERTIGER\nDOCUMENTATION\n\nCopyright 2024, Eike Kühn\nApache License 2.0",
+            "page_about": "PAPIERTIGER\nDOCUMENTATION\n\nCopyright 2024, Eike Kühn\nApache License 2.0\nVersion: ${version}",
             "page_noscript": "In order to use this app javacript needs to be enabled.",
             "page_title": "PAPIERTIGER - DOCUMENTATION made easy",
             "success_copied": "☑ copied",

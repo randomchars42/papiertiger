@@ -1,2 +1,2 @@
-export const VERSION: number = 20240605211300;
+export const VERSION: string = '';
 

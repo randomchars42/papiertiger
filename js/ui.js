@@ -1,5 +1,6 @@
 import * as APP from './app.js';
 import * as TR from './translate.js';
+import { VERSION } from './constants.js';
 export let SCROLLPOSITION = document.getElementById('MainInput').scrollTop;
 const getMainInput = () => {
     return document.getElementById('MainInput');
@@ -29,7 +30,7 @@ export const init = () => {
     document.getElementById('ExtendedToggle').onclick = toggleExtended;
     document.getElementById('ColorButton').onclick = toggleColourMode;
     document.getElementById('HelpButton').onclick = () => {
-        alert(TR.tr('page_about'));
+        alert(TR.tr('page_about', { 'version': VERSION }));
     };
     document.getElementById('MainInput').onscroll = () => {
         const currentPosition = document.getElementById('MainInput').scrollTop;
@@ -46,7 +47,7 @@ export const init = () => {
         }, 250);
     };
     getMainOutput().blur();
-    getMainInput().onsubmit = (event) => { event === null || event === void 0 ? void 0 : event.preventDefault(); };
+    getMainInput().onsubmit = (event) => { event?.preventDefault(); };
     console.log('UI initiated.');
 };
 const addToOutput = (text) => {
