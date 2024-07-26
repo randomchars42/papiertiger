@@ -32,9 +32,19 @@ const loadLanguage = (code: string): void => {
     });
 };
 
-export const tr = (expr: string, def: string = ''): string => {
+interface Dictionary extends Iterable<string> {
+    [key: string]: string
+};
+
+export const tr = (expr: string, variables: {[key: string]: string} = {},
+                   def: string = ''): string => {
     if (expr in dictionary) {
-        return dictionary[expr];
+        let result: string = dictionary[expr];
+        for (let variable in variables) {
+            result = result.replaceAll(
+                '${' + variable + '}', variables[variable]);
+        }
+        return result;
     } else if (def !== '') {
         return def;
     } else {
@@ -46,7 +56,7 @@ const translatePage = (): void => {
     document.querySelectorAll('[data-i18n-key]').forEach((element: Element) => {
         let def: string = element.textContent || '';
         element.textContent = tr(element.getAttribute('data-i18n-key') || '',
-                                 def);
+                                 {}, def);
     });
 };
 

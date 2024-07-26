@@ -28,9 +28,14 @@ const loadLanguage = (code) => {
         console.error(reason);
     });
 };
-export const tr = (expr, def = '') => {
+;
+export const tr = (expr, variables = {}, def = '') => {
     if (expr in dictionary) {
-        return dictionary[expr];
+        let result = dictionary[expr];
+        for (let variable in variables) {
+            result = result.replaceAll('${' + variable + '}', variables[variable]);
+        }
+        return result;
     }
     else if (def !== '') {
         return def;
@@ -42,7 +47,7 @@ export const tr = (expr, def = '') => {
 const translatePage = () => {
     document.querySelectorAll('[data-i18n-key]').forEach((element) => {
         let def = element.textContent || '';
-        element.textContent = tr(element.getAttribute('data-i18n-key') || '', def);
+        element.textContent = tr(element.getAttribute('data-i18n-key') || '', {}, def);
     });
 };
 const setLanguage = (code) => {
