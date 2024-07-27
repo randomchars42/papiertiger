@@ -33,7 +33,7 @@
             "label_label": "Bezeichnung: ",
             "label_text": "Text: ",
             "label_type": "Standard / erweitert: ",
-            "page_about": "PAPIERTIGER\nDOKUMENTATIONSHELFER\n\nCopyright 2024, Eike Kühn\nApache License 2.0\nVersion: ${version}",
+            "page_about": "PAPIERTIGER\nDOKUMENTATIONSHELFER\n\nCopyright 2024, Eike Kühn\nApache License 2.0\n\nVersion: ${version}",
             "page_noscript": "Um diese Anwendung nutzen zu können, muss Javascript aktiviert sein. Der komplette Code ist kurz und OpenSource und kann bei Bedarf eingesehen werden.",
             "page_title": "PAPIERTIGER - DOKUMENTATIONSHELFER",
             "success_copied": "☑ kopiert",
