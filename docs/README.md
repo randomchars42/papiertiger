@@ -1,13 +1,13 @@
 ## 🇩🇪 Dokumentation auf Deutsch
 
-* [Nutzer](/docs/de/nutzer/index)
-* [Inhalt-Ersteller](/docs/de/inhalt-ersteller/index)
-* [Administratoren](/docs/de/administratoren/index)
+* [Nutzer](de/nutzer/index.md)
+* [Inhalt-Ersteller](de/inhalt-ersteller/index.md)
+* [Administratoren](de/administratoren/index.md)
 
 ---
 
 ## 🇬🇧 Documentation in English
 
-* [Users](/docs/en/users/index)
-* [Content Creators](/docs/en/content-creators/index)
-* [Administrators](/docs/en/administrators/index)
+* [Users](en/users/index.md)
+* [Content Creators](en/content-creators/index.md)
+* [Administrators](en/administrators/index.md)
