@@ -3,7 +3,7 @@
 # modified from: https://reemus.dev/tldr/git-tag-versioning-script
 
 # exit on errors and print commands
-set -euxo pipefail
+set -euo pipefail
 
 # verify if there are uncommitted changes
 if [ -n "$(git status --porcelain)" ]; then
@@ -18,7 +18,7 @@ if [ -z "$GIT_TAG_LATEST" ]; then
   GIT_TAG_LATEST="0.0.0"
 fi
 
-echo -n "using tag: $GIT_TAG_LATEST"
+echo -n "Using last tag: $GIT_TAG_LATEST"
 
 # increment version number
 
@@ -40,19 +40,26 @@ else
   exit 1
 fi
 
-# update manifest file and version file
+echo -n "Bumping version to: $VERSION_NEXT"
 
-# update version in manifest.json
-sed -i "s/^# CHANGELOG for.*/# CHANGELOG for $VERSION_NEXT/" CHANGELOG.md
+# update files
+
+echo -n "Writing to CHANGELOG.md"
+sed -i "s/^# CHANGELOG for.*/# CHANGELOG for v$VERSION_NEXT/" CHANGELOG.md
+echo -n "Writing to app/manifest.json"
 sed -i "s/^  \"version\": .*/  \"version\": \"$VERSION_NEXT\",/" app/manifest.json
-# update version in constants.ts
+echo -n "Writing to app/ts/constants.ts"
 sed -i "s/^export const VERSION: string = \".*/export const VERSION: string = \"$VERSION_NEXT\";/" app/ts/constants.ts
+echo -n "Writing to app/js/constants.js"
 sed -i "s/^export const VERSION = \".*/export const VERSION = \"$VERSION_NEXT\";/" app/js/constants.js
 
+echo -n "Committing changes"
 git add .
 git commit -m "bump to v$VERSION_NEXT"
 
-# create git tag for new version
+echo -n "Tagging commit"
 git tag -a "v$VERSION_NEXT" -m "v$VERSION_NEXT"
+
+echo -n "DONE :)"
 
 git push origin --follow-tags
