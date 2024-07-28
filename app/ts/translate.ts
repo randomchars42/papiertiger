@@ -1,7 +1,13 @@
+import * as APP from './app.js';
+
 let dictionary: {[key: string]: string} = {};
 
-const loadLanguage = (code: string): void => {
-    fetch('./lang/' + code.substring(0, 2) + '.json')
+export const init = (params: APP.Params): void => {
+    loadLanguage(params.language, params.basedir);
+};
+
+const loadLanguage = (code: string, basedir: string): void => {
+    fetch(`${basedir}lang/${code.substring(0, 2)}.json`)
     .then((response: Response): Response => {
         if (! response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);
@@ -64,8 +70,4 @@ const setLanguage = (code: string): void => {
     document.querySelectorAll('[lang]').forEach((element: Element) => {
         (element as HTMLElement).lang = code;
     });
-};
-
-export const initLanguage = (code: string): void => {
-    loadLanguage(code);
 };

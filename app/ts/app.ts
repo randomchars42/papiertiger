@@ -8,16 +8,17 @@ console.log('Hello! This is the PAPIERTIGER going to work!');
 
 const DEFAULT_LANGUAGE: string = 'de-DE';
 
-export type Params = {
-    language: string,
-    list: string,
-    scrollmenu: string,
+export class Params {
+    basedir: string = './';
+    language: string = DEFAULT_LANGUAGE;
+    list: string = '';
+    scrollmenu: string = 'enable';
 };
 
 const run = (): void => {
     const params: Params = parseURL();
     UI.init();
-    TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    TR.init(params);
     if (params.scrollmenu === 'disable') {
         UI.disableScrollMenu();
     }
@@ -26,7 +27,7 @@ const run = (): void => {
 
 export const parseURL = (): Params => {
     const parsedURL = new URL(window.location.href);
-    const params: Params = {'language': '', 'list': '', 'scrollmenu': ''};
+    const params: Params = new Params();
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language')!;
     }

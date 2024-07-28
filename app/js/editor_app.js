@@ -2,10 +2,19 @@ import * as UI from './editor_ui.js';
 import * as TR from './translate.js';
 console.log('Hello! This is the PAPIERTIGER going to work!');
 const DEFAULT_LANGUAGE = 'de-DE';
+export class Params {
+    constructor() {
+        this.basedir = '../';
+        this.language = DEFAULT_LANGUAGE;
+        this.list = '';
+        this.scrollmenu = 'enable';
+    }
+}
+;
 const run = () => {
     const params = parseURL();
     UI.init();
-    TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    TR.init(params);
     if (params.scrollmenu === 'disable') {
         UI.disableScrollMenu();
         console.log('scrollmenu disabled');
@@ -14,7 +23,7 @@ const run = () => {
 };
 export const parseURL = () => {
     const parsedURL = new URL(window.location.href);
-    const params = { 'language': '', 'list': '', 'scrollmenu': '' };
+    const params = new Params();
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language');
     }
@@ -27,7 +36,7 @@ export const parseURL = () => {
     return params;
 };
 export const loadData = (label, name) => {
-    fetch('./data/' + name + '.json')
+    fetch('../data/' + name + '.json')
         .then((response) => {
         if (!response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);
@@ -67,7 +76,7 @@ export const loadData = (label, name) => {
     });
 };
 const loadDataList = (list) => {
-    fetch('./data/list.json')
+    fetch('../data/list.json')
         .then((response) => {
         if (!response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);

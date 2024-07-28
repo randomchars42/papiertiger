@@ -1,6 +1,9 @@
 let dictionary = {};
-const loadLanguage = (code) => {
-    fetch('./lang/' + code.substring(0, 2) + '.json')
+export const init = (params) => {
+    loadLanguage(params.language, params.basedir);
+};
+const loadLanguage = (code, basedir) => {
+    fetch(`${basedir}lang/${code.substring(0, 2)}.json`)
         .then((response) => {
         if (!response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);
@@ -54,7 +57,4 @@ const setLanguage = (code) => {
     document.querySelectorAll('[lang]').forEach((element) => {
         element.lang = code;
     });
-};
-export const initLanguage = (code) => {
-    loadLanguage(code);
 };

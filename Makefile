@@ -4,7 +4,7 @@ serve:
 	python3 -m http.server
 
 transpile:
-	tsc -p ./ts/ -w
+	tsc -p ./app/ts/ -w
 
 tag_release_patch:
 	./tag_release.sh patch

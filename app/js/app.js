@@ -2,10 +2,19 @@ import * as UI from './ui.js';
 import * as TR from './translate.js';
 console.log('Hello! This is the PAPIERTIGER going to work!');
 const DEFAULT_LANGUAGE = 'de-DE';
+export class Params {
+    constructor() {
+        this.basedir = './';
+        this.language = DEFAULT_LANGUAGE;
+        this.list = '';
+        this.scrollmenu = 'enable';
+    }
+}
+;
 const run = () => {
     const params = parseURL();
     UI.init();
-    TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    TR.init(params);
     if (params.scrollmenu === 'disable') {
         UI.disableScrollMenu();
     }
@@ -13,7 +22,7 @@ const run = () => {
 };
 export const parseURL = () => {
     const parsedURL = new URL(window.location.href);
-    const params = { 'language': '', 'list': '', 'scrollmenu': '' };
+    const params = new Params();
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language');
     }

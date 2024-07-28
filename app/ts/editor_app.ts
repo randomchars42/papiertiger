@@ -8,16 +8,17 @@ console.log('Hello! This is the PAPIERTIGER going to work!');
 
 const DEFAULT_LANGUAGE: string = 'de-DE';
 
-export type Params = {
-    language: string,
-    list: string,
-    scrollmenu: string,
+export class Params {
+    basedir: string = '../';
+    language: string = DEFAULT_LANGUAGE;
+    list: string = '';
+    scrollmenu: string = 'enable';
 };
 
 const run = (): void => {
     const params: Params = parseURL();
     UI.init();
-    TR.initLanguage(params.language || DEFAULT_LANGUAGE);
+    TR.init(params);
     if (params.scrollmenu === 'disable') {
         UI.disableScrollMenu();
         console.log('scrollmenu disabled');
@@ -27,7 +28,7 @@ const run = (): void => {
 
 export const parseURL = (): Params => {
     const parsedURL = new URL(window.location.href);
-    const params: Params = {'language': '', 'list': '', 'scrollmenu': ''};
+    const params: Params = new Params();
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language')!;
     }
@@ -41,7 +42,7 @@ export const parseURL = (): Params => {
 };
 
 export const loadData = (label: string, name: string): void => {
-    fetch('./data/' + name + '.json')
+    fetch('../data/' + name + '.json')
     .then((response: Response): Response => {
         if (! response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);
@@ -81,7 +82,7 @@ export const loadData = (label: string, name: string): void => {
 };
 
 const loadDataList = (list: string): void => {
-    fetch('./data/list.json')
+    fetch('../data/list.json')
     .then((response: Response): Response => {
         if (! response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);
