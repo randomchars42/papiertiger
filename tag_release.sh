@@ -43,7 +43,7 @@ fi
 # update manifest file and version file
 
 # update version in manifest.json
-sed -i "s/^CHANGELOG for.*/CHANGELOG for $VERSION_NEXT/" CHANGELOG.md
+sed -i "s/^# CHANGELOG for.*/# CHANGELOG for $VERSION_NEXT/" CHANGELOG.md
 sed -i "s/^  \"version\": .*/  \"version\": \"$VERSION_NEXT\",/" app/manifest.json
 # update version in constants.ts
 sed -i "s/^export const VERSION: string = \".*/export const VERSION: string = \"$VERSION_NEXT\";/" app/ts/constants.ts
