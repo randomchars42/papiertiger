@@ -28,7 +28,7 @@ set_error_handler('exceptions_error_handler');
 $content = json_decode(file_get_contents("php://input"));
 
 if (isset($_GET['file'])) {
-    $dir = getcwd() . '/data';
+    $dir = getcwd() . '/../data';
     $resource = $_GET['file'];
     $date = new DateTimeImmutable();
     $stamp = $date->format('Y-m-d_H-i-s-v');
