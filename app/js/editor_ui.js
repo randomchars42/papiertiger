@@ -73,14 +73,49 @@ class Entity {
     }
 }
 class CollectionsEntity extends Entity {
-    constructor(entity, entityHTML) {
+    constructor(entity, entityHTML, name) {
         super('collections', entityHTML);
         this.parent = null;
-        this.entity = entity;
-        this.children = entity;
+        if (entity === null) {
+            entity = [];
+            this.entity = entity;
+            this.children = entity;
+        }
+        else {
+            this.entity = entity;
+            this.children = entity;
+        }
+        this.entityHTML.onclick = (event) => {
+            this.createEditor();
+            event.stopPropagation();
+        };
+        const label = document.createElement('h2');
+        label.textContent = name;
+        this.entityHTML.appendChild(label);
+        let i = 0;
+        for (i = 0; i < this.children.length; i++) {
+            const id = generateCSSString(this.children[i].label);
+            const entity = new CollectionEntity(this, this.children[i]);
+        }
+        if (i === 0) {
+            const newEntity = new CollectionEntity(this);
+        }
+    }
+    createEditor() {
+        const editor = createEditor(this, ['editor_collections'], null, null, (event) => {
+            const entity = new CollectionEntity(this);
+        });
+        openEditor(editor);
+        return editor;
     }
     getContentEntity() {
         return this.entity;
+    }
+    delete() {
+        this.entityHTML.textContent = '';
+        this.children.length = 0;
+        const newEntity = new CollectionEntity(this);
+        console.log(this.getContentEntity());
     }
 }
 class CollectionEntity extends Entity {
@@ -166,6 +201,8 @@ class CollectionEntity extends Entity {
             const entity = new CollectionEntity(this.parent);
             this.createNewAfter(entity);
             event.stopPropagation();
+        }, (event) => {
+            const entity = new RowEntity(this);
         });
         createTextfield(TR.tr('label_label'), this.label, this, 'label', editor, 'text', []);
         createCheckbox(TR.tr('label_collapsed'), this.collapsed, this, 'collapsed', editor, []);
@@ -220,10 +257,9 @@ class RowEntity extends Entity {
             const entity = new RowEntity(this.parent);
             this.createNewAfter(entity);
             event.stopPropagation();
+        }, (event) => {
+            const entity = new ItemEntity(this);
         });
-        if (this.entity.length == 0) {
-            const newItem = new ItemEntity(this);
-        }
         openEditor(editor);
         return editor;
     }
@@ -379,14 +415,9 @@ export const disableScrollMenu = () => {
 export const clearEditElements = (parent) => {
     parent.textContent = '';
 };
-export const generateEditElements = (collections, parent) => {
-    const collectionsEntity = new CollectionsEntity(collections, parent);
+export const generateEditElements = (collections, parent, name) => {
     resetNav();
-    let i = 0;
-    for (i = 0; i < collections.length; i++) {
-        const id = generateCSSString(collections[i].label);
-        const entity = new CollectionEntity(collectionsEntity, collections[i]);
-    }
+    const collectionsEntity = new CollectionsEntity(collections, parent, name);
 };
 export const clearEditor = () => {
     const container = document.getElementById('MainEditor');
@@ -397,20 +428,26 @@ const openEditor = (editor) => {
     const container = clearEditor();
     container.appendChild(editor);
 };
-const createEditor = (entity, classList, onBeforeButton, onAfterButton) => {
+const createEditor = (entity, classList, onBeforeButton = null, onAfterButton = null, onAppendButton = null) => {
     const editor = document.createElement('div');
     editor.classList.add('editor', `editor_${entity.type}`);
     const toolbar = document.createElement('div');
     toolbar.classList.add('editor_toolbar', 'pane');
     editor.appendChild(toolbar);
-    const newBeforeButton = document.createElement('button');
-    newBeforeButton.textContent = TR.tr(`button_new_${entity.type}_before`);
-    newBeforeButton.onclick = onBeforeButton;
-    newBeforeButton.classList.add('control');
-    const newAfterButton = document.createElement('button');
-    newAfterButton.textContent = TR.tr(`button_new_${entity.type}_after`);
-    newAfterButton.onclick = onAfterButton;
-    newAfterButton.classList.add('control');
+    if (onBeforeButton !== null) {
+        const newBeforeButton = document.createElement('button');
+        newBeforeButton.textContent = TR.tr(`button_new_${entity.type}_before`);
+        newBeforeButton.onclick = onBeforeButton;
+        newBeforeButton.classList.add('control');
+        toolbar.appendChild(newBeforeButton);
+    }
+    if (onAfterButton !== null) {
+        const newAfterButton = document.createElement('button');
+        newAfterButton.textContent = TR.tr(`button_new_${entity.type}_after`);
+        newAfterButton.onclick = onAfterButton;
+        newAfterButton.classList.add('control');
+        toolbar.appendChild(newAfterButton);
+    }
     const deleteButton = document.createElement('button');
     deleteButton.textContent = TR.tr(`button_delete_${entity.type}`);
     deleteButton.onclick = () => {
@@ -419,9 +456,14 @@ const createEditor = (entity, classList, onBeforeButton, onAfterButton) => {
         }
     };
     deleteButton.classList.add('control');
-    toolbar.appendChild(newBeforeButton);
-    toolbar.appendChild(newAfterButton);
     toolbar.appendChild(deleteButton);
+    if (onAppendButton !== null) {
+        const appendButton = document.createElement('button');
+        appendButton.textContent = TR.tr(`button_append_to_${entity.type}`);
+        appendButton.onclick = onAppendButton;
+        appendButton.classList.add('control');
+        toolbar.appendChild(appendButton);
+    }
     console.log(entity.getContentEntity());
     return (editor);
 };

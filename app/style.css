@@ -366,10 +366,19 @@ main {
 
 /* editor.html only */
 
+.collections {
+    background-color: hsl(0, 0%, 97%);
+    padding: var(--padding);
+}
+
 .collection, .editor_collection {
     background-color: hsl(0, 0%, 95%);
+}
+
+.collection, .row {
     padding: var(--padding);
-    margin-bottom: var(--padding);
+    margin: var(--padding);
+    width: initial;
 }
 
 .collection:last-of-type {
@@ -380,30 +389,30 @@ main {
 
 .collection .row, .editor_row {
     background-color: hsl(0, 0%, 90%);
-    padding: var(--padding);
-    margin: var(--padding);
     width: initial;
 }
 
-.editor {
+#MainEditor {
     margin-top: calc(3 * var(--padding));
 }
 
 .editor_item {
     background-color: hsl(0, 0%, 80%);
-    padding: var(--padding);
 }
 
 .editor .editor_toolbar {
     background-color: hsl(0, 0%, 70%);
     width: initial;
     padding: var(--padding);
-    margin: calc(-1 * var(--padding));
     margin-bottom: var(--padding);
 }
 
-.editor .editor_toolbar:last-child {
-    margin-bottom: calc(-1 * var(--padding));
+.editor {
+    margin-bottom: var(--padding);
+}
+
+.editor .editor_toolbar:last-of-type {
+    margin-bottom: 0;
 }
 
 .editor_group .control,

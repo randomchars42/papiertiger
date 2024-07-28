@@ -53,7 +53,9 @@ export const loadData = (label: string, name: string): void => {
     .then((data: any): void => {
         console.log('Data fetched.');
         UI.clearEditElements(document.getElementById('MainInput')!);
-        UI.generateEditElements(data, document.getElementById('MainInput')!);
+        UI.generateEditElements(data,
+                                document.getElementById('MainInput')!,
+                                name);
         UI.displayCurrentListItem(label);
         UI.setOnSubmit((): void => {
             console.log(data);

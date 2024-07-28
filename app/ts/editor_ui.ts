@@ -123,14 +123,65 @@ class CollectionsEntity extends Entity {
     entity: ItemCollection[];
     children: ItemCollection[];
 
-    constructor(entity: ItemCollection[], entityHTML: HTMLElement) {
+    constructor(entity: ItemCollection[],
+                entityHTML: HTMLElement,
+                name: string) {
         super('collections', entityHTML);
-        this.entity = entity;
-        this.children = entity;
+
+        if (entity === null) {
+            entity = [];
+            this.entity = entity;
+            this.children = entity;
+        } else {
+            this.entity = entity;
+            this.children = entity;
+        }
+
+        this.entityHTML.onclick = (event: Event): void => {
+            this.createEditor();
+            event.stopPropagation();
+        };
+
+        const label: HTMLHeadingElement = document.createElement('h2');
+        label.textContent = name;
+        this.entityHTML.appendChild(label);
+
+        let i: number = 0;
+        for (i = 0; i < this.children.length; i++) {
+            const id: string = generateCSSString(this.children[i].label);
+            const entity: CollectionEntity = new CollectionEntity(
+                this,
+                this.children[i]);
+        }
+        if (i === 0) {
+            const newEntity: CollectionEntity = new CollectionEntity(this);
+        }
+    }
+
+    createEditor() {
+        const editor: HTMLElement = createEditor(
+            this,
+            ['editor_collections'],
+            null,
+            null,
+            (event: Event) => {
+                const entity = new CollectionEntity(this);
+            }
+        );
+
+        openEditor(editor);
+        return editor;
     }
 
     getContentEntity() {
         return this.entity;
+    }
+
+    delete() {
+        this.entityHTML.textContent = '';
+        this.children.length = 0;
+        const newEntity: CollectionEntity = new CollectionEntity(this);
+        console.log(this.getContentEntity());
     }
 }
 
@@ -242,6 +293,9 @@ class CollectionEntity extends Entity  {
                 const entity = new CollectionEntity(this.parent);
                 this.createNewAfter(entity)
                 event.stopPropagation();
+            },
+            (event: Event) => {
+                const entity = new RowEntity(this);
             }
         );
 
@@ -317,12 +371,11 @@ class RowEntity extends Entity  {
                 const entity = new RowEntity(this.parent);
                 this.createNewAfter(entity)
                 event.stopPropagation();
+            },
+            (event: Event) => {
+                const entity = new ItemEntity(this);
             }
         );
-
-        if (this.entity.length == 0) {
-            const newItem: ItemEntity = new ItemEntity(this);
-        }
 
         openEditor(editor);
         return editor;
@@ -528,18 +581,13 @@ export const clearEditElements = (parent: HTMLElement): void => {
 };
 
 export const generateEditElements = (collections: ItemCollection[],
-                                     parent: HTMLElement): void => {
+                                     parent: HTMLElement,
+                                     name: string): void => {
+    resetNav();
     const collectionsEntity: CollectionsEntity = new CollectionsEntity(
         collections,
-        parent);
-        resetNav();
-        let i: number = 0;
-        for (i = 0; i < collections.length; i++) {
-            const id: string = generateCSSString(collections[i].label);
-            const entity: CollectionEntity = new CollectionEntity(
-                collectionsEntity,
-                collections[i]);
-        }
+        parent,
+        name);
 };
 
 export const clearEditor = (): HTMLElement => {
@@ -554,8 +602,9 @@ const openEditor = (editor: HTMLElement): void => {
 };
 
 const createEditor = (entity: Entity, classList: string[],
-                      onBeforeButton: (event: Event) => void,
-                      onAfterButton: (event: Event) => void): HTMLElement => {
+                      onBeforeButton: ((event: Event) => void)|null = null,
+                      onAfterButton: ((event: Event) => void)|null = null,
+                      onAppendButton: ((event: Event) => void)|null = null): HTMLElement => {
     const editor = document.createElement('div');
     editor.classList.add('editor', `editor_${entity.type}`);
 
@@ -563,14 +612,22 @@ const createEditor = (entity: Entity, classList: string[],
     toolbar.classList.add('editor_toolbar', 'pane');
     editor.appendChild(toolbar);
 
-    const newBeforeButton = document.createElement('button');
-    newBeforeButton.textContent = TR.tr(`button_new_${entity.type}_before`);
-    newBeforeButton.onclick = onBeforeButton;
-    newBeforeButton.classList.add('control')//, 'control_variable_width');
-    const newAfterButton = document.createElement('button');
-    newAfterButton.textContent = TR.tr(`button_new_${entity.type}_after`);
-    newAfterButton.onclick = onAfterButton;
-    newAfterButton.classList.add('control')//, 'control_variable_width');
+    if (onBeforeButton !== null) {
+        const newBeforeButton = document.createElement('button');
+        newBeforeButton.textContent = TR.tr(`button_new_${entity.type}_before`);
+        newBeforeButton.onclick = onBeforeButton;
+        newBeforeButton.classList.add('control')//, 'control_variable_width');
+        toolbar.appendChild(newBeforeButton);
+    }
+
+    if (onAfterButton !== null) {
+        const newAfterButton = document.createElement('button');
+        newAfterButton.textContent = TR.tr(`button_new_${entity.type}_after`);
+        newAfterButton.onclick = onAfterButton;
+        newAfterButton.classList.add('control')//, 'control_variable_width');
+        toolbar.appendChild(newAfterButton);
+    }
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = TR.tr(`button_delete_${entity.type}`);
     deleteButton.onclick = () => {
@@ -579,10 +636,16 @@ const createEditor = (entity: Entity, classList: string[],
         }
     };
     deleteButton.classList.add('control')//, 'control_variable_width');
-
-    toolbar.appendChild(newBeforeButton);
-    toolbar.appendChild(newAfterButton);
     toolbar.appendChild(deleteButton);
+
+    if (onAppendButton !== null) {
+        const appendButton = document.createElement('button');
+        appendButton.textContent = TR.tr(`button_append_to_${entity.type}`);
+        appendButton.onclick = onAppendButton;
+        appendButton.classList.add('control')//, 'control_variable_width');
+        toolbar.appendChild(appendButton);
+    }
+
     console.log(entity.getContentEntity());
     return(editor);
 };
