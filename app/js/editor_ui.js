@@ -568,7 +568,7 @@ const createEditor = (entity, classList, ...buttons) => {
     console.log(entity.getContentEntity());
     return (editor);
 };
-const createTextfield = (label, content, entity, target, parent, type = 'text', classList = []) => {
+const createTextfield = (label, content, entity, target, parent, type = 'text', classList = [], disabled = false) => {
     const group = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -579,6 +579,7 @@ const createTextfield = (label, content, entity, target, parent, type = 'text', 
     group.appendChild(labelElement);
     const input = document.createElement('input');
     input.type = type;
+    input.disabled = disabled;
     input.value = content.replace(/\n/g, '\\n');
     input.onkeydown = (event) => {
         if (event.defaultPrevented) {
@@ -611,7 +612,7 @@ const createTextfield = (label, content, entity, target, parent, type = 'text', 
     input.id = id;
     return input;
 };
-const createTextarea = (label, content, entity, target, parent, classList = []) => {
+const createTextarea = (label, content, entity, target, parent, classList = [], disabled = false) => {
     const group = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -622,6 +623,7 @@ const createTextarea = (label, content, entity, target, parent, classList = []) 
     group.appendChild(labelElement);
     const input = document.createElement('textarea');
     input.value = content;
+    input.disabled = disabled;
     input.oninput = () => {
         entity[target] = input.value;
     };
@@ -632,7 +634,7 @@ const createTextarea = (label, content, entity, target, parent, classList = []) 
     input.id = id;
     return input;
 };
-const createOptions = (label, content, entity, target, parent, options = [], classList = []) => {
+const createOptions = (label, content, entity, target, parent, options = [], classList = [], disabled = false) => {
     const group = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -643,6 +645,7 @@ const createOptions = (label, content, entity, target, parent, options = [], cla
     group.appendChild(labelElement);
     const select = document.createElement('select');
     select.value = content;
+    select.disabled = disabled;
     select.onchange = () => {
         entity[target] = select.value;
     };
@@ -662,7 +665,7 @@ const createOptions = (label, content, entity, target, parent, options = [], cla
     select.id = id;
     return select;
 };
-const createCheckbox = (label, state, targetParent, target, parent, classList = []) => {
+const createCheckbox = (label, state, targetParent, target, parent, classList = [], disabled = false) => {
     const group = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -674,6 +677,7 @@ const createCheckbox = (label, state, targetParent, target, parent, classList = 
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.checked = state;
+    input.disabled = disabled;
     input.oninput = () => {
         targetParent[target] = input.checked;
     };
