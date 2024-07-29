@@ -66,8 +66,13 @@ if (isset($_GET['file'])) {
         }
     }
 
+    // prettify data
+    $data = json_encode($content, JSON_PRETTY_PRINT);
+    $data = preg_replace('/,[\n\r]+\s+"(type|del|cat|text|label)"/', ', "$1"', $data);
+    $data = preg_replace('/{[\r\n]+\s+"type/', '{"type', $data);
+    $data = preg_replace('/"[\r\n]+\s+}/', '"}', $data);
     // write data to file
-    file_put_contents($path, json_encode($content, JSON_PRETTY_PRINT));
+    file_put_contents($path, $data);
     $response['status'] = 'success';
     $response['content'] = $content;
 } else {
