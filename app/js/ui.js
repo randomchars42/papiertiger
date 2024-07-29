@@ -1,5 +1,6 @@
 import * as APP from './app.js';
 import * as TR from './translate.js';
+import * as TXT from './texts.js';
 import { VERSION } from './constants.js';
 export let SCROLLPOSITION = document.getElementById('MainInput').scrollTop;
 const getMainInput = () => {
@@ -101,7 +102,7 @@ export const generateInputElements = (collections, parent) => {
         addNavItem(collection.label, id, document.getElementById('MainNav'));
         collection.items.forEach((entity) => {
             if ('text' in entity) {
-                addText(entity.text, parent);
+                addText(entity.name, parent);
             }
             else {
                 const row = addRow(classname, collection.collapsed, parent);
@@ -152,9 +153,9 @@ export const addItem = (label, text, parent, type = 'def', del = 0, cat = 'ref')
     }
     parent.appendChild(item);
 };
-export const addText = (text, parent) => {
+export const addText = (name, parent) => {
     const textfield = document.createElement('div');
-    textfield.textContent = text;
+    TXT.appendText(name, textfield);
     parent.appendChild(textfield);
 };
 export const addListItem = (label, name, parent) => {

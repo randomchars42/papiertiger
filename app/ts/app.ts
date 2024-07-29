@@ -3,6 +3,7 @@
  */
 import * as UI from './ui.js';
 import * as TR from './translate.js';
+import * as TXT from './texts.js';
 
 console.log('Hello! This is the PAPIERTIGER going to work!');
 
@@ -18,6 +19,7 @@ export class Params {
 const run = (): void => {
     const params: Params = parseURL();
     UI.init();
+    TXT.init(params);
     TR.init(params);
     if (params.scrollmenu === 'disable') {
         UI.disableScrollMenu();

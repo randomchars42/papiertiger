@@ -2,6 +2,7 @@
  */
 import * as APP from './editor_app.js';
 import * as TR from './translate.js';
+import * as TXT from './texts.js';
 import {VERSION} from './constants.js';
 
 export type ListItem = {
@@ -18,6 +19,7 @@ export type Item = {
 }
 
 export type Text = {
+    name: string;
     text: string,
 }
 
@@ -459,23 +461,46 @@ class TextEntity extends Entity {
         super('text', document.createElement('div'));
         this.parent = parent;
 
+        const textHTML: HTMLElement = document.createElement('div');
+        this.entityHTML.appendChild(textHTML);
+
         if (entity === null) {
-            entity = {'text': ''};
+            entity = {'text': '', 'name': ''};
             this.entity = entity;
             this.appendEntity(parent);
         } else {
             this.entity = entity;
+            TXT.appendText(entity.name, textHTML);
         }
 
-        this.appendHTML(parent);
+        this.name = entity.name;
 
-        this.entityHTML.textContent = 'Some super helpful text!';
+        this.appendHTML(parent);
 
         this.entityHTML.onclick = (event: Event): void => {
             this.createEditor();
             event.stopPropagation();
         };
         this.entityHTML.classList.add('text');
+
+        console.log(this);
+    }
+
+    get name() {
+        return this.entity.name;
+    }
+
+    set name(name: string) {
+        this.entity.name = name;
+    }
+
+    get text() {
+        this.entity.text = this.entityHTML.textContent || '';
+        return this.entity.text;
+    }
+
+    set text(text: string) {
+        this.entity.text = text;
     }
 
     createEditor() {
@@ -515,6 +540,11 @@ class TextEntity extends Entity {
                 },
             }
         );
+
+        createTextfield(TR.tr('label_label'), this.name, this,
+                        'name', editor, 'text', []);
+        createTextarea(TR.tr('label_text'), this.text, this,
+                        'text', editor, [], true);
 
         openEditor(editor);
         return editor;
@@ -781,8 +811,9 @@ const createEditor = (entity: Entity,
 
 const createTextfield = (label: string, content: string,
                          entity: any, target: string,
-parent: HTMLElement, type: string = 'text',
-    classList: string[] = []): HTMLInputElement => {
+                         parent: HTMLElement, type: string = 'text',
+                         classList: string[] = [],
+                         disabled: boolean = false): HTMLInputElement => {
     const group: HTMLElement = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -793,6 +824,7 @@ parent: HTMLElement, type: string = 'text',
     group.appendChild(labelElement);
     const input: HTMLInputElement = document.createElement('input');
     input.type = type;
+    input.disabled = disabled;
     input.value = content.replace(/\n/g, '\\n');
     input.onkeydown = (event: KeyboardEvent): void => {
         if (event.defaultPrevented) {
@@ -830,10 +862,10 @@ parent: HTMLElement, type: string = 'text',
     return input;
 };
 
-const createTextarea = (label: string, content: string,
-                        entity: any, target: string,
-parent: HTMLElement,
-classList: string[] = []): HTMLTextAreaElement => {
+const createTextarea = (
+    label: string, content: string, entity: any, target: string,
+    parent: HTMLElement, classList: string[] = [],
+    disabled: boolean = false): HTMLTextAreaElement => {
     const group: HTMLElement = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -844,6 +876,7 @@ classList: string[] = []): HTMLTextAreaElement => {
     group.appendChild(labelElement);
     const input: HTMLTextAreaElement = document.createElement('textarea');
     input.value = content;
+    input.disabled = disabled;
     input.oninput = (): void => {
         entity[target] = input.value;
     };
@@ -856,10 +889,10 @@ classList: string[] = []): HTMLTextAreaElement => {
     return input;
 };
 
-const createOptions = (label: string, content: string,
-                       entity: any, target: string,
-parent: HTMLElement, options: string[] = [],
-    classList: string[] = []): HTMLSelectElement => {
+const createOptions = (
+    label: string, content: string, entity: any, target: string,
+    parent: HTMLElement, options: string[] = [], classList: string[] = [],
+    disabled: boolean = false): HTMLSelectElement => {
     const group: HTMLElement = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -870,6 +903,7 @@ parent: HTMLElement, options: string[] = [],
     group.appendChild(labelElement);
     const select: HTMLSelectElement = document.createElement('select');
     select.value = content;
+    select.disabled = disabled;
     select.onchange = (): void => {
         entity[target] = select.value;
     };
@@ -891,10 +925,10 @@ parent: HTMLElement, options: string[] = [],
     return select;
 };
 
-const createCheckbox = (label: string, state: boolean,
-                        targetParent: any, target: string,
-parent: HTMLElement,
-classList: string[] = []): HTMLInputElement => {
+const createCheckbox = (
+    label: string, state: boolean, targetParent: any, target: string,
+    parent: HTMLElement, classList: string[] = [],
+    disabled: boolean = false): HTMLInputElement => {
     const group: HTMLElement = document.createElement('div');
     group.classList.add(...classList);
     group.classList.add('pane', 'editor_group');
@@ -906,6 +940,7 @@ classList: string[] = []): HTMLInputElement => {
     const input: HTMLInputElement = document.createElement('input');
     input.type = 'checkbox';
     input.checked = state;
+    input.disabled = disabled;
     input.oninput = (): void => {
         targetParent[target] = input.checked;
     };

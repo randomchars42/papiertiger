@@ -1,5 +1,6 @@
 import * as UI from './editor_ui.js';
 import * as TR from './translate.js';
+import * as TXT from './texts.js';
 console.log('Hello! This is the PAPIERTIGER going to work!');
 const DEFAULT_LANGUAGE = 'de-DE';
 export class Params {
@@ -14,6 +15,7 @@ export class Params {
 const run = () => {
     const params = parseURL();
     UI.init();
+    TXT.init(params);
     TR.init(params);
     if (params.scrollmenu === 'disable') {
         UI.disableScrollMenu();

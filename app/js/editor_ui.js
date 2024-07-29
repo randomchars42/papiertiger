@@ -1,5 +1,6 @@
 import * as APP from './editor_app.js';
 import * as TR from './translate.js';
+import * as TXT from './texts.js';
 import { VERSION } from './constants.js';
 class Entity {
     constructor(type, entityHTML) {
@@ -323,21 +324,38 @@ class TextEntity extends Entity {
     constructor(parent, entity = null) {
         super('text', document.createElement('div'));
         this.parent = parent;
+        const textHTML = document.createElement('div');
+        this.entityHTML.appendChild(textHTML);
         if (entity === null) {
-            entity = { 'text': '' };
+            entity = { 'text': '', 'name': '' };
             this.entity = entity;
             this.appendEntity(parent);
         }
         else {
             this.entity = entity;
+            TXT.appendText(entity.name, textHTML);
         }
+        this.name = entity.name;
         this.appendHTML(parent);
-        this.entityHTML.textContent = 'Some super helpful text!';
         this.entityHTML.onclick = (event) => {
             this.createEditor();
             event.stopPropagation();
         };
         this.entityHTML.classList.add('text');
+        console.log(this);
+    }
+    get name() {
+        return this.entity.name;
+    }
+    set name(name) {
+        this.entity.name = name;
+    }
+    get text() {
+        this.entity.text = this.entityHTML.textContent || '';
+        return this.entity.text;
+    }
+    set text(text) {
+        this.entity.text = text;
     }
     createEditor() {
         const editor = createEditor(this, ['editor_text'], {
@@ -369,6 +387,8 @@ class TextEntity extends Entity {
                 event.stopPropagation();
             },
         });
+        createTextfield(TR.tr('label_label'), this.name, this, 'name', editor, 'text', []);
+        createTextarea(TR.tr('label_text'), this.text, this, 'text', editor, [], true);
         openEditor(editor);
         return editor;
     }

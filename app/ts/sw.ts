@@ -15,6 +15,7 @@ const APP_STATIC_RESOURCES = [
     "../js/app.js",
     "../js/ui.js",
     "../js/translate.js",
+    "../js/texts.js",
     "../js/constants.js",
     "../icon.svg",
     "../manifest.json",

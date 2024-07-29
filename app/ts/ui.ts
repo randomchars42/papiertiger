@@ -2,6 +2,7 @@
  */
 import * as APP from './app.js';
 import * as TR from './translate.js';
+import * as TXT from './texts.js';
 import {VERSION} from './constants.js';
 
 export type ListItem = {
@@ -18,6 +19,7 @@ export type Item = {
 }
 
 export type Text = {
+    name: string,
     text: string,
 }
 
@@ -142,7 +144,7 @@ export const generateInputElements = (collections: ItemCollection[],
         addNavItem(collection.label, id, document.getElementById('MainNav')!);
         collection.items.forEach((entity: Item[]|Text): void => {
             if ('text' in entity) {
-                addText(entity.text, parent);
+                addText(entity.name, parent);
             } else {
                 const row = addRow(classname, collection.collapsed, parent);
                 entity.forEach((item: Item): void => {
@@ -208,9 +210,9 @@ export const addItem = (label: string, text: string, parent: HTMLElement,
     parent.appendChild(item);
 };
 
-export const addText = (text: string, parent: HTMLElement): void => {
+export const addText = (name: string, parent: HTMLElement): void => {
     const textfield = document.createElement('div');
-    textfield.textContent =  text;
+    TXT.appendText(name, textfield);
     parent.appendChild(textfield);
 };
 
