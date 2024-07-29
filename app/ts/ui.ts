@@ -17,12 +17,16 @@ export type Item = {
     text: string,
 }
 
+export type Text = {
+    text: string,
+}
+
 export type ItemRow = Item[]
 
 export type ItemCollection = {
     label: string,
     collapsed: boolean,
-    items: ItemRow[],
+    items: (ItemRow|Text)[],
 }
 
 export let SCROLLPOSITION: number|null =
@@ -136,12 +140,16 @@ export const generateInputElements = (collections: ItemCollection[],
         const classname: string = 'collection_' + id;
         addHeading(collection.label, id, collection.collapsed, parent);
         addNavItem(collection.label, id, document.getElementById('MainNav')!);
-        collection.items.forEach((itemrow: Item[]): void => {
-            const row = addRow(classname, collection.collapsed, parent);
-            itemrow.forEach((item: Item): void => {
-                addItem(item.label, item.text, row, item.type, item.del,
-                        item.cat);
-            });
+        collection.items.forEach((entity: Item[]|Text): void => {
+            if ('text' in entity) {
+                addText(entity.text, parent);
+            } else {
+                const row = addRow(classname, collection.collapsed, parent);
+                entity.forEach((item: Item): void => {
+                    addItem(item.label, item.text, row, item.type, item.del,
+                            item.cat);
+                });
+            }
         });
     });
 };
@@ -198,6 +206,12 @@ export const addItem = (label: string, text: string, parent: HTMLElement,
     }
 
     parent.appendChild(item);
+};
+
+export const addText = (text: string, parent: HTMLElement): void => {
+    const textfield = document.createElement('div');
+    textfield.textContent =  text;
+    parent.appendChild(textfield);
 };
 
 export const addListItem = (label: string, name: string,

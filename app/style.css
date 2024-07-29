@@ -424,7 +424,7 @@ main {
 }
 
 .editor .pane {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .editor_group .control {

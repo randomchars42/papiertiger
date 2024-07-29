@@ -17,12 +17,21 @@ export type Item = {
     text: string,
 }
 
+export type Text = {
+    text: string,
+}
+
 export type ItemRow = Item[]
 
 export type ItemCollection = {
     label: string,
     collapsed: boolean,
-    items: ItemRow[],
+    items: (Text|ItemRow)[],
+}
+
+type Button = {
+    label: string,
+    onclick: (event: Event) => void
 }
 
 class Entity {
@@ -162,10 +171,11 @@ class CollectionsEntity extends Entity {
         const editor: HTMLElement = createEditor(
             this,
             ['editor_collections'],
-            null,
-            null,
-            (event: Event) => {
-                const entity = new CollectionEntity(this);
+            {
+                label: 'button_append_collection',
+                onclick: (event: Event) => {
+                    const entity = new CollectionEntity(this);
+                }
             }
         );
 
@@ -189,7 +199,7 @@ class CollectionEntity extends Entity  {
     parent: CollectionsEntity;
     entity: ItemCollection;
     entityNavHTML: HTMLAnchorElement;
-    children: ItemRow[];
+    children: (ItemRow|Text)[];
 
     constructor(parent: CollectionsEntity,
                 entity: ItemCollection|null = null) {
@@ -226,7 +236,13 @@ class CollectionEntity extends Entity  {
 
         let i: number = 0;
         for (i = 0; i < this.children.length; i++) {
-            const newEntity: RowEntity = new RowEntity(this, this.children[i]);
+            if ('text' in this.children[i]){
+                const newEntity: TextEntity = new TextEntity(
+                    this, (this.children[i] as Text));
+            } else {
+                const newEntity: RowEntity = new RowEntity(
+                    this, (this.children[i] as ItemRow));
+            }
         }
         if (i === 0) {
             const newEntity: RowEntity = new RowEntity(this);
@@ -284,18 +300,33 @@ class CollectionEntity extends Entity  {
         const editor: HTMLElement = createEditor(
             this,
             ['editor_collection'],
-            (event: Event) => {
-                const entity = new CollectionEntity(this.parent);
-                this.createNewBefore(entity);
-                event.stopPropagation();
+            {
+                label: 'button_new_collection_before',
+                onclick: (event: Event) => {
+                    const entity = new CollectionEntity(this.parent);
+                    this.createNewBefore(entity);
+                    event.stopPropagation();
+                }
             },
-            (event: Event) => {
-                const entity = new CollectionEntity(this.parent);
-                this.createNewAfter(entity)
-                event.stopPropagation();
+            {
+                label: 'button_new_collection_after',
+                onclick: (event: Event) => {
+                    const entity = new CollectionEntity(this.parent);
+                    this.createNewAfter(entity)
+                    event.stopPropagation();
+                },
             },
-            (event: Event) => {
-                const entity = new RowEntity(this);
+            {
+                label: 'button_append_row',
+                onclick: (event: Event) => {
+                    const entity = new RowEntity(this);
+                },
+            },
+            {
+                label: 'button_append_text',
+                onclick: (event: Event) => {
+                    const entity = new TextEntity(this);
+                }
             }
         );
 
@@ -362,19 +393,44 @@ class RowEntity extends Entity  {
         const editor: HTMLElement = createEditor(
             this,
             ['editor_row'],
-            (event: Event) => {
-                const entity = new RowEntity(this.parent);
-                this.createNewBefore(entity);
-                event.stopPropagation();
+            {
+                label: 'button_new_row_before',
+                onclick: (event: Event) => {
+                    const entity = new RowEntity(this.parent);
+                    this.createNewBefore(entity);
+                    event.stopPropagation();
+                }
             },
-            (event: Event) => {
-                const entity = new RowEntity(this.parent);
-                this.createNewAfter(entity)
-                event.stopPropagation();
+            {
+                label: 'button_new_text_before',
+                onclick: (event: Event) => {
+                    const entity = new TextEntity(this.parent);
+                    this.createNewBefore(entity);
+                    event.stopPropagation();
+                }
             },
-            (event: Event) => {
-                const entity = new ItemEntity(this);
-            }
+            {
+                label: 'button_new_row_after',
+                onclick: (event: Event) => {
+                    const entity = new RowEntity(this.parent);
+                    this.createNewAfter(entity)
+                    event.stopPropagation();
+                },
+            },
+            {
+                label: 'button_new_text_after',
+                onclick: (event: Event) => {
+                    const entity = new TextEntity(this.parent);
+                    this.createNewAfter(entity)
+                    event.stopPropagation();
+                },
+            },
+            {
+                label: 'button_append_item',
+                onclick: (event: Event) => {
+                    const entity = new ItemEntity(this);
+                },
+            },
         );
 
         openEditor(editor);
@@ -389,6 +445,89 @@ class RowEntity extends Entity  {
         super.delete();
         if (this.parent.children.length === 0) {
             const newEntity: RowEntity = new RowEntity(this.parent);
+        }
+        console.log(this.getContentEntity());
+    }
+}
+
+class TextEntity extends Entity {
+    parent: CollectionEntity;
+    entity: Text;
+
+    constructor(parent: CollectionEntity,
+                entity: Text|null = null) {
+        super('text', document.createElement('div'));
+        this.parent = parent;
+
+        if (entity === null) {
+            entity = {'text': ''};
+            this.entity = entity;
+            this.appendEntity(parent);
+        } else {
+            this.entity = entity;
+        }
+
+        this.appendHTML(parent);
+
+        this.entityHTML.textContent = 'Some super helpful text!';
+
+        this.entityHTML.onclick = (event: Event): void => {
+            this.createEditor();
+            event.stopPropagation();
+        };
+        this.entityHTML.classList.add('text');
+    }
+
+    createEditor() {
+        const editor: HTMLElement = createEditor(
+            this,
+            ['editor_text'],
+            {
+                label: 'button_new_row_before',
+                onclick: (event: Event) => {
+                    const entity = new RowEntity(this.parent);
+                    this.createNewBefore(entity);
+                    event.stopPropagation();
+                }
+            },
+            {
+                label: 'button_new_text_before',
+                onclick: (event: Event) => {
+                    const entity = new TextEntity(this.parent);
+                    this.createNewBefore(entity);
+                    event.stopPropagation();
+                }
+            },
+            {
+                label: 'button_new_row_after',
+                onclick: (event: Event) => {
+                    const entity = new RowEntity(this.parent);
+                    this.createNewAfter(entity)
+                    event.stopPropagation();
+                },
+            },
+            {
+                label: 'button_new_text_after',
+                onclick: (event: Event) => {
+                    const entity = new TextEntity(this.parent);
+                    this.createNewAfter(entity)
+                    event.stopPropagation();
+                },
+            }
+        );
+
+        openEditor(editor);
+        return editor;
+    }
+
+    getContentEntity() {
+        return this.parent.getContentEntity();
+    }
+
+    delete() {
+        super.delete();
+        if (this.parent.children.length === 0) {
+            const newEntity: TextEntity = new TextEntity(this.parent);
         }
         console.log(this.getContentEntity());
     }
@@ -478,16 +617,22 @@ class ItemEntity extends Entity  {
         const editor: HTMLElement = createEditor(
             this,
             ['editor_item'],
-            (event: Event) => {
-                const entity = new ItemEntity(this.parent);
-                this.createNewBefore(entity);
-                event.stopPropagation();
+            {
+                label: 'button_new_item_before',
+                onclick: (event: Event) => {
+                    const entity = new ItemEntity(this.parent);
+                    this.createNewBefore(entity);
+                    event.stopPropagation();
+                }
             },
-            (event: Event) => {
-                const entity = new ItemEntity(this.parent);
-                this.createNewAfter(entity)
-                event.stopPropagation();
-            }
+            {
+                label: 'button_new_item_after',
+                onclick: (event: Event) => {
+                    const entity = new ItemEntity(this.parent);
+                    this.createNewAfter(entity)
+                    event.stopPropagation();
+                },
+            },
         );
 
         createTextfield(TR.tr('label_label'), this.label, this,
@@ -601,10 +746,9 @@ const openEditor = (editor: HTMLElement): void => {
     container.appendChild(editor);
 };
 
-const createEditor = (entity: Entity, classList: string[],
-                      onBeforeButton: ((event: Event) => void)|null = null,
-                      onAfterButton: ((event: Event) => void)|null = null,
-                      onAppendButton: ((event: Event) => void)|null = null): HTMLElement => {
+const createEditor = (entity: Entity,
+                      classList: string[],
+                      ...buttons: Button[]): HTMLElement => {
     const editor = document.createElement('div');
     editor.classList.add('editor', `editor_${entity.type}`);
 
@@ -612,21 +756,14 @@ const createEditor = (entity: Entity, classList: string[],
     toolbar.classList.add('editor_toolbar', 'pane');
     editor.appendChild(toolbar);
 
-    if (onBeforeButton !== null) {
-        const newBeforeButton = document.createElement('button');
-        newBeforeButton.textContent = TR.tr(`button_new_${entity.type}_before`);
-        newBeforeButton.onclick = onBeforeButton;
-        newBeforeButton.classList.add('control')//, 'control_variable_width');
-        toolbar.appendChild(newBeforeButton);
-    }
-
-    if (onAfterButton !== null) {
-        const newAfterButton = document.createElement('button');
-        newAfterButton.textContent = TR.tr(`button_new_${entity.type}_after`);
-        newAfterButton.onclick = onAfterButton;
-        newAfterButton.classList.add('control')//, 'control_variable_width');
-        toolbar.appendChild(newAfterButton);
-    }
+    buttons.forEach(
+        (button: Button): void => {
+        const newButton = document.createElement('button');
+        newButton.textContent = TR.tr(button.label);
+        newButton.onclick = button.onclick;
+        newButton.classList.add('control')//, 'control_variable_width');
+        toolbar.appendChild(newButton);
+    });
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = TR.tr(`button_delete_${entity.type}`);
@@ -637,14 +774,6 @@ const createEditor = (entity: Entity, classList: string[],
     };
     deleteButton.classList.add('control')//, 'control_variable_width');
     toolbar.appendChild(deleteButton);
-
-    if (onAppendButton !== null) {
-        const appendButton = document.createElement('button');
-        appendButton.textContent = TR.tr(`button_append_to_${entity.type}`);
-        appendButton.onclick = onAppendButton;
-        appendButton.classList.add('control')//, 'control_variable_width');
-        toolbar.appendChild(appendButton);
-    }
 
     console.log(entity.getContentEntity());
     return(editor);

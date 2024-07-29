@@ -99,11 +99,16 @@ export const generateInputElements = (collections, parent) => {
         const classname = 'collection_' + id;
         addHeading(collection.label, id, collection.collapsed, parent);
         addNavItem(collection.label, id, document.getElementById('MainNav'));
-        collection.items.forEach((itemrow) => {
-            const row = addRow(classname, collection.collapsed, parent);
-            itemrow.forEach((item) => {
-                addItem(item.label, item.text, row, item.type, item.del, item.cat);
-            });
+        collection.items.forEach((entity) => {
+            if ('text' in entity) {
+                addText(entity.text, parent);
+            }
+            else {
+                const row = addRow(classname, collection.collapsed, parent);
+                entity.forEach((item) => {
+                    addItem(item.label, item.text, row, item.type, item.del, item.cat);
+                });
+            }
         });
     });
 };
@@ -146,6 +151,11 @@ export const addItem = (label, text, parent, type = 'def', del = 0, cat = 'ref')
         item.classList.add('hidden');
     }
     parent.appendChild(item);
+};
+export const addText = (text, parent) => {
+    const textfield = document.createElement('div');
+    textfield.textContent = text;
+    parent.appendChild(textfield);
 };
 export const addListItem = (label, name, parent) => {
     const item = document.createElement('button');

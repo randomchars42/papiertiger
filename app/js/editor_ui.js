@@ -102,8 +102,11 @@ class CollectionsEntity extends Entity {
         }
     }
     createEditor() {
-        const editor = createEditor(this, ['editor_collections'], null, null, (event) => {
-            const entity = new CollectionEntity(this);
+        const editor = createEditor(this, ['editor_collections'], {
+            label: 'button_append_collection',
+            onclick: (event) => {
+                const entity = new CollectionEntity(this);
+            }
         });
         openEditor(editor);
         return editor;
@@ -148,7 +151,12 @@ class CollectionEntity extends Entity {
         this.entityHTML.appendChild(label);
         let i = 0;
         for (i = 0; i < this.children.length; i++) {
-            const newEntity = new RowEntity(this, this.children[i]);
+            if ('text' in this.children[i]) {
+                const newEntity = new TextEntity(this, this.children[i]);
+            }
+            else {
+                const newEntity = new RowEntity(this, this.children[i]);
+            }
         }
         if (i === 0) {
             const newEntity = new RowEntity(this);
@@ -193,16 +201,30 @@ class CollectionEntity extends Entity {
         return item;
     }
     createEditor() {
-        const editor = createEditor(this, ['editor_collection'], (event) => {
-            const entity = new CollectionEntity(this.parent);
-            this.createNewBefore(entity);
-            event.stopPropagation();
-        }, (event) => {
-            const entity = new CollectionEntity(this.parent);
-            this.createNewAfter(entity);
-            event.stopPropagation();
-        }, (event) => {
-            const entity = new RowEntity(this);
+        const editor = createEditor(this, ['editor_collection'], {
+            label: 'button_new_collection_before',
+            onclick: (event) => {
+                const entity = new CollectionEntity(this.parent);
+                this.createNewBefore(entity);
+                event.stopPropagation();
+            }
+        }, {
+            label: 'button_new_collection_after',
+            onclick: (event) => {
+                const entity = new CollectionEntity(this.parent);
+                this.createNewAfter(entity);
+                event.stopPropagation();
+            },
+        }, {
+            label: 'button_append_row',
+            onclick: (event) => {
+                const entity = new RowEntity(this);
+            },
+        }, {
+            label: 'button_append_text',
+            onclick: (event) => {
+                const entity = new TextEntity(this);
+            }
         });
         createTextfield(TR.tr('label_label'), this.label, this, 'label', editor, 'text', []);
         createCheckbox(TR.tr('label_collapsed'), this.collapsed, this, 'collapsed', editor, []);
@@ -249,16 +271,39 @@ class RowEntity extends Entity {
         }
     }
     createEditor() {
-        const editor = createEditor(this, ['editor_row'], (event) => {
-            const entity = new RowEntity(this.parent);
-            this.createNewBefore(entity);
-            event.stopPropagation();
-        }, (event) => {
-            const entity = new RowEntity(this.parent);
-            this.createNewAfter(entity);
-            event.stopPropagation();
-        }, (event) => {
-            const entity = new ItemEntity(this);
+        const editor = createEditor(this, ['editor_row'], {
+            label: 'button_new_row_before',
+            onclick: (event) => {
+                const entity = new RowEntity(this.parent);
+                this.createNewBefore(entity);
+                event.stopPropagation();
+            }
+        }, {
+            label: 'button_new_text_before',
+            onclick: (event) => {
+                const entity = new TextEntity(this.parent);
+                this.createNewBefore(entity);
+                event.stopPropagation();
+            }
+        }, {
+            label: 'button_new_row_after',
+            onclick: (event) => {
+                const entity = new RowEntity(this.parent);
+                this.createNewAfter(entity);
+                event.stopPropagation();
+            },
+        }, {
+            label: 'button_new_text_after',
+            onclick: (event) => {
+                const entity = new TextEntity(this.parent);
+                this.createNewAfter(entity);
+                event.stopPropagation();
+            },
+        }, {
+            label: 'button_append_item',
+            onclick: (event) => {
+                const entity = new ItemEntity(this);
+            },
         });
         openEditor(editor);
         return editor;
@@ -270,6 +315,70 @@ class RowEntity extends Entity {
         super.delete();
         if (this.parent.children.length === 0) {
             const newEntity = new RowEntity(this.parent);
+        }
+        console.log(this.getContentEntity());
+    }
+}
+class TextEntity extends Entity {
+    constructor(parent, entity = null) {
+        super('text', document.createElement('div'));
+        this.parent = parent;
+        if (entity === null) {
+            entity = { 'text': '' };
+            this.entity = entity;
+            this.appendEntity(parent);
+        }
+        else {
+            this.entity = entity;
+        }
+        this.appendHTML(parent);
+        this.entityHTML.textContent = 'Some super helpful text!';
+        this.entityHTML.onclick = (event) => {
+            this.createEditor();
+            event.stopPropagation();
+        };
+        this.entityHTML.classList.add('text');
+    }
+    createEditor() {
+        const editor = createEditor(this, ['editor_text'], {
+            label: 'button_new_row_before',
+            onclick: (event) => {
+                const entity = new RowEntity(this.parent);
+                this.createNewBefore(entity);
+                event.stopPropagation();
+            }
+        }, {
+            label: 'button_new_text_before',
+            onclick: (event) => {
+                const entity = new TextEntity(this.parent);
+                this.createNewBefore(entity);
+                event.stopPropagation();
+            }
+        }, {
+            label: 'button_new_row_after',
+            onclick: (event) => {
+                const entity = new RowEntity(this.parent);
+                this.createNewAfter(entity);
+                event.stopPropagation();
+            },
+        }, {
+            label: 'button_new_text_after',
+            onclick: (event) => {
+                const entity = new TextEntity(this.parent);
+                this.createNewAfter(entity);
+                event.stopPropagation();
+            },
+        });
+        openEditor(editor);
+        return editor;
+    }
+    getContentEntity() {
+        return this.parent.getContentEntity();
+    }
+    delete() {
+        super.delete();
+        if (this.parent.children.length === 0) {
+            const newEntity = new TextEntity(this.parent);
         }
         console.log(this.getContentEntity());
     }
@@ -336,14 +445,20 @@ class ItemEntity extends Entity {
         this.entityHTML.classList.add(`item_${type}`);
     }
     createEditor() {
-        const editor = createEditor(this, ['editor_item'], (event) => {
-            const entity = new ItemEntity(this.parent);
-            this.createNewBefore(entity);
-            event.stopPropagation();
-        }, (event) => {
-            const entity = new ItemEntity(this.parent);
-            this.createNewAfter(entity);
-            event.stopPropagation();
+        const editor = createEditor(this, ['editor_item'], {
+            label: 'button_new_item_before',
+            onclick: (event) => {
+                const entity = new ItemEntity(this.parent);
+                this.createNewBefore(entity);
+                event.stopPropagation();
+            }
+        }, {
+            label: 'button_new_item_after',
+            onclick: (event) => {
+                const entity = new ItemEntity(this.parent);
+                this.createNewAfter(entity);
+                event.stopPropagation();
+            },
         });
         createTextfield(TR.tr('label_label'), this.label, this, 'label', editor, 'text', []);
         createOptions(TR.tr('label_type'), this.type, this, 'type', editor, ['def', 'ext'], []);
@@ -428,26 +543,19 @@ const openEditor = (editor) => {
     const container = clearEditor();
     container.appendChild(editor);
 };
-const createEditor = (entity, classList, onBeforeButton = null, onAfterButton = null, onAppendButton = null) => {
+const createEditor = (entity, classList, ...buttons) => {
     const editor = document.createElement('div');
     editor.classList.add('editor', `editor_${entity.type}`);
     const toolbar = document.createElement('div');
     toolbar.classList.add('editor_toolbar', 'pane');
     editor.appendChild(toolbar);
-    if (onBeforeButton !== null) {
-        const newBeforeButton = document.createElement('button');
-        newBeforeButton.textContent = TR.tr(`button_new_${entity.type}_before`);
-        newBeforeButton.onclick = onBeforeButton;
-        newBeforeButton.classList.add('control');
-        toolbar.appendChild(newBeforeButton);
-    }
-    if (onAfterButton !== null) {
-        const newAfterButton = document.createElement('button');
-        newAfterButton.textContent = TR.tr(`button_new_${entity.type}_after`);
-        newAfterButton.onclick = onAfterButton;
-        newAfterButton.classList.add('control');
-        toolbar.appendChild(newAfterButton);
-    }
+    buttons.forEach((button) => {
+        const newButton = document.createElement('button');
+        newButton.textContent = TR.tr(button.label);
+        newButton.onclick = button.onclick;
+        newButton.classList.add('control');
+        toolbar.appendChild(newButton);
+    });
     const deleteButton = document.createElement('button');
     deleteButton.textContent = TR.tr(`button_delete_${entity.type}`);
     deleteButton.onclick = () => {
@@ -457,13 +565,6 @@ const createEditor = (entity, classList, onBeforeButton = null, onAfterButton = 
     };
     deleteButton.classList.add('control');
     toolbar.appendChild(deleteButton);
-    if (onAppendButton !== null) {
-        const appendButton = document.createElement('button');
-        appendButton.textContent = TR.tr(`button_append_to_${entity.type}`);
-        appendButton.onclick = onAppendButton;
-        appendButton.classList.add('control');
-        toolbar.appendChild(appendButton);
-    }
     console.log(entity.getContentEntity());
     return (editor);
 };
