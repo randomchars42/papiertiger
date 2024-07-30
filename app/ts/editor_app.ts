@@ -115,11 +115,4 @@ const loadDataList = (list: string): void => {
     });
 };
 
-if('serviceWorker' in navigator && navigator.userAgent.indexOf('Firefox') === -1) {
-    navigator.serviceWorker
-        .register('js/sw.js', { type: 'module' })
-        .then(reg => console.log('Service Worker Registered', reg))
-        .catch(err => console.log('Error registering service worker!', err));
-}
-
 run();
