@@ -1,0 +1,18 @@
+# TODO: change /csp_report.php if you use another end point
+Header set Content-Security-Policy "report-to ../csp_report.php; default-src 'self'; img-src 'self';  worker-src 'self'; child-src 'self';"
+# TODO: change this to your domain:
+Header set Access-Control-Allow-Origin "your-server.example"
+Header set X-Content-Type-Options "nosniff"
+
+AddType application/json                        json map topojson
+AddType text/javascript                         js mjs
+AddType application/manifest+json               webmanifest
+AddType application/x-web-app-manifest+json     webapp
+AddType text/cache-manifest                     appcache
+AddType image/svg+xml                           svg svgz
+
+AuthType basic
+AuthName "Editor"
+# TODO: change this to your absolute path to the file
+AuthUserFile /ABSOLUTE/PATH/app/.htpasswd
+Require valid-user

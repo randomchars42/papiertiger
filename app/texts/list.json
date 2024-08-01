@@ -1,0 +1,13 @@
+{
+    "list": [
+        {"name": "test", "source": "./", "destination": "./"},
+        {"name": "about", "source": "./page/", "destination": "./page/"},
+        {"name": "README", "source": "../../docs/", "destination": "./docs/"},
+        {"name": "index", "source": "../../docs/de/administratoren/", "destination": "./docs/de/administratoren"},
+        {"name": "index", "source": "../../docs/de/inhalt-ersteller/", "destination": "./docs/de/inhalt-ersteller"},
+        {"name": "index", "source": "../../docs/de/nutzer/", "destination": "./docs/de/nutzer"},
+        {"name": "index", "source": "../../docs/en/administrators/", "destination": "./docs/en/administrators"},
+        {"name": "index", "source": "../../docs/en/content-creators/", "destination": "./docs/en/content-creators"},
+        {"name": "index", "source": "../../docs/en/users/", "destination": "./docs/en/users/"}
+    ]
+}
