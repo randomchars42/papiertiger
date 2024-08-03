@@ -36,7 +36,7 @@ export const parseURL = () => {
 };
 export const loadText = (item) => {
     const md = markdownit();
-    fetch(`../texts/${item.source}${item.name}.md`)
+    fetch(`../texts/${item.source}`)
         .then((response) => {
         if (!response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);
@@ -46,7 +46,7 @@ export const loadText = (item) => {
         .then((result) => { return result.text(); })
         .then((text) => {
         console.log('Data fetched.');
-        UI.displayCurrentListItem(`${item.destination}${item.name}`);
+        UI.displayCurrentListItem(`${item.source}`);
         UI.setSource(text);
         UI.setOutput(md.render(text));
     })
@@ -56,7 +56,7 @@ export const loadText = (item) => {
     UI.setOnSubmit(() => {
         UI.setOutput(md.render(UI.getSource()));
         const xhr = new XMLHttpRequest();
-        const url = `save_data.php?file=${item.name}`;
+        const url = `save_data.php`;
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = () => {
@@ -93,7 +93,7 @@ const loadTextList = (params) => {
         if (data.list.length > 0) {
             let result = [];
             result = data.list.filter((col) => {
-                return col.name === params.list;
+                return col.source === params.list;
             });
             if (result.length > 0) {
                 loadText(result[0]);

@@ -17,6 +17,7 @@ export const init = () => {
     document.getElementById('ListItemDisplay').onclick = showList;
     document.getElementById('ListModal').onclick = hideList;
     document.getElementById('NavModal').onclick = hideNav;
+    document.getElementById('TextModal').onclick = hideNav;
     document.getElementById('CopyButton').onclick = copyToClipboard;
     document.getElementById('ClearButton').onclick = () => {
         if (window.confirm(TR.tr('confirmation_clear'))) {
@@ -202,6 +203,26 @@ export const showNav = () => {
 };
 export const hideNav = () => {
     document.getElementById('NavModal').classList.add('hidden');
+};
+export const showText = () => {
+    document.getElementById('TextModal').classList.remove('hidden');
+};
+export const hideText = () => {
+    document.getElementById('TextModal').classList.add('hidden');
+};
+export const displayText = (file) => {
+    const container = document.getElementById('div');
+    const modal = document.getElementById('TextModal');
+    modal.textContent = '';
+    modal.appendChild(container);
+    container.id = 'TextContainer';
+    TXT.appendText(file, container);
+    document.querySelectorAll('#TextContainer a').forEach((element) => {
+        element.onclick = (event) => {
+            event.preventDefault();
+            displayText(file);
+        };
+    });
 };
 export const addRow = (classname, hidden, parent) => {
     const row = document.createElement('div');

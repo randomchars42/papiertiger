@@ -5,9 +5,8 @@ import * as TR from './translate.js';
 import {VERSION} from './constants.js';
 
 export type TextListItem = {
-    name: string,
     source: string,
-    destination: string;
+    page: string;
 }
 
 export const init = (onConvertMarkdown: () => void): void => {
@@ -78,7 +77,7 @@ export const generateListElements = (list: TextListItem[],
 const addListItem = (item: TextListItem,
                      parent: HTMLElement): void => {
     const button: HTMLButtonElement = document.createElement('button');
-    button.textContent = `${item.destination}${item.name}`;
+    button.textContent = item.source;
     button.onclick = () => {
         APP.loadText(item);
         hideList();

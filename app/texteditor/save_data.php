@@ -24,29 +24,35 @@ function exceptions_error_handler($severity, $message, $filename, $lineno) {
 set_exception_handler('exception_handler');
 set_error_handler('exceptions_error_handler');
 
-function create_backup($dir, $file) {
+function create_backup($file) {
     $date = new DateTimeImmutable();
     $stamp = $date->format('Y-m-d_H-i-s-v');
 
-    $path = "{$dir}/{$file}.json";
-    $path_backup = "{$dir}/{$file}.bk.{$stamp}.json";
-    if (file_exists($path) && !copy($path, $path_backup)) {
-        throw new Exception("Could not copy {$path} to {$path_backup}");
+    $pos = strrpos($file, '/');
+    $basedir = substr($file, 0, $pos + 1);
+    $filename = substr($file, $pos + 1);
+    $pos = strrpos($filename, '.');
+    $basename = substr($filename, 0, $pos);
+    $extension = substr($filename, $pos + 1);
+
+    $file_backup = "{$basedir}/{$basename}.bk.{$stamp}.{$extension}";
+    if (file_exists($file) && !copy($file, $file_backup)) {
+        throw new Exception("Could not copy {$path} to {$file_backup}");
     }
 
     // delete old backups
     $backups = [];
 
-    if ($handle = opendir($dir)) {
+    if ($handle = opendir($basedir)) {
         while (($entry = readdir($handle)) !== false) {
             if (!in_array($entry, array('.', '..')) &&
-                !is_dir($dir.$entry) &&
-                substr($entry, 0, strlen($file) + 3) == "{$file}.bk") {
+                !is_dir($basedir.$entry) &&
+                substr($entry, 0, strlen($basename) + 3) == "{$basename}.bk") {
                 $backups[] = $entry;
             }
         }
     } else {
-        throw new Exception("Could not open {$dir}");
+        throw new Exception("Could not open {$basedir}");
     }
 
     if (count($backups) > 10) {
@@ -54,7 +60,7 @@ function create_backup($dir, $file) {
         $backups_to_remove = array_slice($backups, 10);
 
         foreach ($backups_to_remove as $backup) {
-            unlink("{$dir}/{$backup}");
+            unlink("{$basedir}/{$backup}");
         }
     }
 }
@@ -63,19 +69,16 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 $dir = getcwd() . '/../texts';
 
-$basename = $data['name'];
-$source_dir = "{$dir}/{$data['source']}";
-$source_file = "{$basename}.md";
+$source_file = "{$dir}/{$data['source']}";
 $source_content = $data['md'];
-$destination_dir = "{$dir}/{$data['destination']}";
-$destination_content = $data['html'];
-$destination_file = "{$basename}.html";
+$page_file = "{$dir}/{$data['page']}";
+$page_content = $data['html'];
 
-create_backup($source_dir, $source_file);
+create_backup($source_file);
 
 // write data to file
-file_put_contents("{$source_dir}/{$source_file}", $data['md']);
-file_put_contents("{$destination_dir}/{$destination_file}", $data['html']);
+file_put_contents("{$source_file}", $data['md']);
+file_put_contents("{$page_file}", $data['html']);
 
 $response['status'] = 'success';
 $response['content'] = $data['md'];

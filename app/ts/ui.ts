@@ -52,6 +52,7 @@ export const init = (): void => {
     document.getElementById('ListItemDisplay')!.onclick = showList;
     document.getElementById('ListModal')!.onclick = hideList;
     document.getElementById('NavModal')!.onclick = hideNav;
+    document.getElementById('TextModal')!.onclick = hideNav;
     document.getElementById('CopyButton')!.onclick = copyToClipboard;
     document.getElementById('ClearButton')!.onclick = (): void => {
         if (window.confirm(TR.tr('confirmation_clear'))) {
@@ -273,6 +274,32 @@ export const showNav = (): void => {
 
 export const hideNav = (): void => {
     document.getElementById('NavModal')!.classList.add('hidden');
+};
+
+export const showText = (): void => {
+    document.getElementById('TextModal')!.classList.remove('hidden');
+};
+
+export const hideText = (): void => {
+    document.getElementById('TextModal')!.classList.add('hidden');
+};
+
+export const displayText = (file: string): void => {
+    const container: HTMLElement = document.getElementById('div')!;
+    const modal: HTMLElement = document.getElementById('TextModal')!;
+    modal.textContent = '';
+    modal.appendChild(container);
+    container.id = 'TextContainer';
+
+    TXT.appendText(file, container);
+
+    document.querySelectorAll('#TextContainer a').forEach(
+        (element: Element): void => {
+            (element as HTMLAnchorElement).onclick = (event: Event): void => {
+                event.preventDefault();
+                displayText(file);
+            }
+        });
 };
 
 export const addRow = (classname:string, hidden: boolean,

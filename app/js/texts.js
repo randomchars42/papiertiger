@@ -1,13 +1,13 @@
 let BASEDIR = '';
-let FETCH_TYPE = 'html';
+let FETCH_TYPE = 'page';
 export const init = (params) => {
     BASEDIR = params.basedir;
     if (BASEDIR === '../') {
-        FETCH_TYPE = 'md';
+        FETCH_TYPE = 'source';
     }
 };
 const loadText = (text, parent) => {
-    fetch(`${BASEDIR}texts/${text}.${FETCH_TYPE}`)
+    fetch(`${BASEDIR}texts/${text}`)
         .then((response) => {
         if (!response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);

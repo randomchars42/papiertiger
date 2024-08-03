@@ -55,7 +55,7 @@ export const generateListElements = (list, parent) => {
 };
 const addListItem = (item, parent) => {
     const button = document.createElement('button');
-    button.textContent = `${item.destination}${item.name}`;
+    button.textContent = item.source;
     button.onclick = () => {
         APP.loadText(item);
         hideList();

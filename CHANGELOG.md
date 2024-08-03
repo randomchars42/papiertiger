@@ -17,15 +17,16 @@
 * improve variable naming
 * add script for versioning
 * print version string in multiple locations
-* add transpiled js for easier deployment
+* add transpiled `js` for easier deployment
 * enable variables in translation strings
 * improve server error handling and client <-> server communication
 * remove global `CONTENT`, fix feedback on copy / save success
-* add some protection for the backend via `.htaccess / .htpasswd`
+* add some protection for the backend via `.htaccess` / `.htpasswd`
 * add simple php backend for writing changes to file
 * add option to append item to row / row to collection / collection to collections
 * allow editor elements to be set to read-only
 * texts can now be incorporated if .md + .html in `app/texts/`
+* remove PWA feature from editor
 
 ## Fixes
 

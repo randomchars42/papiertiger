@@ -1,18 +1,18 @@
 import * as APP from './app.js';
 
 let BASEDIR: string = '';
-let FETCH_TYPE: string = 'html';
+let FETCH_TYPE: string = 'page';
 
 export const init = (params: APP.Params): void => {
     BASEDIR = params.basedir;
 
     if (BASEDIR === '../') {
-        FETCH_TYPE = 'md';
+        FETCH_TYPE = 'source';
     }
 };
 
 const loadText = (text: string, parent: HTMLElement): void => {
-    fetch(`${BASEDIR}texts/${text}.${FETCH_TYPE}`)
+    fetch(`${BASEDIR}texts/${text}`)
     .then((response: Response): Response => {
         if (! response.ok) {
             throw new Error(`Failed with HTTP code ${response.status}`);

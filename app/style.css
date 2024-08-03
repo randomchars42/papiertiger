@@ -7,38 +7,6 @@
  * - break at: 37rem -> 36rem of usable space
  * - a basic element has 3rem or 6rem including padding
  *
- * Layout:
- *
- *  Background
- *   - height: `background`
- *  --------------------------------------------------------------------
- *  | #MainInput
- *  |  - only made up out of controls
- *  |  - 4 `block´s
- *  |  - height: `surfacecontainerlow`
- *  |
- *  --------------------------------------------------------------------
- *  | #MainOutput (sticky)
- *  |  - single `block` showing the current input and estimations
- *  |  - height: `surfacecontainerhighest`
- *  |
- *  --------------------------------------------------------------------
- *  | #MainNav
- *  |  - currently unused.
- *  |
- *  --------------------------------------------------------------------
- *  | #MainView
- *  |  - an unordered list
- *  |  - 1 `block` per viewitem
- *  |  - height: `surfacecontainer`
- *
- *
- * Colours:
- *
- * - each height as described above has its own set of colours, e.g.,
- *   `surface` -> `onsurface`, `surfaceoutline`
- *
- *
  * Components:
  *
  * `block`:
@@ -336,7 +304,7 @@ main {
     height: calc(100% - 3 * var(--padding) - 1rem);
 }
 
-#ListModal, #NavModal {
+#ListModal, #NavModal, #TextModal {
     position: fixed;
     z-index: 1000000;
     left: 0;
