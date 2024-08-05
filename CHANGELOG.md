@@ -27,6 +27,7 @@
 * allow editor elements to be set to read-only
 * texts can now be incorporated if .md + .html in `app/texts/`
 * remove PWA feature from editor
+* move `About` from `alert` string to `TextModal`
 
 ## Fixes
 
@@ -34,5 +35,4 @@
 
 ## To Do:
 
-* move about into texts
 * improve documentation
