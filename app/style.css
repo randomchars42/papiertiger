@@ -319,10 +319,13 @@ main {
     justify-content: center;
 }
 
-#MainList, #MainNav {
+#MainList, #MainNav, #TextContainer {
     background-color: var(--color-bg);
-    padding: var(--padding);
+    padding: calc(3 * var(--padding));
     width: 40%;
+}
+
+#MainList, #MainNav {
     display: flex;
     flex-wrap: wrap;
 }

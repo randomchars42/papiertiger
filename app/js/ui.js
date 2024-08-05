@@ -17,7 +17,7 @@ export const init = () => {
     document.getElementById('ListItemDisplay').onclick = showList;
     document.getElementById('ListModal').onclick = hideList;
     document.getElementById('NavModal').onclick = hideNav;
-    document.getElementById('TextModal').onclick = hideNav;
+    document.getElementById('TextModal').onclick = hideText;
     document.getElementById('CopyButton').onclick = copyToClipboard;
     document.getElementById('ClearButton').onclick = () => {
         if (window.confirm(TR.tr('confirmation_clear'))) {
@@ -32,7 +32,7 @@ export const init = () => {
     document.getElementById('ExtendedToggle').onclick = toggleExtended;
     document.getElementById('ColorButton').onclick = toggleColourMode;
     document.getElementById('HelpButton').onclick = () => {
-        alert(TR.tr('page_about', { 'version': VERSION }));
+        displayString(TR.tr('page_about', { 'version': VERSION }));
     };
     document.getElementById('MainInput').onscroll = () => {
         const currentPosition = document.getElementById('MainInput').scrollTop;
@@ -211,18 +211,33 @@ export const hideText = () => {
     document.getElementById('TextModal').classList.add('hidden');
 };
 export const displayText = (file) => {
-    const container = document.getElementById('div');
+    const container = document.createElement('div');
     const modal = document.getElementById('TextModal');
+    container.onclick = (event) => { event.stopPropagation(); };
     modal.textContent = '';
     modal.appendChild(container);
     container.id = 'TextContainer';
-    TXT.appendText(file, container);
+    TXT.appendText(file.replace(/\.md$/, '.html'), container);
+    showText();
+};
+export const displayString = (text) => {
+    const container = document.createElement('div');
+    const modal = document.getElementById('TextModal');
+    container.onclick = (event) => { event.stopPropagation(); };
+    modal.textContent = '';
+    modal.appendChild(container);
+    container.id = 'TextContainer';
+    console.log(text);
+    container.innerHTML = text;
     document.querySelectorAll('#TextContainer a').forEach((element) => {
-        element.onclick = (event) => {
+        const anchor = element;
+        anchor.onclick = (event) => {
+            displayText(anchor.getAttribute('href'));
             event.preventDefault();
-            displayText(file);
+            event.stopPropagation();
         };
     });
+    showText();
 };
 export const addRow = (classname, hidden, parent) => {
     const row = document.createElement('div');

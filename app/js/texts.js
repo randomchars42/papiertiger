@@ -1,3 +1,4 @@
+import * as UI from './ui.js';
 let BASEDIR = '';
 let FETCH_TYPE = 'page';
 export const init = (params) => {
@@ -7,6 +8,7 @@ export const init = (params) => {
     }
 };
 const loadText = (text, parent) => {
+    console.log(`${BASEDIR}texts/${text}`);
     fetch(`${BASEDIR}texts/${text}`)
         .then((response) => {
         if (!response.ok) {
@@ -18,6 +20,14 @@ const loadText = (text, parent) => {
         .then((data) => {
         console.log('Text fetched.');
         parent.innerHTML = data;
+        parent.querySelectorAll('a').forEach((element) => {
+            const anchor = element;
+            anchor.onclick = (event) => {
+                UI.displayText(anchor.getAttribute('href'));
+                event.preventDefault();
+                event.stopPropagation();
+            };
+        });
     })
         .catch((reason) => {
         console.error(reason);
