@@ -2,7 +2,7 @@
 
 * [Nutzer](/docs/de/nutzer/index.md)
 * [Inhalt-Ersteller](/de/inhalt-ersteller/index.md)
-* [Administratoren](de/administratoren/index.md)
+* [Administratoren](/papiertiger/docs/de/administratoren/index.md)
 
 ---
 
