@@ -1,7 +1,7 @@
 ## 🇩🇪 Dokumentation auf Deutsch
 
-* [Nutzer](de/nutzer/index.md)
-* [Inhalt-Ersteller](de/inhalt-ersteller/index.md)
+* [Nutzer](/docs/de/nutzer/index.md)
+* [Inhalt-Ersteller](/de/inhalt-ersteller/index.md)
 * [Administratoren](de/administratoren/index.md)
 
 ---
