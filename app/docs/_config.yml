@@ -1,3 +1,4 @@
 theme: jekyll-theme-minimal
 title: PAPIERTIGER
 description: Textbaustein-Tetris für alle! / Text block tetris for the rest of us!
+baseurl: papiertiger/
