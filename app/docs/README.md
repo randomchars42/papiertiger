@@ -1,5 +1,6 @@
 ## 🇩🇪 Dokumentation auf Deutsch
 
+* [Test](/docs/test.md)
 * [Nutzer](/docs/de/nutzer/index.md)
 * [Inhalt-Ersteller](/de/inhalt-ersteller/index.md)
 * [Administratoren](/papiertiger/docs/de/administratoren/index.md)
