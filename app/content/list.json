@@ -1,0 +1,13 @@
+{
+    "list": [
+        {"source": "/test.md"},
+        {"source": "/page/about.md"},
+        {"source": "/docs/README.md"},
+        {"source": "/docs/de/administratoren/index.md"},
+        {"source": "/docs/de/inhalt-ersteller/index.md"},
+        {"source": "/docs/de/nutzer/index.md"},
+        {"source": "/docs/en/administrators/index.md"},
+        {"source": "/docs/en/content-creators/index.md"},
+        {"source": "/docs/en/users/index.md"}
+    ]
+}

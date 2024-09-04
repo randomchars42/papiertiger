@@ -3,19 +3,12 @@ import * as APP from './app.js';
 let dictionary: {[key: string]: string} = {};
 
 export const init = (params: APP.Params): void => {
-    loadLanguage(params.language, params.basedir);
+    loadLanguage(params.language);
 };
 
-const loadLanguage = (code: string, basedir: string): void => {
-    fetch(`${basedir}lang/${code.substring(0, 2)}.json`)
-    .then((response: Response): Response => {
-        if (! response.ok) {
-            throw new Error(`Failed with HTTP code ${response.status}`);
-        }
-        return response;
-    })
-    .then((result: Response): Promise<any> => {return result.json();})
-    .then((data: any): void => {
+const loadLanguage = (code: string): void => {
+    APP.load(`./lang/${code.substring(0, 2)}.json`, 'json')
+    .then((data: any) => {
         console.log('Language data fetched.');
         let found_region: string = '';
         for (let key in data.regions) {
@@ -32,9 +25,8 @@ const loadLanguage = (code: string, basedir: string): void => {
 
         translatePage();
         setLanguage(found_region);
-    })
-    .catch((reason: any): void => {
-        console.error(reason);
+        console.log('Language loaded')
+        APP.emitEvent('languageloaded');
     });
 };
 

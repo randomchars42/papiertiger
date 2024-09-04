@@ -1,16 +1,10 @@
+import * as APP from './app.js';
 let dictionary = {};
 export const init = (params) => {
-    loadLanguage(params.language, params.basedir);
+    loadLanguage(params.language);
 };
-const loadLanguage = (code, basedir) => {
-    fetch(`${basedir}lang/${code.substring(0, 2)}.json`)
-        .then((response) => {
-        if (!response.ok) {
-            throw new Error(`Failed with HTTP code ${response.status}`);
-        }
-        return response;
-    })
-        .then((result) => { return result.json(); })
+const loadLanguage = (code) => {
+    APP.load(`./lang/${code.substring(0, 2)}.json`, 'json')
         .then((data) => {
         console.log('Language data fetched.');
         let found_region = '';
@@ -26,9 +20,8 @@ const loadLanguage = (code, basedir) => {
         }
         translatePage();
         setLanguage(found_region);
-    })
-        .catch((reason) => {
-        console.error(reason);
+        console.log('Language loaded');
+        APP.emitEvent('languageloaded');
     });
 };
 ;

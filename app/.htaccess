@@ -10,3 +10,11 @@ AddType application/manifest+json               webmanifest
 AddType application/x-web-app-manifest+json     webapp
 AddType text/cache-manifest                     appcache
 AddType image/svg+xml                           svg svgz
+
+<Files save_data.php>
+AuthType basic
+AuthName "Editor"
+# TODO: change this to your absolute path to the file
+AuthUserFile /ABSOLUTE/PATH/app/.htpasswd
+Require valid-user
+</Files>
