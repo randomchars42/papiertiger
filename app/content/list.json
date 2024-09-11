@@ -1,6 +1,7 @@
 {
     "list": [
         {"source": "/test.md"},
+        {"source": "/apgar.md"},
         {"source": "/page/about.md"},
         {"source": "/docs/README.md"},
         {"source": "/docs/de/administratoren/index.md"},

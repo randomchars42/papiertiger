@@ -17,6 +17,7 @@
                     ]}
             ]},
         {"label": "APGAR", "collapsed": true, "items": [
+                {"source": "\/apgar.md"},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "APGAR:", "text": "\n\nAPGAR: "},
                         {"def": true, "del": false, "cat": "txt", "label": "1. Minute: ", "text": "1. Minute: "},
