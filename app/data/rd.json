@@ -20,39 +20,53 @@
                 {"source": "\/apgar.md"},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "APGAR:", "text": "\n\nAPGAR: "},
-                        {"def": true, "del": false, "cat": "txt", "label": "1. Minute: ", "text": "1. Minute: "},
-                        {"def": true, "del": false, "cat": "txt", "label": "5. Minute:", "text": "5. Minute: "},
-                        {"def": true, "del": false, "cat": "txt", "label": "10. Minute:", "text": "10. Minute: "}
+                        {"def": true, "del": false, "cat": "txt", "label": "1. Minute: ", "text": "\n1. Minute: "},
+                        {"def": true, "del": false, "cat": "txt", "label": "5. Minute:", "text": "\n5. Minute: "},
+                        {"def": true, "del": false, "cat": "txt", "label": "10. Minute:", "text": "\n10. Minute: "}
+                    ]},
+                {"items": [
+                        {"def": true, "del": false, "cat": "cap", "label": "Gesamt:", "text": "\nGesamt: "},
+                        {"def": true, "del": false, "cat": "pat", "label": "0", "text": "0; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "1", "text": "1; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "2", "text": "2; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "3", "text": "3; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "4", "text": "4; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "5", "text": "5; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "6", "text": "6; "},
+                        {"def": true, "del": false, "cat": "pat", "label": "7", "text": "7; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "8", "text": "8; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "9", "text": "9; "},
+                        {"def": true, "del": false, "cat": "ref", "label": "10", "text": "10; "}
                     ]},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "Aktivit\u00e4t", "text": "\nAktivit\u00e4t: "},
-                        {"def": true, "del": false, "cat": "pat", "label": "0 (keine)", "text": "0 (keine); "},
-                        {"def": true, "del": false, "cat": "txt", "label": "1 (gebeugte Extr.)", "text": "1 (gebeugte Extremit\u00e4ten); "},
-                        {"def": true, "del": false, "cat": "ref", "label": "2 (aktiv)", "text": "2 (aktive Bewegungen); "}
+                        {"def": true, "del": false, "cat": "pat", "label": "0 (keine)", "text": "A: 0; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "1 (gebeugte Extr.)", "text": "A: 1; "},
+                        {"def": true, "del": false, "cat": "ref", "label": "2 (aktiv)", "text": "A: 2; "}
                     ]},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "Puls", "text": "\nPuls: "},
-                        {"def": true, "del": false, "cat": "pat", "label": "0 (kein)", "text": "0 (kein Puls); "},
-                        {"def": true, "del": false, "cat": "txt", "label": "1 (< 100 \/ min)", "text": "1 (< 100 \/ min); "},
-                        {"def": true, "del": false, "cat": "ref", "label": "2 (> 100 \/ min)", "text": "2 (> 100 \/ min); "}
+                        {"def": true, "del": false, "cat": "pat", "label": "0 (kein)", "text": "P: 0; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "1 (< 100 \/ min)", "text": "P: 1; "},
+                        {"def": true, "del": false, "cat": "ref", "label": "2 (> 100 \/ min)", "text": "P: 2; "}
                     ]},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "Grimassieren", "text": "\nGrimassieren: "},
-                        {"def": true, "del": false, "cat": "pat", "label": "0 (kein)", "text": "0 (kein Grimassieren); "},
-                        {"def": true, "del": false, "cat": "txt", "label": "1 (minimal)", "text": "1 (minimale Reaktion auf Stimulation); "},
-                        {"def": true, "del": false, "cat": "ref", "label": "2 (prompt)", "text": "2 (prompte Reaktion auf Stimulation); "}
+                        {"def": true, "del": false, "cat": "pat", "label": "0 (kein)", "text": "G: 0; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "1 (minimal)", "text": "G: 1; "},
+                        {"def": true, "del": false, "cat": "ref", "label": "2 (prompt)", "text": "G: 2; "}
                     ]},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "Aussehen", "text": "\nAussehen: "},
-                        {"def": true, "del": false, "cat": "pat", "label": "0 (blau \/ blass)", "text": "0 (blau \/ blass); "},
-                        {"def": true, "del": false, "cat": "txt", "label": "1 (Stamm rosig)", "text": "1 (Stamm rosig, Extremit\u00e4ten blau); "},
-                        {"def": true, "del": false, "cat": "ref", "label": "2 (rosig)", "text": "2 (ubiquit\u00e4r rosig); "}
+                        {"def": true, "del": false, "cat": "pat", "label": "0 (blau \/ blass)", "text": "A: 0; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "1 (Stamm rosig)", "text": "A: 1; "},
+                        {"def": true, "del": false, "cat": "ref", "label": "2 (rosig)", "text": "A: 2; "}
                     ]},
                 {"items": [
                         {"def": true, "del": false, "cat": "cap", "label": "Respiration", "text": "\nRespiration: "},
-                        {"def": true, "del": false, "cat": "pat", "label": "0 (kein)", "text": "0 (keine Atmung); "},
-                        {"def": true, "del": false, "cat": "txt", "label": "1 (brady., unregelm.)", "text": "1 (Bradypnoe, unregelm\u00e4\u00dfig); "},
-                        {"def": true, "del": false, "cat": "ref", "label": "2 (kr\u00e4ftiger Schrei, unauff.)", "text": "2 (kr\u00e4ftiger Schrei, unauff\u00e4llige Atmung) "}
+                        {"def": true, "del": false, "cat": "pat", "label": "0 (kein)", "text": "R: 0; "},
+                        {"def": true, "del": false, "cat": "txt", "label": "1 (brady., unregelm.)", "text": "R: 1; "},
+                        {"def": true, "del": false, "cat": "ref", "label": "2 (kr\u00e4ftiger Schrei, unauff.)", "text": "R: 2; "}
                     ]}
             ]},
         {"label": "PAT \/ TICLS", "collapsed": true, "items": [
