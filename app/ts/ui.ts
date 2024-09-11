@@ -292,9 +292,11 @@ class Collection extends Entity implements CollectionData {
             [
                 {
                     label: 'button_append_category',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const category: Category = new Category(this);
                         category.render('EntityEditor');
+                        category.openEditor();
+                        return false;
                     }
                 }
             ],
@@ -437,32 +439,40 @@ class Category extends Entity implements CategoryData {
             [
                 {
                     label: 'button_new_category_before',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const category = new Category(this.parent);
                         category.moveBefore(this);
                         category.render('EntityEditor');
+                        category.openEditor();
+                        return false;
                     }
                 },
                 {
                     label: 'button_new_category_after',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const category = new Category(this.parent);
                         category.moveAfter(this);
                         category.render('EntityEditor');
+                        category.openEditor();
+                        return false;
                     },
                 },
                 {
                     label: 'button_append_group',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const group: Group = new Group(this);
                         group.render('EntityEditor');
+                        group.openEditor();
+                        return false;
                     },
                 },
                 {
                     label: 'button_append_content',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const content: Content = new Content(this);
                         content.render('EntityEditor');
+                        content.openEditor();
+                        return false;
                     }
                 },
             ],
@@ -533,41 +543,51 @@ class Group extends Entity implements GroupData {
             [
                 {
                     label: 'button_new_group_before',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const group: Group = new Group(this.parent);
                         group.moveBefore(this);
                         group.render('EntityEditor');
+                        group.openEditor();
+                        return false;
                     }
                 },
                 {
                     label: 'button_new_content_before',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const content: Content = new Content(this.parent);
                         content.moveBefore(this);
                         content.render('EntityEditor');
+                        content.openEditor();
+                        return false;
                     }
                 },
                 {
                     label: 'button_new_group_after',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const group: Group = new Group(this.parent);
                         group.moveAfter(this);
                         group.render('EntityEditor');
+                        group.openEditor();
+                        return false;
                     },
                 },
                 {
                     label: 'button_new_content_after',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const content: Content = new Content(this.parent);
                         content.moveAfter(this);
                         content.render('EntityEditor');
+                        content.openEditor();
+                        return false;
                     },
                 },
                 {
                     label: 'button_append_textblock',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const textblock: TextBlock = new TextBlock(this);
                         textblock.render('EntityEditor');
+                        textblock.openEditor();
+                        return false;
                     },
                 },
             ],
@@ -632,34 +652,42 @@ class Content extends Entity implements ContentData {
             [
                 {
                     label: 'button_new_group_before',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const group: Group = new Group(this.parent);
                         group.moveBefore(this);
                         group.render('EntityEditor');
+                        group.openEditor();
+                        return false;
                     }
                 },
                 {
                     label: 'button_new_content_before',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const content: Content = new Content(this.parent);
                         content.moveBefore(this);
                         content.render('EntityEditor');
+                        content.openEditor();
+                        return false;
                     }
                 },
                 {
                     label: 'button_new_group_after',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const group: Group = new Group(this.parent);
                         group.moveAfter(this);
                         group.render('EntityEditor');
+                        group.openEditor();
+                        return false;
                     },
                 },
                 {
                     label: 'button_new_content_after',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const content: Content = new Content(this.parent);
                         content.moveAfter(this);
                         content.render('EntityEditor');
+                        content.openEditor();
+                        return false;
                     },
                 },
             ],
@@ -779,18 +807,22 @@ class TextBlock extends Entity implements TextBlockData {
             [
                 {
                     label: 'button_new_textblock_before',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const textblock: TextBlock = new TextBlock(this.parent);
                         textblock.moveBefore(this);
                         textblock.render('EntityEditor');
+                        textblock.openEditor();
+                        return false;
                     }
                 },
                 {
                     label: 'button_new_textblock_after',
-                    onclick: () => {
+                    onclick: (): boolean => {
                         const textblock: TextBlock = new TextBlock(this.parent);
                         textblock.moveAfter(this);
                         textblock.render('EntityEditor');
+                        textblock.openEditor();
+                        return false;
                     },
                 },
             ],
@@ -854,6 +886,12 @@ export type Button = {
     classList?: string[],
 }
 
+export type ModalButton = {
+    label: string,
+    onclick: (event: Event) => boolean,
+    classList?: string[],
+}
+
 export type SourceListItem = {
     name: string,
     label: string,
@@ -888,8 +926,9 @@ export const init = (params: APP.Params): void => {
                 onclick: (): void => {
                     getComponent('Dialog').confirm(
                         'confirmation_clear',
-                        (): void => {
+                        (): boolean => {
                             getComponent('DocumentationEditor').clear();
+                            return true;
                         }
                     );
                 },
@@ -925,8 +964,9 @@ export const init = (params: APP.Params): void => {
                 onclick: (): void => {
                     getComponent('Dialog').confirm(
                         'confirmation_save',
-                        (): void => {
+                        (): boolean => {
                             APP.saveCollection();
+                            return true;
                         }
                     );
                 },
@@ -945,8 +985,9 @@ export const init = (params: APP.Params): void => {
                 onclick: (): void => {
                     getComponent('Dialog').confirm(
                         'confirmation_save',
-                        (): void => {
+                        (): boolean => {
                             APP.saveContent();
+                            return true;
                         }
                     );
                 },
@@ -1025,16 +1066,17 @@ export class ModalComponentBase extends ComponentBase {
         this.modal = modal;
     }
 
-    protected appendButtonsTo(parent: HTMLElement, buttons: Button[]) {
-        buttons.forEach((button: Button): void => {
+    protected appendButtonsTo(parent: HTMLElement, buttons: ModalButton[]) {
+        buttons.forEach((button: ModalButton): void => {
             const newButton = create('button');
             newButton.textContent = TR.tr(button.label);
             APP.addEventListener('languageloaded', (): void => {
                 newButton.textContent = TR.tr(button.label);
             });
             newButton.addEventListener('click', (event: Event): void => {
-                button.onclick(event);
-                this.hide();
+                if (button.onclick(event)) {
+                    this.hide();
+                }
                 event.stopPropagation();
             });
             newButton.classList.add('control');
@@ -1137,7 +1179,7 @@ export class Dialog extends ModalComponentBase {
         this.modal.htmlContent.textContent = '';
     }
 
-    public showDialog(content: string, buttons: Button[] = []): void {
+    public showDialog(content: string, buttons: ModalButton[] = []): void {
         this.clear();
 
         const text: HTMLElement = create('div');
@@ -1153,7 +1195,7 @@ export class Dialog extends ModalComponentBase {
         if (buttons.length === 0) {
             buttons.push({
                 label: 'button_ok',
-                onclick: (): void => { this.hide(); },
+                onclick: (): boolean => { return true; },
                 classList: ['item_ref'],
             });
         }
@@ -1167,16 +1209,16 @@ export class Dialog extends ModalComponentBase {
         this.showDialog(content);
     }
 
-    public confirm(content: string, onconfirm: () => void,
-        oncancel?: () => void) {
-        const ok: Button = {
+    public confirm(content: string, onconfirm: () => boolean,
+        oncancel?: () => boolean) {
+        const ok: ModalButton = {
             label: 'button_ok',
             onclick: onconfirm,
             classList: ['item_ref'],
         }
-        const cancel: Button = {
+        const cancel: ModalButton = {
             label: 'button_cancel',
-            onclick: oncancel ? oncancel : (): void => { this.hide(); },
+            onclick: oncancel ? oncancel : (): boolean => { return true; },
             classList: ['item_pat'],
         }
 
@@ -1267,7 +1309,7 @@ export class EntityEditor extends ModalComponentBase {
 
     public update<T extends EditableEntities>(entity: T,
                                               classList: string[],
-                                              buttons: Button[],
+                                              buttons: ModalButton[],
                                               fields: Field<T>[]): void {
         this.clear();
         const editor = create('div');
@@ -1280,14 +1322,15 @@ export class EntityEditor extends ModalComponentBase {
         buttons.push({
             label: `button_delete_${entity.entityType}`,
             classList: ['item_pat'],
-            onclick: () => {
+            onclick: (): boolean => {
                 getComponent('Dialog').confirm(
                     `confirmation_delete_${entity.entityType}`,
-                    (): void => {
+                    (): boolean => {
                         entity.delete();
-                        this.modal.hide();
+                        return true;
                     }
                 );
+                return true;
             },
         });
 
@@ -1324,18 +1367,18 @@ export class EntityEditor extends ModalComponentBase {
         bottom_bar.classList.add('pane', 'modal_bar', 'modal_bar_bottom');
         editor.appendChild(bottom_bar);
 
-        const ok: Button = {
+        const ok: ModalButton = {
             label: 'button_ok',
-            onclick: (): void => { this.modal.hide(); },
+            onclick: (): boolean => { return true; },
             classList: ['item_ref'],
         }
-        const cancel: Button = {
+        const cancel: ModalButton = {
             label: 'button_cancel',
-            onclick: (): void => {
-                this.modal.hide();
+            onclick: (): boolean => {
                 fields.forEach((field: Field<T>): void => {
                     field.entity[field.target] = field.initialValue!;
                 });
+                return true;
             },
             classList: ['item_pat'],
         }

@@ -171,6 +171,8 @@ class Collection extends Entity {
                 onclick: () => {
                     const category = new Category(this);
                     category.render('EntityEditor');
+                    category.openEditor();
+                    return false;
                 }
             }
         ], [
@@ -292,6 +294,8 @@ class Category extends Entity {
                     const category = new Category(this.parent);
                     category.moveBefore(this);
                     category.render('EntityEditor');
+                    category.openEditor();
+                    return false;
                 }
             },
             {
@@ -300,6 +304,8 @@ class Category extends Entity {
                     const category = new Category(this.parent);
                     category.moveAfter(this);
                     category.render('EntityEditor');
+                    category.openEditor();
+                    return false;
                 },
             },
             {
@@ -307,6 +313,8 @@ class Category extends Entity {
                 onclick: () => {
                     const group = new Group(this);
                     group.render('EntityEditor');
+                    group.openEditor();
+                    return false;
                 },
             },
             {
@@ -314,6 +322,8 @@ class Category extends Entity {
                 onclick: () => {
                     const content = new Content(this);
                     content.render('EntityEditor');
+                    content.openEditor();
+                    return false;
                 }
             },
         ], [
@@ -370,6 +380,8 @@ class Group extends Entity {
                     const group = new Group(this.parent);
                     group.moveBefore(this);
                     group.render('EntityEditor');
+                    group.openEditor();
+                    return false;
                 }
             },
             {
@@ -378,6 +390,8 @@ class Group extends Entity {
                     const content = new Content(this.parent);
                     content.moveBefore(this);
                     content.render('EntityEditor');
+                    content.openEditor();
+                    return false;
                 }
             },
             {
@@ -386,6 +400,8 @@ class Group extends Entity {
                     const group = new Group(this.parent);
                     group.moveAfter(this);
                     group.render('EntityEditor');
+                    group.openEditor();
+                    return false;
                 },
             },
             {
@@ -394,6 +410,8 @@ class Group extends Entity {
                     const content = new Content(this.parent);
                     content.moveAfter(this);
                     content.render('EntityEditor');
+                    content.openEditor();
+                    return false;
                 },
             },
             {
@@ -401,6 +419,8 @@ class Group extends Entity {
                 onclick: () => {
                     const textblock = new TextBlock(this);
                     textblock.render('EntityEditor');
+                    textblock.openEditor();
+                    return false;
                 },
             },
         ], []);
@@ -452,6 +472,8 @@ class Content extends Entity {
                     const group = new Group(this.parent);
                     group.moveBefore(this);
                     group.render('EntityEditor');
+                    group.openEditor();
+                    return false;
                 }
             },
             {
@@ -460,6 +482,8 @@ class Content extends Entity {
                     const content = new Content(this.parent);
                     content.moveBefore(this);
                     content.render('EntityEditor');
+                    content.openEditor();
+                    return false;
                 }
             },
             {
@@ -468,6 +492,8 @@ class Content extends Entity {
                     const group = new Group(this.parent);
                     group.moveAfter(this);
                     group.render('EntityEditor');
+                    group.openEditor();
+                    return false;
                 },
             },
             {
@@ -476,6 +502,8 @@ class Content extends Entity {
                     const content = new Content(this.parent);
                     content.moveAfter(this);
                     content.render('EntityEditor');
+                    content.openEditor();
+                    return false;
                 },
             },
         ], [
@@ -572,6 +600,8 @@ class TextBlock extends Entity {
                     const textblock = new TextBlock(this.parent);
                     textblock.moveBefore(this);
                     textblock.render('EntityEditor');
+                    textblock.openEditor();
+                    return false;
                 }
             },
             {
@@ -580,6 +610,8 @@ class TextBlock extends Entity {
                     const textblock = new TextBlock(this.parent);
                     textblock.moveAfter(this);
                     textblock.render('EntityEditor');
+                    textblock.openEditor();
+                    return false;
                 },
             },
         ], [
@@ -619,6 +651,7 @@ export const init = (params) => {
                 onclick: () => {
                     getComponent('Dialog').confirm('confirmation_clear', () => {
                         getComponent('DocumentationEditor').clear();
+                        return true;
                     });
                 },
                 classList: ['item_pat'],
@@ -654,6 +687,7 @@ export const init = (params) => {
                 onclick: () => {
                     getComponent('Dialog').confirm('confirmation_save', () => {
                         APP.saveCollection();
+                        return true;
                     });
                 },
                 classList: ['item_ref'],
@@ -672,6 +706,7 @@ export const init = (params) => {
                 onclick: () => {
                     getComponent('Dialog').confirm('confirmation_save', () => {
                         APP.saveContent();
+                        return true;
                     });
                 },
                 classList: ['item_ref'],
@@ -741,8 +776,9 @@ export class ModalComponentBase extends ComponentBase {
                 newButton.textContent = TR.tr(button.label);
             });
             newButton.addEventListener('click', (event) => {
-                button.onclick(event);
-                this.hide();
+                if (button.onclick(event)) {
+                    this.hide();
+                }
                 event.stopPropagation();
             });
             newButton.classList.add('control');
@@ -840,7 +876,7 @@ export class Dialog extends ModalComponentBase {
         if (buttons.length === 0) {
             buttons.push({
                 label: 'button_ok',
-                onclick: () => { this.hide(); },
+                onclick: () => { return true; },
                 classList: ['item_ref'],
             });
         }
@@ -859,7 +895,7 @@ export class Dialog extends ModalComponentBase {
         };
         const cancel = {
             label: 'button_cancel',
-            onclick: oncancel ? oncancel : () => { this.hide(); },
+            onclick: oncancel ? oncancel : () => { return true; },
             classList: ['item_pat'],
         };
         this.showDialog(content, [ok, cancel]);
@@ -952,8 +988,9 @@ export class EntityEditor extends ModalComponentBase {
             onclick: () => {
                 getComponent('Dialog').confirm(`confirmation_delete_${entity.entityType}`, () => {
                     entity.delete();
-                    this.modal.hide();
+                    return true;
                 });
+                return true;
             },
         });
         this.appendButtonsTo(toolbar, buttons);
@@ -987,16 +1024,16 @@ export class EntityEditor extends ModalComponentBase {
         editor.appendChild(bottom_bar);
         const ok = {
             label: 'button_ok',
-            onclick: () => { this.modal.hide(); },
+            onclick: () => { return true; },
             classList: ['item_ref'],
         };
         const cancel = {
             label: 'button_cancel',
             onclick: () => {
-                this.modal.hide();
                 fields.forEach((field) => {
                     field.entity[field.target] = field.initialValue;
                 });
+                return true;
             },
             classList: ['item_pat'],
         };

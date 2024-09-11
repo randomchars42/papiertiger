@@ -142,7 +142,6 @@ export const saveData = (data) => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const json = JSON.parse(xhr.responseText);
-            console.log(json);
             if (json.status === 'success') {
                 UI.getComponent('Dialog').showInfo('success_saved');
             }
