@@ -651,8 +651,27 @@ h2.heading::after {
     margin-bottom: 1rem;
 }
 
-.content p:last-child {
+.content p:last-child, .content blockquote:last-child, .content pre:last-child,
+.content ul:last-child, .content ol:last-child, .content table:last-child {
     margin-bottom: 0;
+}
+
+.content th {
+    font-weight: bold;
+    text-align: left;
+}
+
+.content thead tr {
+    background-color: var(--color-def-variant);
+    border-bottom: 0.1rem solid var(--color-on-def);
+}
+
+.content tr:nth-child(even) {
+    background-color: var(--color-def);
+}
+
+.content th, .content td {
+    padding: var(--padding);
 }
 
 .content blockquote {
