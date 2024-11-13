@@ -1418,10 +1418,10 @@ export class EntityEditor extends ModalComponentBase {
                     event.preventDefault();
                 }
             });
-            input.oninput = (): void => {
+            input.addEventListener('input', (): void => {
                 (field.entity[field.target] as string) =
                     input.value.replace(/\\n/g, '\n');
-            };
+            });
             return input;
         } else if (field.type === 'long_text') {
             const input: HTMLTextAreaElement = create('textarea');

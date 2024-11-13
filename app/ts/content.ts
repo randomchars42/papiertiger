@@ -19,7 +19,7 @@ export const loadContent = async (content: string,
     return APP.load(getAddress(content, fetchSource), 'string')
     .then((data: string) => {
         console.log('Content fetched');
-        return Promise.resolve(data );
+        return Promise.resolve(data);
     });
 };
 
