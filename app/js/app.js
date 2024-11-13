@@ -60,12 +60,22 @@ export const load = async (file, type) => {
     })
         .then((result) => {
         return type === 'json' ? result.json() : result.text();
+    })
+        .catch(() => {
+        console.error(`Processing of response to request for "${file}" failed`);
+        return Promise.reject();
     });
 };
-export const loadCollection = (name, label) => {
-    load('./data/' + name + '.json', 'json')
+export const loadCollection = async (name) => {
+    return load('./data/' + name + '.json', 'json')
         .then((data) => {
         console.log('Collection fetched.');
+        return data;
+    });
+};
+export const loadCollectionAndRun = (name, label) => {
+    loadCollection(name)
+        .then((data) => {
         UI.getComponent('EntityCollection').update(data, PARAMS.mode);
         UI.getComponent('Header').updateSourceIndicator(label);
     });
@@ -83,15 +93,15 @@ const loadSourceList = (list) => {
             let result = [];
             result = data.list.filter((item) => {
                 UI.getComponent('SourceList').addSourceItem(item.name, item.label, () => {
-                    loadCollection(item.name, item.label);
+                    loadCollectionAndRun(item.name, item.label);
                 });
                 return item.name === list;
             });
             if (result.length > 0) {
-                loadCollection(result[0].name, result[0].label);
+                loadCollectionAndRun(result[0].name, result[0].label);
             }
             else {
-                loadCollection(data.list[0].name, data.list[0].label);
+                loadCollectionAndRun(data.list[0].name, data.list[0].label);
             }
         }
     });

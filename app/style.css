@@ -494,13 +494,17 @@ h2.heading::after {
     padding: var(--padding);
 }
 
-.editor_mode .group, .editor_mode .content {
+.editor_mode .group,
+.editor_mode .content,
+.editor_mode .collection_placeholder {
     background-color: hsl(0, 0%, 80%);
     margin-bottom: var(--padding);
     padding: var(--padding);
 }
 
-.editor_mode .group:last-child, .editor_mode .content:last-child {
+.editor_mode .group:last-child,
+.editor_mode .content:last-child,
+.editor_mode .collection_placeholder:last-child {
     margin-bottom: 0;
 }
 

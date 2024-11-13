@@ -4,6 +4,7 @@
 
 * add simple editor for text blocks
 * allow information / texts to be embedded
+* allow placeholder(s) to include collection(s) in another collection
 * add simple editor for information / texts
 * improve translations
 * support more favicons

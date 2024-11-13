@@ -71,6 +71,15 @@ export type CategoryData = {
 };
 
 /**
+ * Container for a collection to be inserted.
+ *
+ * * `source`: Name of the collection to be loaded.
+ */
+export type CollectionPlaceholderData = {
+    source: string,
+};
+
+/**
  * A collection of `CategoryData`, will be saved on the server as a file.
  *
  * * `name`: The name / filename (`NAME.json` or `NAME.bk.DATE.json`).
@@ -81,7 +90,7 @@ export type CategoryData = {
 export type CollectionData = {
     name: string,
     label: string,
-    items: CategoryData[];
+    items: (CategoryData|CollectionPlaceholderData)[];
 };
 
 /**
@@ -220,7 +229,7 @@ class Entity {
 class Collection extends Entity implements CollectionData {
     protected parent: null = null;
     protected data: CollectionData;
-    protected children: Category[] = [];
+    protected children: (Category|CollectionPlaceholder)[] = [];
 
     constructor(data: CollectionData,
                 htmlParent: HTMLElement) {
@@ -237,7 +246,11 @@ class Collection extends Entity implements CollectionData {
         this.data = data;
 
         for (let i = 0; i < this.data.items.length; i++) {
-            new Category(this, this.data.items[i]);
+            if ('source' in this.data.items[i]) {
+                new CollectionPlaceholder(this, (this.data.items[i] as CollectionPlaceholderData));
+            } else {
+                new Category(this, (this.data.items[i] as CategoryData));
+            }
         }
 
         if (this.children.length === 0) {
@@ -245,7 +258,7 @@ class Collection extends Entity implements CollectionData {
         }
     }
 
-    public get items(): CategoryData[] {
+    public get items(): (CategoryData|CollectionPlaceholderData)[] {
         return this.data.items;
     }
 
@@ -282,7 +295,7 @@ class Collection extends Entity implements CollectionData {
             this.html.classList.add('editor_mode');
         }
 
-        this.children.forEach((child: Category) => { child.render(mode); });
+        this.children.forEach((child: Category|CollectionPlaceholder) => { child.render(mode); });
     }
 
     public openEditor(): void {
@@ -298,7 +311,16 @@ class Collection extends Entity implements CollectionData {
                         category.openEditor();
                         return false;
                     }
-                }
+                },
+                {
+                    label: 'button_append_collection_placeholder',
+                    onclick: (): boolean => {
+                        const collection: CollectionPlaceholder = new CollectionPlaceholder(this, null);
+                        collection.render('EntityEditor');
+                        collection.openEditor();
+                        return false;
+                    }
+                },
             ],
             [
                 { type: 'short_text', entity: this, target: 'name',
@@ -314,6 +336,113 @@ class Collection extends Entity implements CollectionData {
         this.data.items.length = 0;
         this.children.length = 0;
         new Collection(this.data, this.html);
+    }
+}
+
+class CollectionPlaceholder extends Entity implements CollectionPlaceholderData {
+    protected parent: Collection;
+    protected collectionDataPromise: Promise<CollectionData>|null = null;
+
+    constructor(parent: Collection,
+                data: CollectionPlaceholderData|null) {
+        super('collection_placeholder', create('div'));
+        this.parent = parent;
+
+        if (data !== null) {
+            this.collectionDataPromise = APP.loadCollection(data.source);
+        }
+
+        this.data = data;
+        this.moveToInitialPosition();
+    }
+
+    public get source(): string {
+        return this.data.source;
+    }
+
+    public set source(source: string) {
+        this.data.source = source;
+        this.html.textContent = source;
+    }
+
+    public render(mode: APP.Params['mode'] = 'App'): void {
+        this.html.classList.add('text');
+
+        if (mode !== 'App') {
+            this.html.textContent = this.source;
+            this.html.addEventListener('click', (event: Event): void => {
+                this.openEditor();
+                event.stopPropagation();
+            });
+        } else {
+            if (this.collectionDataPromise === null) {
+                return;
+            }
+            this.collectionDataPromise
+            .then((data: CollectionData): void => {
+                new Collection(data, this.html).render();
+            });
+        }
+    }
+
+    public openEditor(): void {
+        getComponent('EntityEditor').update(
+            this,
+            ['editor_content'],
+            [
+                {
+                    label: 'button_new_category_before',
+                    onclick: (): boolean => {
+                        const category: Category = new Category(this.parent);
+                        category.moveBefore(this);
+                        category.render('EntityEditor');
+                        category.openEditor();
+                        return false;
+                    }
+                },
+                {
+                    label: 'button_new_collection_placeholder_before',
+                    onclick: (): boolean => {
+                        const collection: CollectionPlaceholder = new CollectionPlaceholder(this.parent, null);
+                        collection.moveBefore(this);
+                        collection.render('EntityEditor');
+                        collection.openEditor();
+                        return false;
+                    }
+                },
+                {
+                    label: 'button_new_category_after',
+                    onclick: (): boolean => {
+                        const category: Category = new Category(this.parent);
+                        category.moveAfter(this);
+                        category.render('EntityEditor');
+                        category.openEditor();
+                        return false;
+                    },
+                },
+                {
+                    label: 'button_new_collection_placeholder_after',
+                    onclick: (): boolean => {
+                        const collection: CollectionPlaceholder = new CollectionPlaceholder(this.parent, null);
+                        collection.moveAfter(this);
+                        collection.render('EntityEditor');
+                        collection.openEditor();
+                        return false;
+                    },
+                },
+            ],
+            [
+                { type: 'short_text', entity: this, target: 'source',
+                    label: 'label_source', disabled: false },
+            ]
+        );
+    }
+
+    public delete(): void {
+        super.delete();
+        if (!this.parent.hasChildren()) {
+            new CollectionPlaceholder(this.parent, null).render();
+        }
     }
 }
 
@@ -897,7 +1026,7 @@ export type SourceListItem = {
     label: string,
 }
 
-type EditableEntities = Collection | Category | Group | Content | TextBlock;
+type EditableEntities = Collection | CollectionPlaceholder | Category | Group | Content | TextBlock;
 
 type Field<T extends EditableEntities> = {
     type: 'short_text'|'long_text'|'checkbox'|'options',

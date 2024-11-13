@@ -126,7 +126,12 @@ class Collection extends Entity {
         }
         this.data = data;
         for (let i = 0; i < this.data.items.length; i++) {
-            new Category(this, this.data.items[i]);
+            if ('source' in this.data.items[i]) {
+                new CollectionPlaceholder(this, this.data.items[i]);
+            }
+            else {
+                new Category(this, this.data.items[i]);
+            }
         }
         if (this.children.length === 0) {
             new Category(this);
@@ -174,7 +179,16 @@ class Collection extends Entity {
                     category.openEditor();
                     return false;
                 }
-            }
+            },
+            {
+                label: 'button_append_collection_placeholder',
+                onclick: () => {
+                    const collection = new CollectionPlaceholder(this, null);
+                    collection.render('EntityEditor');
+                    collection.openEditor();
+                    return false;
+                }
+            },
         ], [
             { type: 'short_text', entity: this, target: 'name',
                 label: 'label_name', disabled: false },
@@ -187,6 +201,97 @@ class Collection extends Entity {
         this.data.items.length = 0;
         this.children.length = 0;
         new Collection(this.data, this.html);
+    }
+}
+class CollectionPlaceholder extends Entity {
+    constructor(parent, data) {
+        super('collection_placeholder', create('div'));
+        this.collectionDataPromise = null;
+        this.parent = parent;
+        if (data !== null) {
+            this.collectionDataPromise = APP.loadCollection(data.source);
+        }
+        this.data = data;
+        this.moveToInitialPosition();
+    }
+    get source() {
+        return this.data.source;
+    }
+    set source(source) {
+        this.data.source = source;
+        this.html.textContent = source;
+    }
+    render(mode = 'App') {
+        this.html.classList.add('text');
+        if (mode !== 'App') {
+            this.html.textContent = this.source;
+            this.html.addEventListener('click', (event) => {
+                this.openEditor();
+                event.stopPropagation();
+            });
+        }
+        else {
+            if (this.collectionDataPromise === null) {
+                return;
+            }
+            this.collectionDataPromise
+                .then((data) => {
+                new Collection(data, this.html).render();
+            });
+        }
+    }
+    openEditor() {
+        getComponent('EntityEditor').update(this, ['editor_content'], [
+            {
+                label: 'button_new_category_before',
+                onclick: () => {
+                    const category = new Category(this.parent);
+                    category.moveBefore(this);
+                    category.render('EntityEditor');
+                    category.openEditor();
+                    return false;
+                }
+            },
+            {
+                label: 'button_new_collection_placeholder_before',
+                onclick: () => {
+                    const collection = new CollectionPlaceholder(this.parent, null);
+                    collection.moveBefore(this);
+                    collection.render('EntityEditor');
+                    collection.openEditor();
+                    return false;
+                }
+            },
+            {
+                label: 'button_new_category_after',
+                onclick: () => {
+                    const category = new Category(this.parent);
+                    category.moveAfter(this);
+                    category.render('EntityEditor');
+                    category.openEditor();
+                    return false;
+                },
+            },
+            {
+                label: 'button_new_collection_placeholder_after',
+                onclick: () => {
+                    const collection = new CollectionPlaceholder(this.parent, null);
+                    collection.moveAfter(this);
+                    collection.render('EntityEditor');
+                    collection.openEditor();
+                    return false;
+                },
+            },
+        ], [
+            { type: 'short_text', entity: this, target: 'source',
+                label: 'label_source', disabled: false },
+        ]);
+    }
+    delete() {
+        super.delete();
+        if (!this.parent.hasChildren()) {
+            new CollectionPlaceholder(this.parent, null).render();
+        }
     }
 }
 class Category extends Entity {
@@ -1069,10 +1174,10 @@ export class EntityEditor extends ModalComponentBase {
                     event.preventDefault();
                 }
             });
-            input.oninput = () => {
+            input.addEventListener('input', () => {
                 field.entity[field.target] =
                     input.value.replace(/\\n/g, '\n');
-            };
+            });
             return input;
         }
         else if (field.type === 'long_text') {

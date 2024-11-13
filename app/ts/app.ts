@@ -79,13 +79,24 @@ export const load = async <T extends LoadTypeNames>(file: string, type: T): Prom
     })
     .then((result: Response): Promise<LoadType<T>> => {
         return type === 'json' ? result.json() : result.text();
+    })
+    .catch((): Promise<T> => {
+        console.error(`Processing of response to request for "${file}" failed`);
+        return Promise.reject()
     });
 }
 
-export const loadCollection = (name: string, label: string): void => {
-    load('./data/' + name + '.json', 'json')
-    .then((data: any): void => {
+export const loadCollection = async (name: string): Promise<UI.CollectionData> => {
+    return load('./data/' + name + '.json', 'json')
+    .then((data: any): UI.CollectionData => {
         console.log('Collection fetched.');
+        return data;
+    });
+};
+
+export const loadCollectionAndRun = (name: string, label: string): void => {
+    loadCollection(name)
+    .then((data: any): void => {
         UI.getComponent('EntityCollection').update(data, PARAMS.mode);
         UI.getComponent('Header').updateSourceIndicator(label);
     });
@@ -106,14 +117,14 @@ const loadSourceList = (list: string): void => {
             result = data.list.filter((item: UI.SourceListItem) => {
                 UI.getComponent('SourceList').addSourceItem(
                     item.name, item.label, (): void => {
-                    loadCollection(item.name, item.label);
+                    loadCollectionAndRun(item.name, item.label);
                 });
                 return item.name === list;
             });
             if (result.length > 0) {
-                loadCollection(result[0].name, result[0].label);
+                loadCollectionAndRun(result[0].name, result[0].label);
             } else {
-                loadCollection(data.list[0].name, data.list[0].label);
+                loadCollectionAndRun(data.list[0].name, data.list[0].label);
             }
         }
     });
