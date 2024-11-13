@@ -51,6 +51,9 @@ export const parseURL = (): Params => {
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language')!;
     }
+    if (isIOS()) {
+        params.scrollmenu = 'disable';
+    }
     if (parsedURL.searchParams.has('scrollmenu')) {
         params.scrollmenu =
             parsedURL.searchParams.get('scrollmenu') === 'enable' ?
@@ -215,6 +218,19 @@ if ('serviceWorker' in navigator && navigator.userAgent.indexOf('Firefox') === -
         .register('js/sw.js', { type: 'module' })
         .then(reg => console.log('Service Worker Registered', reg))
         .catch(err => console.log('Error registering service worker!', err));
+};
+
+const isIOS = (): boolean => {
+    return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+    ].includes(navigator.platform)
+    // iPad on iOS 13 detection
+        || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
 };
 
 run();

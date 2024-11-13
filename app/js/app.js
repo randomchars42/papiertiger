@@ -40,6 +40,9 @@ export const parseURL = () => {
     if (parsedURL.searchParams.has('language')) {
         params.list = parsedURL.searchParams.get('language');
     }
+    if (isIOS()) {
+        params.scrollmenu = 'disable';
+    }
     if (parsedURL.searchParams.has('scrollmenu')) {
         params.scrollmenu =
             parsedURL.searchParams.get('scrollmenu') === 'enable' ?
@@ -180,4 +183,15 @@ if ('serviceWorker' in navigator && navigator.userAgent.indexOf('Firefox') === -
         .catch(err => console.log('Error registering service worker!', err));
 }
 ;
+const isIOS = () => {
+    return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+    ].includes(navigator.platform)
+        || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+};
 run();
